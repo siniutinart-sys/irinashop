@@ -464,36 +464,60 @@ border-radius: 20px;
             z-index: 10;
         }
 
-        /* ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ БЕЙДЖЕЙ КОЛИЧЕСТВА */
-        .stock-info {
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 11px;
+        /* ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ ПРОГРЕСС-БАРА КОЛИЧЕСТВА */
+        .stock-progress-container {
+            margin: 15px 0;
+        }
+
+        .stock-info-text {
+            font-size: 12px;
             font-weight: 700;
-            z-index: 10;
-            margin-bottom: 10px;
-            display: inline-block;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .stock-high {
-            background: #27ae60;
-            color: white;
+        .stock-info-text.plenty {
+            color: #0066cc;
         }
 
-        .stock-medium {
-            background: #2980b9;
-            color: white;
+        .stock-info-text.medium {
+            color: #27ae60;
         }
 
-        .stock-low {
-            background: #e74c3c;
-            color: white;
+        .stock-info-text.low {
+            color: #e74c3c;
             animation: pulse 1.5s infinite;
         }
 
-        .stock-plenty {
-            background: #2c3e50;
-            color: white;
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-fill.plenty {
+            background: linear-gradient(90deg, #0066cc, #3399ff);
+            width: 100%;
+        }
+
+        .progress-fill.medium {
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+            width: 66%;
+        }
+
+        .progress-fill.low {
+            background: linear-gradient(90deg, #e74c3c, #ff6b6b);
+            width: 16.6%;
         }
 
         .product-image {
@@ -600,7 +624,8 @@ border-radius: 20px;
             background: #e74c3c;
             color: white;
             padding: 4px 8px;
-            border-radius: 10px;
+
+border-radius: 10px;
             font-size: 10px;
             font-weight: 700;
             margin-left: 10px;
@@ -621,8 +646,7 @@ border-radius: 20px;
 
         .cart-total {
             background: rgba(255, 255, 255, 0.95);
-
-border-radius: 20px;
+            border-radius: 20px;
             padding: 25px;
             margin-top: 25px;
             text-align: center;
@@ -751,7 +775,8 @@ border-radius: 20px;
 
         .modal-image {
             max-width: 90%;
-            max-height: 90vh;
+
+max-height: 90vh;
             border-radius: 15px;
         }
 
@@ -774,8 +799,7 @@ border-radius: 20px;
 
         /* БОЛЬШОЕ ОКНО ЗАКАЗА */
         .order-success-modal {
-
-display: none;
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -905,11 +929,11 @@ display: none;
             }
 
             .ios-bottom-nav {
-                min-width: 300px;
+                min-width: 300px
             }
 
             .add-to-cart-btn {
-                width: 100%;
+width: 100%;
                 height: auto;
                 border-radius: 15px;
                 padding: 15px;
@@ -935,8 +959,7 @@ display: none;
 
             .scroll-buttons {
                 right: 10px;
-
-bottom: 90px;
+                bottom: 90px;
             }
 
             .scroll-btn {
@@ -1014,7 +1037,8 @@ bottom: 90px;
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
                         <div class="form-group">
                             <label for="productName">Название товара</label>
-                            <input type="text" id="productName" required placeholder="Например: Умные часы Xiaomi">
+
+<input type="text" id="productName" required placeholder="Например: Умные часы Xiaomi">
                         </div>
                         <div class="form-group">
                             <label for="productPrice">Цена (руб.)</label>
@@ -1023,11 +1047,9 @@ bottom: 90px;
                     </div>
                     <div class="form-group">
                         <label for="productDescription">Описание товара</label>
-
-<textarea id="productDescription" rows="3" required placeholder="Подробное описание товара..." style="padding: 15px; border: 2px solid #e6f2ff; border-radius: 15px; font-size: 16px; font-family: 'Montserrat', sans-serif;"></textarea>
+                        <textarea id="productDescription" rows="3" required placeholder="Подробное описание товара..." style="padding: 15px; border: 2px solid #e6f2ff; border-radius: 15px; font-size: 16px; font-family: 'Montserrat', sans-serif;"></textarea>
                     </div>
                     
-                    <!-- ОБНОВЛЕННАЯ СЕКЦИЯ ЗАГРУЗКИ ФОТО - ТОЛЬКО ССЫЛКА -->
                     <div class="form-group">
                         <label for="productImageUrl">Ссылка на изображение товара</label>
                         <input type="url" id="productImageUrl" placeholder="https://example.com/image.jpg" required>
@@ -1083,7 +1105,8 @@ bottom: 90px;
                 </h2>
                 <div id="cartItems"></div>
                 <div class="cart-total" id="cartTotal">
-                    Итого: 0 руб.
+
+Итого: 0 руб.
                 </div>
                 <button class="create-order-btn" id="createOrderBtn" disabled>
                     <i class="fas fa-receipt"></i> Создать заказ
@@ -1094,7 +1117,7 @@ bottom: 90px;
                 <h2 style="color: #0066cc; margin-bottom: 25px; text-align: center;">
                     <i class="fas fa-clipboard-list"></i> Мои заказы
                 </h2>
-<div id="userOrders">
+                <div id="userOrders">
                     <div style="text-align: center; color: #0066cc; padding: 50px;">
                         <i class="fas fa-clipboard-list" style="font-size: 4em; margin-bottom: 25px; opacity: 0.5;"></i>
                         <h3>Заказов пока нет</h3>
@@ -1118,7 +1141,6 @@ bottom: 90px;
         </div>
     </div>
 
-    <!-- КНОПКИ ПРОКРУТКИ -->
     <div class="scroll-buttons" id="scrollButtons" style="display: none;">
         <button class="scroll-btn" id="scrollToTop" title="Вверх">
             <i class="fas fa-chevron-up"></i>
@@ -1155,7 +1177,6 @@ bottom: 90px;
         <img class="modal-image" id="modalImage" src="" alt="">
     </div>
 
-    <!-- БОЛЬШОЕ ОКНО УСПЕШНОГО ЗАКАЗА -->
     <div class="order-success-modal" id="orderSuccessModal">
         <div class="order-success-content">
             <div class="order-success-icon">
@@ -1176,8 +1197,7 @@ bottom: 90px;
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyD5raYGkouHML1q2awhg82y9Y6M1GkbMT",
-            authDomain: "vostochnyi-bazar.firebaseapp.com",
-            databaseURL: "https://vostochnyi-bazar-default-rtdb.europe-west1.firebasedatabase.app",
+            authDomain: "vostochnyi-bazar.firebaseapp.com",databaseURL: "https://vostochnyi-bazar-default-rtdb.europe-west1.firebasedatabase.app",
             projectId: "vostochnyi-bazar",
             storageBucket: "vostochnyi-bazar.firebasestorage.app",
             messagingSenderId: "746249741207",
@@ -1186,8 +1206,7 @@ bottom: 90px;
 
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
-
-const storage = firebase.storage();
+        const storage = firebase.storage();
 
         const ADMIN_CREDENTIALS = {
             username: "admin",
@@ -1201,7 +1220,6 @@ const storage = firebase.storage();
         let currentPage = 'main';
         let deviceId = localStorage.getItem('deviceId') || 'device_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         let editingProductId = null;
-        // Хранилище для отслеживания списанных заказов
         let deductedOrders = JSON.parse(localStorage.getItem('deductedOrders')) || {};
 
         localStorage.setItem('deviceId', deviceId);
@@ -1249,17 +1267,15 @@ const storage = firebase.storage();
             scrollToBottom: document.getElementById('scrollToBottom')
         };
 
-        // УЛУЧШЕННАЯ ФУНКЦИЯ ПОИСКА С УЧЕТОМ ОПЕЧАТОК
         function fuzzySearch(searchTerm, productName) {
             if (!searchTerm) return true;
             
             const term = searchTerm.toLowerCase().replace(/\s+/g, '');
-            const name = productName.toLowerCase().replace(/\s+/g, '');
+
+const name = productName.toLowerCase().replace(/\s+/g, '');
             
-            // Точное совпадение
             if (name.includes(term)) return true;
             
-            // Поиск с учетом возможных опечаток (расстояние Левенштейна упрощенное)
             let termIndex = 0;
             for (let i = 0; i < name.length; i++) {
                 if (termIndex < term.length && name[i] === term[termIndex]) {
@@ -1267,10 +1283,8 @@ const storage = firebase.storage();
                 }
             }
             
-            // Если найдено более 70% символов в правильном порядке
             if (termIndex >= term.length * 0.7) return true;
             
-            // Поиск по словам
             const searchWords = searchTerm.toLowerCase().split(/\s+/);
             const nameWords = productName.toLowerCase().split(/\s+/);
             
@@ -1364,12 +1378,11 @@ const storage = firebase.storage();
             });
 
             elements.productForm.addEventListener('submit', handleProductSubmit);
-
-elements.clearForm.addEventListener('click', resetProductForm);
+            elements.clearForm.addEventListener('click', resetProductForm);
             elements.cancelEdit.addEventListener('click', resetProductForm);
 
             elements.searchBtn.addEventListener('click', handleSearch);
-            elements.searchInput.addEventListener('input', handleSearch); // Поиск при вводе
+            elements.searchInput.addEventListener('input', handleSearch);
             elements.clearSearch.addEventListener('click', () => {
                 elements.searchInput.value = '';
                 renderProducts();
@@ -1388,7 +1401,6 @@ elements.clearForm.addEventListener('click', resetProductForm);
                 if (e.target === elements.orderSuccessModal) closeOrderSuccessModal();
             });
 
-            // КНОПКИ ПРОКРУТКИ
             elements.scrollToTop.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
@@ -1397,7 +1409,6 @@ elements.clearForm.addEventListener('click', resetProductForm);
                 window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             });
 
-            // ПОКАЗЫВАТЬ/СКРЫВАТЬ КНОПКИ ПРОКРУТКИ ПРИ СКРОЛЛЕ
             window.addEventListener('scroll', toggleScrollButtons);
 
             document.addEventListener('keydown', (e) => {
@@ -1417,11 +1428,9 @@ elements.clearForm.addEventListener('click', resetProductForm);
             const windowHeight = window.innerHeight;
             const documentHeight = document.documentElement.scrollHeight;
             
-            // Показываем кнопки только если контент достаточно длинный для скролла
             if (documentHeight > windowHeight * 1.5) {
                 elements.scrollButtons.style.display = 'flex';
                 
-                // Показываем/скрываем кнопки в зависимости от позиции скролла
                 if (scrollY < 100) {
                     elements.scrollToTop.style.opacity = '0.5';
                 } else {
@@ -1460,12 +1469,10 @@ elements.clearForm.addEventListener('click', resetProductForm);
                 renderCart();
             } else if (page === 'orders') {
                 loadUserOrders();
-
-} else if (page === 'adminOrders' && isAdmin) {
+            } else if (page === 'adminOrders' && isAdmin) {
                 loadAllOrders();
             }
             
-            // Прокручиваем наверх при смене страницы
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1491,7 +1498,6 @@ elements.clearForm.addEventListener('click', resetProductForm);
                 elements.iosAdminOrdersNav.style.display = 'none';
             }
             
-            // Проверяем нужно ли показывать кнопки прокрутки
             setTimeout(toggleScrollButtons, 100);
         }
 
@@ -1566,14 +1572,15 @@ elements.clearForm.addEventListener('click', resetProductForm);
                     price: 270,
                     description: "10 капель на 1 литр воды. Эффективное средство для укоренения растений.",
                     image: "https://via.placeholder.com/300x200/3399ff/ffffff?text=Укоренитель",
-status: "in-stock",
+                    status: "in-stock",
                     quantity: 15,
                     createdAt: new Date().toLocaleDateString('ru-RU')
                 },
                 {
                     name: "Симпл димпл",
                     price: 100,
-                    description: "Популярная антистресс-игрушка для развития моторики рук.",
+
+description: "Популярная антистресс-игрушка для развития моторики рук.",
                     image: "https://via.placeholder.com/300x200/33cc33/ffffff?text=Симпл+димпл",
                     status: "preorder",
                     quantity: 2,
@@ -1593,10 +1600,6 @@ status: "in-stock",
             demoProducts.forEach(product => {
                 database.ref('products').push(product);
             });
-        }
-
-        function handleSearch() {
-            renderProducts();
         }
 
         function renderProducts() {
@@ -1622,7 +1625,7 @@ status: "in-stock",
 
             elements.productCatalog.innerHTML = filteredProducts.map(product => {
                 let statusBadge = '';
-                let stockBadge = '';
+                let progressBar = '';
                 let cardClass = 'product-card';
                 
                 if (product.status === 'out-of-stock') {
@@ -1636,18 +1639,21 @@ status: "in-stock",
                     cardClass += ' in-transit';
                 }
                 
-                // ОБНОВЛЕННЫЕ БЕЙДЖИ КОЛИЧЕСТВА
-                if (product.quantity !== null && product.quantity !== undefined) {
-                    let stockClass = '';
+                // ОБНОВЛЕННЫЙ ПРОГРЕСС-БАР КОЛИЧЕСТВА
+                if (product.quantity !== null && product.quantity !== undefined && product.status === 'in-stock') {
+                    let textClass = '';
+                    let fillClass = '';
+                    
                     if (product.quantity > 10) {
-                        stockClass = 'stock-plenty';
+                        textClass = 'plenty';
+                        fillClass = 'plenty';
                     } else if (product.quantity > 3) {
-                        stockClass = 'stock-high';
+                        textClass = 'medium';
+                        fillClass = 'medium';
                     } else if (product.quantity > 0) {
-                        stockClass = 'stock-low';
+                        textClass = 'low';
+                        fillClass = 'low';
                     } else {
-                        stockClass = 'stock-low';
-                        // Автоматически меняем статус если количество 0
                         if (product.status !== 'out-of-stock') {
                             database.ref('products/' + product.firebaseKey).update({ 
                                 status: 'out-of-stock'
@@ -1655,10 +1661,21 @@ status: "in-stock",
                         }
                     }
                     
-                    stockBadge = `<div class="stock-info ${stockClass}">В наличии: ${product.quantity} шт</div>`;
+                    if (product.quantity > 0) {
+                        progressBar = `
+                            <div class="stock-progress-container">
+                                <div class="stock-info-text ${textClass}">
+                                    <span>В наличии ${product.quantity} шт</span>
+                                </div>
+<div class="progress-bar">
+                                    <div class="progress-fill ${fillClass}"></div>
+                                </div>
+                            </div>
+                        `;
+                    }
                 }
-
-let adminButtons = '';
+                
+                let adminButtons = '';
                 let visitorButton = '';
                 
                 if (isAdmin) {
@@ -1694,8 +1711,8 @@ let adminButtons = '';
                             <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x220/3399ff/ffffff?text=Нет+фото'">
                         </div>
                         <div class="product-title">${product.name}</div>
-                        ${stockBadge}
                         <div class="product-description">${product.description}</div>
+                        ${progressBar}
                         <div class="product-price">${product.price.toLocaleString()} руб.</div>
                         ${adminButtons}
                         ${visitorButton}
@@ -1707,6 +1724,10 @@ let adminButtons = '';
             }).join('');
         }
 
+        function handleSearch() {
+            renderProducts();
+        }
+
         function handleProductSubmit(e) {
             e.preventDefault();
             
@@ -1715,7 +1736,6 @@ let adminButtons = '';
                 return;
             }
             
-            // ОБНОВЛЕННАЯ ЛОГИКА: используем только ссылку на изображение
             const imageUrl = elements.productImageUrl.value.trim() || 'https://via.placeholder.com/300x220/3399ff/ffffff?text=Изображение+товара';
             const quantity = elements.productQuantity.value.trim() === '' ? null : parseInt(elements.productQuantity.value);
             
@@ -1733,8 +1753,7 @@ let adminButtons = '';
                 database.ref('products/' + editingProductId).update(productData)
                     .then(() => {
                         showNotification('Товар успешно обновлен!', 'success');
-
-resetProductForm();
+                        resetProductForm();
                     })
                     .catch((error) => {
                         showNotification('Ошибка обновления товара', 'error');
@@ -1768,7 +1787,6 @@ resetProductForm();
             const existingItem = cart.find(item => item.id === productId);
             
             if (existingItem) {
-                // Проверяем лимит количества
                 if (product.quantity !== null && existingItem.quantity >= product.quantity) {
                     showNotification(`Максимальное количество: ${product.quantity} шт`, 'error');
                     return;
@@ -1781,7 +1799,7 @@ resetProductForm();
                     price: product.price,
                     image: product.image,
                     quantity: 1,
-                    maxQuantity: product.quantity // Сохраняем максимальное количество
+                    maxQuantity: product.quantity
                 });
             }
 
@@ -1808,7 +1826,6 @@ resetProductForm();
                 const product = products.find(p => p.firebaseKey === productId);
                 const newQuantity = item.quantity + change;
                 
-                // Проверяем лимит количества
                 if (product && product.quantity !== null && newQuantity > product.quantity) {
                     showNotification(`Максимальное количество: ${product.quantity} шт`, 'error');
                     return;
@@ -1850,7 +1867,6 @@ resetProductForm();
                 
                 const itemTotal = item.price * item.quantity;
                 
-                // Добавляем только доступные товары к общей сумме
                 if (isAvailable) {
                     total += itemTotal;
                     availableItems.push(item);
@@ -1886,7 +1902,6 @@ resetProductForm();
             });
 
             elements.cartTotal.textContent = `Итого: ${total.toLocaleString()} руб.`;
-            // Разрешаем создание заказа только если есть доступные товары
             elements.createOrderBtn.disabled = availableItems.length === 0;
         }
 
@@ -1905,10 +1920,10 @@ resetProductForm();
         }
 
         function createOrder() {
-            // Фильтруем корзину, оставляя только доступные товары
             const availableItems = cart.filter(item => {
                 const product = products.find(p => p.firebaseKey === item.id);
-                return product && product.status === 'in-stock' && 
+
+return product && product.status === 'in-stock' && 
                     (product.quantity === null || product.quantity >= item.quantity);
             });
 
@@ -1926,13 +1941,12 @@ resetProductForm();
                 status: 'processing',
                 createdAt: new Date().toLocaleString('ru-RU'),
                 readyAt: null,
-                deducted: false // Добавляем флаг для отслеживания списания
+                deducted: false
             };
 
             database.ref('orders').push(orderData)
                 .then(() => {
                     showOrderSuccess(orderNumber);
-                    // Удаляем из корзины только те товары, которые были включены в заказ
                     cart = cart.filter(cartItem => 
                         !availableItems.some(orderItem => orderItem.id === cartItem.id)
                     );
@@ -1991,7 +2005,7 @@ resetProductForm();
                                     <div style="color: #666;">Количество: ${item.quantity}</div>
                                     <div style="color: #666;">Цена: ${item.price.toLocaleString()} руб.</div>
                                 </div>
-                            </div>
+</div>
                             <div style="color: #0099ff; font-weight: 800;">${(item.price * item.quantity).toLocaleString()} руб.</div>
                         </div>
                     `).join('')}
@@ -2052,9 +2066,10 @@ resetProductForm();
                     </div>
                     <div style="margin-top: 18px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                         ${order.status !== 'ready' ? `
+                            <button class="btn btn-success btn-small" onclick="completeOrder('${order.orderNumber}')">
 
-<button class="btn btn-success btn-small" onclick="completeOrder('${order.orderNumber}')">
-                                <i class="fas fa-check"></i> Заказ готов
+
+<i class="fas fa-check"></i> Заказ готов
                             </button>
                         ` : `
                             ${!isDeducted ? `
@@ -2141,8 +2156,7 @@ resetProductForm();
                     .catch((error) => {
                         showNotification('Ошибка изменения статуса', 'error');
                     });
-
-}
+            }
         }
 
         function completeOrder(orderNumber) {
@@ -2164,14 +2178,12 @@ resetProductForm();
             });
         }
 
-        // ОБНОВЛЕННАЯ ФУНКЦИЯ: Списание товаров со склада (только один раз)
         function deductOrderItems(orderNumber) {
             if (!isAdmin) {
                 showNotification('Доступно только для администратора!', 'error');
                 return;
             }
             
-            // Проверяем, не списан ли уже этот заказ
             if (deductedOrders[orderNumber]) {
                 showNotification('Товары из этого заказа уже списаны!', 'error');
                 return;
@@ -2182,13 +2194,11 @@ resetProductForm();
                     const order = childSnapshot.val();
                     let updatedProducts = 0;
                     
-                    // Для каждого товара в заказе обновляем количество на складе
                     order.items.forEach(orderItem => {
                         const product = products.find(p => p.firebaseKey === orderItem.id);
                         if (product && product.quantity !== null) {
                             const newQuantity = Math.max(0, product.quantity - orderItem.quantity);
                             
-                            // Обновляем статус товара, если количество стало 0
                             let statusUpdate = {};
                             if (newQuantity === 0) {
                                 statusUpdate = { status: 'out-of-stock' };
@@ -2202,18 +2212,16 @@ resetProductForm();
                         }
                     });
                     
-                    // Помечаем заказ как списанный
                     deductedOrders[orderNumber] = true;
                     localStorage.setItem('deductedOrders', JSON.stringify(deductedOrders));
                     
-                    // Обновляем заказ в базе данных
                     database.ref('orders/' + childSnapshot.key).update({ 
                         deducted: true 
                     });
                     
                     showNotification(`Списано ${updatedProducts} товаров со склада`, 'success');
-                    loadProducts(); // Обновляем список товаров
-                    loadAllOrders(); // Обновляем список заказов
+                    loadProducts();
+                    loadAllOrders();
                 });
             });
         }
@@ -2229,8 +2237,6 @@ resetProductForm();
                     snapshot.forEach((childSnapshot) => {
                         database.ref('orders/' + childSnapshot.key).remove()
                             .then(() => {
-
-// Удаляем информацию о списании для этого заказа
                                 delete deductedOrders[orderNumber];
                                 localStorage.setItem('deductedOrders', JSON.stringify(deductedOrders));
                                 
