@@ -342,30 +342,6 @@ background: linear-gradient(135deg, #3399ff, #0066cc);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .search-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 25px;
-            margin-bottom: 35px;
-            box-shadow: 0 15px 35px rgba(0, 100, 200, 0.1);
-            animation: slideUp 0.6s ease-out;
-        }
-
-        .search-box {
-            display: flex;
-            gap: 18px;
-            align-items: center;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 15px 25px;
-            border: 2px solid #e6f2ff;
-            border-radius: 25px;
-            font-size: 16px;
-            background: rgba(255, 255, 255, 0.8);
-        }
-
         .admin-panel {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 25px;
@@ -455,7 +431,7 @@ background: linear-gradient(135deg, #3399ff, #0066cc);
             background: linear-gradient(135deg, #6666ff, #4444cc);
             color: white;
             padding: 8px 15px;
-border-radius: 20px;
+            border-radius: 20px;
             font-size: 12px;
             font-weight: 700;
             z-index: 10;
@@ -483,7 +459,7 @@ border-radius: 20px;
             color: #27ae60;
         }
 
-        .stock-info-text.low {
+.stock-info-text.low {
             color: #e74c3c;
             animation: pulse 1.5s infinite;
         }
@@ -621,7 +597,7 @@ border-radius: 20px;
             background: #e74c3c;
             color: white;
             padding: 4px 8px;
-border-radius: 10px;
+            border-radius: 10px;
             font-size: 10px;
             font-weight: 700;
             margin-left: 10px;
@@ -643,7 +619,7 @@ border-radius: 10px;
         .cart-total {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 25px;
+padding: 25px;
             margin-top: 25px;
             text-align: center;
             font-size: 1.4em;
@@ -771,7 +747,7 @@ border-radius: 10px;
 
         .modal-image {
             max-width: 90%;
-max-height: 90vh;
+            max-height: 90vh;
             border-radius: 15px;
         }
 
@@ -796,7 +772,7 @@ max-height: 90vh;
         .order-success-modal {
             display: none;
             position: fixed;
-            top: 0;
+top: 0;
             left: 0;
             width: 100%;
             height: 100%;
@@ -904,7 +880,7 @@ max-height: 90vh;
         .search-nav-btn {
             position: fixed;
             bottom: 20px;
-            right: calc(50% - 160px);
+            right: calc(50% + 165px);
             width: 55px;
             height: 55px;
             border-radius: 50%;
@@ -918,8 +894,7 @@ max-height: 90vh;
             font-size: 22px;
             box-shadow: 0 8px 25px rgba(255, 170, 51, 0.4);
             z-index: 1001;
-            transition: all 0.
-3s ease;
+            transition: all 0.3s ease;
             animation: slideUp 0.5s ease-out;
         }
 
@@ -992,7 +967,24 @@ max-height: 90vh;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .clear-history-btn {
+            background: #ff6666;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clear-history-btn:hover {
+            background: #ff4444;
+            transform: translateY(-2px);
         }
 
         .recommendations-grid {
@@ -1075,13 +1067,13 @@ max-height: 90vh;
 
         .history-tag {
             background: rgba(255, 255, 255, 0.8);
-border: 2px solid #e6f2ff;
+            border: 2px solid #e6f2ff;
             border-radius: 20px;
             padding: 10px 18px;
             font-size: 14px;
             font-weight: 600;
             color: #0066cc;
-            cursor: pointer;
+cursor: pointer;
             transition: all 0.3s ease;
         }
 
@@ -1141,10 +1133,6 @@ border: 2px solid #e6f2ff;
 
             .catalog {
                 grid-template-columns: 1fr;
-            }
-
-            .search-box {
-                flex-direction: column;
             }
 
             .login-options {
@@ -1234,13 +1222,13 @@ border: 2px solid #e6f2ff;
                 <i class="fas fa-sign-in-alt"></i> Войти
             </button>
         </form>
-<button class="btn btn-primary" id="enterAsVisitor" style="width: 100%; margin-top: 25px;">
+        <button class="btn btn-primary" id="enterAsVisitor" style="width: 100%; margin-top: 25px;">
             <i class="fas fa-shopping-bag"></i> Войти как посетитель
         </button>
     </div>
 
     <div class="main-content" id="mainContent">
-        <div class="container">
+<div class="container">
             <header>
                 <div class="header-content">
                     <div class="logo">
@@ -1257,18 +1245,6 @@ border: 2px solid #e6f2ff;
                     </div>
                 </div>
             </header>
-
-            <div class="search-container">
-                <div class="search-box">
-                    <input type="text" class="search-input" id="searchInput" placeholder="Поиск товаров по названию...">
-                    <button class="search-btn btn-primary" id="searchBtn">
-                        <i class="fas fa-search"></i> Найти
-                    </button>
-                    <button class="btn btn-secondary" id="clearSearch">
-                        <i class="fas fa-times"></i> Очистить
-                    </button>
-                </div>
-            </div>
 
             <div class="admin-panel" id="adminPanel">
                 <h2 style="margin-bottom: 25px; color: #0066cc; text-align: center;" id="adminFormTitle">Добавить новый товар</h2>
@@ -1303,7 +1279,7 @@ border: 2px solid #e6f2ff;
                             <select id="productStatus" style="padding: 15px; border: 2px solid #e6f2ff; border-radius: 15px; font-size: 16px; background: rgba(255, 255, 255, 0.8);">
                                 <option value="in-stock">В наличии</option>
                                 <option value="out-of-stock">Нет в наличии</option>
-<option value="preorder">Предзаказ</option>
+                                <option value="preorder">Предзаказ</option>
                                 <option value="in-transit">В пути</option>
                             </select>
                         </div>
@@ -1316,7 +1292,7 @@ border: 2px solid #e6f2ff;
                         </div>
                     </div>
                     <div class="form-actions" style="display: flex; gap: 18px;">
-                        <button type="submit" class="btn btn-primary" id="submitProductBtn">
+<button type="submit" class="btn btn-primary" id="submitProductBtn">
                             <i class="fas fa-plus"></i> Добавить товар
                         </button>
                         <button type="button" class="btn btn-secondary" id="clearForm">
@@ -1383,13 +1359,13 @@ border: 2px solid #e6f2ff;
                     <div class="search-header">
                         <button class="back-to-menu-btn" id="backToMenuBtn">
                             <i class="fas fa-arrow-left"></i>
-</button>
-                        <input type="text" class="search-input-large" id="searchInputLarge" placeholder="Поиск товаров...">
+                        </button>
+                        <input type="text" class="search-input-large" id="searchInputLarge" placeholder="Поиск товаров..." autocomplete="off">
                     </div>
 
                     <div class="recommendations-section" id="recommendationsSection">
                         <h3 class="section-title">
-                            <i class="fas fa-fire" style="color: #ff4444;"></i>
+                            <i class="fas fa-fire"></i>
                             Рекомендуем
                         </h3>
                         <div class="recommendations-grid" id="recommendationsGrid">
@@ -1399,8 +1375,11 @@ border: 2px solid #e6f2ff;
 
                     <div class="search-history" id="searchHistorySection">
                         <h3 class="section-title">
-                            <i class="fas fa-history"></i>
+<i class="fas fa-history"></i>
                             История поиска
+                            <button class="clear-history-btn" id="clearHistoryBtn">
+                                <i class="fas fa-trash"></i> Очистить
+                            </button>
                         </h3>
                         <div class="history-tags" id="historyTags">
                             <!-- Теги истории поиска будут здесь -->
@@ -1474,7 +1453,7 @@ border: 2px solid #e6f2ff;
                 <i class="fas fa-times"></i> Закрыть
             </button>
         </div>
-</div>
+    </div>
 
     <div class="loading-order" id="loadingOrder">
         <div class="loading-spinner"></div>
@@ -1490,7 +1469,7 @@ border: 2px solid #e6f2ff;
             databaseURL: "https://vostochnyi-bazar-default-rtdb.europe-west1.firebasedatabase.app",
             projectId: "vostochnyi-bazar",
             storageBucket: "vostochnyi-bazar.firebasestorage.app",
-            messagingSenderId: "746249741207",
+messagingSenderId: "746249741207",
             appId: "1:746249741207:web:608aaoa8947864bf8a5ed2"
         };
 
@@ -1533,9 +1512,6 @@ border: 2px solid #e6f2ff;
             createOrderBtn: document.getElementById('createOrderBtn'),
             userOrders: document.getElementById('userOrders'),
             adminOrders: document.getElementById('adminOrders'),
-            searchInput: document.getElementById('searchInput'),
-            searchBtn: document.getElementById('searchBtn'),
-            clearSearch: document.getElementById('clearSearch'),
             clearForm: document.getElementById('clearForm'),
             iosBottomNav: document.getElementById('iosBottomNav'),
             iosCartBadge: document.getElementById('iosCartBadge'),
@@ -1568,7 +1544,8 @@ border: 2px solid #e6f2ff;
             searchResultsSection: document.getElementById('searchResultsSection'),
             exactMatchSection: document.getElementById('exactMatchSection'),
             similarProductsSection: document.getElementById('similarProductsSection'),
-            loadingOrder: document.getElementById('loadingOrder')
+            loadingOrder: document.getElementById('loadingOrder'),
+            clearHistoryBtn: document.getElementById('clearHistoryBtn')
         };
 
         // УЛУЧШЕННЫЙ ПОИСК С УЧЕТОМ ОШИБОК И ТОЧНОСТИ
@@ -1614,8 +1591,8 @@ border: 2px solid #e6f2ff;
                         exactMatch = true;
                     }
                 }
-
-// Проверка точного совпадения названия
+                
+                // Проверка точного совпадения названия
                 if (productName === term) {
                     score += 100;
                     exactMatch = true;
@@ -1656,7 +1633,7 @@ border: 2px solid #e6f2ff;
                     const result = {
                         product: product,
                         score: score,
-                        exactMatch: exactMatch
+exactMatch: exactMatch
                     };
                     
                     if (exactMatch) {
@@ -1666,8 +1643,8 @@ border: 2px solid #e6f2ff;
                     }
                 }
             });
-            
-            // Сортировка результатов
+
+// Сортировка результатов
             results.exactMatches.sort((a, b) => b.score - a.score);
             results.similarMatches.sort((a, b) => b.score - a.score);
             
@@ -1775,14 +1752,6 @@ border: 2px solid #e6f2ff;
             elements.clearForm.addEventListener('click', resetProductForm);
             elements.cancelEdit.addEventListener('click', resetProductForm);
 
-            elements.searchBtn.addEventListener('click', handleSearch);
-            elements.searchInput.addEventListener('input', handleSearch);
-            elements.clearSearch.addEventListener('click', () => {
-                elements.searchInput.value = '';
-                renderProducts();
-                showNotification('Поиск очищен', 'success');
-            });
-
             elements.createOrderBtn.addEventListener('click', createOrder);
 
             elements.modalClose.addEventListener('click', closeFullscreenModal);
@@ -1813,6 +1782,7 @@ border: 2px solid #e6f2ff;
             });
 
             elements.searchInputLarge.addEventListener('input', handleLargeSearch);
+            
             elements.searchInputLarge.addEventListener('focus', () => {
                 // Показываем историю поиска при фокусе
                 renderSearchHistory();
@@ -1820,9 +1790,11 @@ border: 2px solid #e6f2ff;
 
             elements.searchInputLarge.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
-performSearch(elements.searchInputLarge.value);
+                    performSearch(elements.searchInputLarge.value);
                 }
             });
+
+            elements.clearHistoryBtn.addEventListener('click', clearSearchHistory);
 
             window.addEventListener('scroll', toggleScrollButtons);
 
@@ -1889,7 +1861,7 @@ performSearch(elements.searchInputLarge.value);
             } else if (page === 'search') {
                 loadRecommendations();
                 renderSearchHistory();
-                elements.searchInputLarge.focus();
+                // Убрали автоматический фокус - теперь только при клике на поле
             }
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1924,7 +1896,7 @@ performSearch(elements.searchInputLarge.value);
 
         function resetProductForm() {
             elements.productForm.reset();
-editingProductId = null;
+            editingProductId = null;
             elements.editingProductId.value = '';
             elements.adminFormTitle.textContent = 'Добавить новый товар';
             elements.submitProductBtn.innerHTML = '<i class="fas fa-plus"></i> Добавить товар';
@@ -1982,7 +1954,7 @@ editingProductId = null;
                 } else {
                     renderProducts();
                     updateCartBadge();
-                    loadRecommendations();
+loadRecommendations();
                 }
             });
         }
@@ -2021,7 +1993,7 @@ editingProductId = null;
                     price: 150,
                     description: "Свежие огурцы сорта #8. В упаковке 15 штук. Идеально для салатов.",
                     image: "https://via.placeholder.com/300x200/27ae60/ffffff?text=Огурцы+8",
-status: "in-stock",
+                    status: "in-stock",
                     quantity: 3,
                     createdAt: new Date().toLocaleDateString('ru-RU')
                 },
@@ -2051,6 +2023,33 @@ status: "in-stock",
                     status: "in-stock",
                     quantity: 2,
                     createdAt: new Date().toLocaleDateString('ru-RU')
+                },
+                {
+                    name: "Перец сладкий",
+                    price: 70,
+                    description: "Сладкий перец высшего качества. Сочный и ароматный.",
+                    image: "https://via.placeholder.com/300x200/ff4444/ffffff?text=Перец+сладкий",
+                    status: "in-stock",
+                    quantity: 1,
+                    createdAt: new Date().toLocaleDateString('ru-RU')
+                },
+                {
+                    name: "Помидоры черри",
+                    price: 120,
+                    description: "Сладкие помидоры черри. Идеально для салатов и закусок.",
+                    image: "https://via.placeholder.com/300x200/ff4444/ffffff?text=Помидоры+черри",
+                    status: "in-stock",
+                    quantity: 20,
+                    createdAt: new Date().toLocaleDateString('ru-RU')
+                },
+                {
+                    name: "Морковь свежая",
+                    price: 45,
+                    description: "Свежая морковь. Богата витаминами и минералами.",
+                    image: "https://via.placeholder.com/300x200/ffaa33/ffffff?text=Морковь",
+                    status: "in-stock",
+                    quantity: 25,
+                    createdAt: new Date().toLocaleDateString('ru-RU')
                 }
             ];
             
@@ -2060,29 +2059,7 @@ status: "in-stock",
         }
 
         function renderProducts() {
-            const searchTerm = elements.searchInput.value.toLowerCase();
-            let filteredProducts = products;
-            
-            if (searchTerm) {
-                const searchResults = advancedSearch(searchTerm, products);
-                filteredProducts = [
-                    ...searchResults.exactMatches.map(r => r.product),
-                    ...searchResults.similarMatches.map(r => r.product)
-                ];
-            }
-            
-            if (filteredProducts.length === 0) {
-                elements.productCatalog.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #0066cc;">
-                        <i class="fas fa-box-open" style="font-size: 4em; margin-bottom: 25px;"></i>
-                        <h3>Товары не найдены</h3>
-                        <p>Попробуйте изменить поисковый запрос</p>
-                    </div>
-                `;
-                return;
-            }
-
-            elements.productCatalog.innerHTML = filteredProducts.map(product => {
+            elements.productCatalog.innerHTML = products.map(product => {
                 let statusBadge = '';
                 let progressBar = '';
                 let cardClass = 'product-card';
@@ -2109,7 +2086,7 @@ status: "in-stock",
                     } else if (product.quantity > 3) {
                         textClass = 'medium';
                         fillClass = 'medium';
-} else if (product.quantity > 0) {
+                    } else if (product.quantity > 0) {
                         textClass = 'low';
                         fillClass = 'low';
                     } else {
@@ -2146,7 +2123,7 @@ status: "in-stock",
                             <button class="btn btn-small btn-danger" onclick="deleteProduct('${product.firebaseKey}')">
                                 <i class="fas fa-trash"></i> Удалить
                             </button>
-                            <button class="btn btn-small btn-info" onclick="toggleStock('${product.firebaseKey}')">
+<button class="btn btn-small btn-info" onclick="toggleStock('${product.firebaseKey}')">
                                 <i class="fas fa-exchange-alt"></i> Сменить статус
                             </button>
                         </div>`;
@@ -2183,14 +2160,10 @@ status: "in-stock",
             }).join('');
         }
 
-        function handleSearch() {
-            renderProducts();
-        }
-
         function handleLargeSearch() {
             const searchTerm = elements.searchInputLarge.value.trim();
             if (searchTerm.length >= 2) {
-performSearch(searchTerm);
+                performSearch(searchTerm);
             } else {
                 elements.searchResultsSection.style.display = 'none';
                 elements.recommendationsSection.style.display = 'block';
@@ -2201,8 +2174,10 @@ performSearch(searchTerm);
         function performSearch(searchTerm) {
             if (!searchTerm.trim()) return;
             
-            // Добавляем в историю поиска
-            addToSearchHistory(searchTerm);
+            // Добавляем в историю поиска ТОЛЬКО полные запросы
+            if (searchTerm.length >= 2) {
+                addToSearchHistory(searchTerm);
+            }
             
             const searchResults = advancedSearch(searchTerm, products);
             
@@ -2230,8 +2205,8 @@ performSearch(searchTerm);
                     </div>
                 `;
             }
-            
-            // Отображаем похожие товары
+
+// Отображаем похожие товары
             if (searchResults.similarMatches.length > 0) {
                 elements.similarProductsSection.innerHTML = `
                     <h3 class="section-title">
@@ -2282,7 +2257,7 @@ performSearch(searchTerm);
                 if (product.quantity > 0) {
                     progressBar = `
                         <div class="stock-progress-container">
-<div class="stock-info-text ${textClass}">
+                            <div class="stock-info-text ${textClass}">
                                 <span>В наличии ${product.quantity} шт</span>
                             </div>
                             <div class="progress-bar">
@@ -2321,7 +2296,7 @@ performSearch(searchTerm);
             
             return `
                 <div class="${cardClass}">
-                    ${statusBadge}
+${statusBadge}
                     <div class="product-image" onclick="openFullscreenImage('${product.image}', '${product.name}')">
                         <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x220/3399ff/ffffff?text=Нет+фото'">
                     </div>
@@ -2336,13 +2311,22 @@ performSearch(searchTerm);
         }
 
         function loadRecommendations() {
-            // Рекомендуем товары с малым количеством (1-3 шт) или популярные
-            const recommendedProducts = products.filter(product => 
+            // Рекомендуем товары с малым количеством (1-3 шт) И популярные товары
+            const lowStockProducts = products.filter(product => 
                 product.status === 'in-stock' && 
                 product.quantity !== null && 
                 product.quantity > 0 && 
                 product.quantity <= 3
-            ).slice(0, 10); // Ограничиваем до 10 товаров
+            );
+            
+            const popularProducts = products.filter(product => 
+                product.status === 'in-stock' && 
+                product.quantity !== null && 
+                product.quantity > 10
+            ).slice(0, 5); // Берем 5 популярных товаров
+            
+            // Объединяем и ограничиваем до 10 товаров
+            const recommendedProducts = [...lowStockProducts, ...popularProducts].slice(0, 10);
             
             if (recommendedProducts.length === 0) {
                 elements.recommendationsSection.style.display = 'none';
@@ -2351,18 +2335,17 @@ performSearch(searchTerm);
             
             elements.recommendationsGrid.innerHTML = recommendedProducts.map(product => {
                 const isLowStock = product.quantity <= 3;
+                const stockClass = isLowStock ? 'low' : (product.quantity > 10 ? 'plenty' : 'medium');
                 
                 return `
                     <div class="recommendation-card">
                         <img src="${product.image}" alt="${product.name}" class="recommendation-image" onclick="openFullscreenImage('${product.image}', '${product.name}')">
                         <div class="recommendation-title">${product.name}</div>
-                        ${isLowStock ? `
-                            <div class="stock-info-text low">
-                                <span>Осталось всего ${product.quantity} шт!</span>
-                            </div>
-                        ` : ''}
+                        <div class="stock-info-text ${stockClass}">
+                            <span>В наличии ${product.quantity} шт</span>
+                        </div>
                         <div class="recommendation-price">${product.price.toLocaleString()} руб.</div>
-<div class="recommendation-actions">
+                        <div class="recommendation-actions">
                             ${isAdmin ? `
                                 <button class="btn btn-small btn-warning" onclick="editProduct('${product.firebaseKey}')">
                                     <i class="fas fa-edit"></i>
@@ -2387,7 +2370,15 @@ performSearch(searchTerm);
                 return;
             }
             
-            elements.historyTags.innerHTML = searchHistory.slice(0, 10).map(term => `
+            // Показываем только полные запросы (без частичных)
+            const fullQueries = searchHistory.filter(term => term.length >= 2);
+            
+            if (fullQueries.length === 0) {
+                elements.searchHistorySection.style.display = 'none';
+                return;
+            }
+            
+            elements.historyTags.innerHTML = fullQueries.slice(0, 10).map(term => `
                 <div class="history-tag" onclick="elements.searchInputLarge.value = '${term}'; performSearch('${term}')">
                     ${term}
                 </div>
@@ -2395,16 +2386,26 @@ performSearch(searchTerm);
         }
 
         function addToSearchHistory(searchTerm) {
+            // Добавляем только полные запросы (минимум 2 символа)
+            if (searchTerm.length < 2) return;
+            
             // Удаляем дубликаты
             searchHistory = searchHistory.filter(term => term !== searchTerm);
             // Добавляем в начало
             searchHistory.unshift(searchTerm);
-            // Ограничиваем историю 20 запросами
-            searchHistory = searchHistory.slice(0, 20);
+            // Ограничиваем историю 15 запросами
+            searchHistory = searchHistory.slice(0, 15);
             // Сохраняем в localStorage
             localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
             // Обновляем отображение
             renderSearchHistory();
+        }
+
+        function clearSearchHistory() {
+            searchHistory = [];
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+            renderSearchHistory();
+            showNotification('История поиска очищена', 'success');
         }
 
         function handleProductSubmit(e) {
@@ -2454,7 +2455,7 @@ performSearch(searchTerm);
             if (!product) return;
 
             if (product.status !== 'in-stock') {
-showNotification('Этот товар временно недоступен для заказа', 'error');
+                showNotification('Этот товар временно недоступен для заказа', 'error');
                 return;
             }
 
@@ -2474,7 +2475,7 @@ showNotification('Этот товар временно недоступен дл
             } else {
                 cart.push({
                     id: productId,
-                    name: product.name,
+name: product.name,
                     price: product.price,
                     image: product.image,
                     quantity: 1,
@@ -2557,13 +2558,13 @@ showNotification('Этот товар временно недоступен дл
                 const unavailableBadge = !isAvailable ? '<span class="unavailable-badge">Нет в наличии</span>' : '';
 
                 elements.cartItems.innerHTML += `
-<div class="cart-item ${!isAvailable ? 'unavailable' : ''}">
+                    <div class="cart-item ${!isAvailable ? 'unavailable' : ''}">
                         <img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; border-radius: 15px; object-fit: cover;" onclick="openFullscreenImage('${item.image}', '${item.name}')">
                         <div style="flex: 1;">
                             <div style="font-weight: 700; color: #0066cc;">${item.name} ${unavailableBadge}</div>
                             <div style="color: #0099ff; font-weight: 800;">${item.price.toLocaleString()} руб. × ${item.quantity}${maxQuantityText}</div>
-                            ${product && product.quantity !== null && item.quantity >= product.quantity ? 
-                                '<div style="color: #ff4444; font-size: 12px; font-weight: 600;">⚠️ Максимальное количество</div>' : ''}
+                            ${product && product.quantity !== null && item.quantity >= product.quantity ?
+'<div style="color: #ff4444; font-size: 12px; font-weight: 600;">⚠️ Максимальное количество</div>' : ''}
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <button class="btn btn-secondary btn-small" onclick="updateQuantity('${item.id}', -1)" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
@@ -2718,7 +2719,7 @@ showNotification('Этот товар временно недоступен дл
                             <div style="color: #0099ff; font-weight: 800;">${(item.price * item.quantity).toLocaleString()} руб.</div>
                         </div>
                     `).join('')}
-                    <div style="text-align: right; font-size: 1.3em; font-weight: 800; color: #0066cc; margin-top: 15px;">
+<div style="text-align: right; font-size: 1.3em; font-weight: 800; color: #0066cc; margin-top: 15px;">
                         Общая стоимость: ${order.total.toLocaleString()} руб.
                     </div>
                     <div style="margin-top: 12px; font-size: 13px; color: #999;">
@@ -2770,7 +2771,7 @@ showNotification('Этот товар временно недоступен дл
                         </div>
                     `).join('')}
                     <div style="text-align: right; font-size: 1.3em; font-weight: 800; color: #0066cc; margin-top: 15px;">
-Общая стоимость: ${order.total.toLocaleString()} руб.
+                        Общая стоимость: ${order.total.toLocaleString()} руб.
                     </div>
                     <div style="margin-top: 12px; font-size: 13px; color: #999;">
                         Создан: ${order.createdAt}
@@ -2781,7 +2782,7 @@ showNotification('Этот товар временно недоступен дл
                     <div style="margin-top: 18px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                         ${order.status !== 'ready' ? `
                             <button class="btn btn-success btn-small" onclick="completeOrder('${order.orderNumber}')">
-                                <i class="fas fa-check"></i> Заказ готов
+<i class="fas fa-check"></i> Заказ готов
                             </button>
                         ` : `
                             ${!isDeducted ? `
@@ -2853,7 +2854,7 @@ showNotification('Этот товар временно недоступен дл
                 let newStatus;
                 if (product.status === 'in-stock') {
                     newStatus = 'out-of-stock';
-} else if (product.status === 'out-of-stock') {
+                } else if (product.status === 'out-of-stock') {
                     newStatus = 'preorder';
                 } else if (product.status === 'preorder') {
                     newStatus = 'in-transit';
@@ -2946,7 +2947,7 @@ showNotification('Этот товар временно недоступен дл
             
             if (confirm('Вы уверены, что хотите удалить этот заказ?')) {
                 database.ref('orders').orderByChild('orderNumber').equalTo(orderNumber).once('value', (snapshot) => {
-snapshot.forEach((childSnapshot) => {
+                    snapshot.forEach((childSnapshot) => {
                         database.ref('orders/' + childSnapshot.key).remove()
                             .then(() => {
                                 delete deductedOrders[orderNumber];
