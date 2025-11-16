@@ -142,7 +142,6 @@
             color: white;
             border-radius: 12px;
             min-width: 18px;
-
 height: 18px;
             font-size: 11px;
             display: flex;
@@ -302,7 +301,6 @@ height: 18px;
         }
 
         .btn-primary {
-
 background: linear-gradient(135deg, #3399ff, #0066cc);
             color: white;
         }
@@ -457,7 +455,6 @@ background: linear-gradient(135deg, #3399ff, #0066cc);
             background: linear-gradient(135deg, #6666ff, #4444cc);
             color: white;
             padding: 8px 15px;
-
 border-radius: 20px;
             font-size: 12px;
             font-weight: 700;
@@ -624,7 +621,6 @@ border-radius: 20px;
             background: #e74c3c;
             color: white;
             padding: 4px 8px;
-
 border-radius: 10px;
             font-size: 10px;
             font-weight: 700;
@@ -775,7 +771,6 @@ border-radius: 10px;
 
         .modal-image {
             max-width: 90%;
-
 max-height: 90vh;
             border-radius: 15px;
         }
@@ -905,6 +900,234 @@ max-height: 90vh;
             box-shadow: 0 8px 25px rgba(51, 153, 255, 0.6);
         }
 
+        /* НОВЫЕ СТИЛИ ДЛЯ ПОИСКА */
+        .search-nav-btn {
+            position: fixed;
+            bottom: 20px;
+            right: calc(50% - 160px);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffaa33, #ff8800);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 8px 25px rgba(255, 170, 51, 0.4);
+            z-index: 1001;
+            transition: all 0.
+3s ease;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .search-nav-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255, 170, 51, 0.6);
+        }
+
+        .search-page {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 35px rgba(0, 100, 200, 0.1);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .search-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .search-input-large {
+            flex: 1;
+            padding: 18px 25px;
+            border: 2px solid #e6f2ff;
+            border-radius: 25px;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .search-input-large:focus {
+            border-color: #3399ff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(51, 153, 255, 0.1);
+        }
+
+        .back-to-menu-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3399ff, #0066cc);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(51, 153, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-menu-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(51, 153, 255, 0.6);
+        }
+
+        .recommendations-section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .recommendations-grid {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 5px;
+            scrollbar-width: thin;
+            scrollbar-color: #3399ff #f0f8ff;
+        }
+
+        .recommendations-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .recommendations-grid::-webkit-scrollbar-track {
+            background: #f0f8ff;
+            border-radius: 10px;
+        }
+
+        .recommendations-grid::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #3399ff, #0066cc);
+            border-radius: 10px;
+        }
+
+        .recommendation-card {
+            min-width: 280px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0, 100, 200, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 100, 200, 0.15);
+        }
+
+        .recommendation-image {
+            width: 100%;
+            height: 120px;
+            border-radius: 15px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .recommendation-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #0066cc;
+            line-height: 1.3;
+        }
+
+        .recommendation-price {
+            font-size: 1.3em;
+            font-weight: 800;
+            color: #0099ff;
+        }
+
+        .recommendation-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-history {
+            margin-top: 30px;
+        }
+
+        .history-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .history-tag {
+            background: rgba(255, 255, 255, 0.8);
+border: 2px solid #e6f2ff;
+            border-radius: 20px;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0066cc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .history-tag:hover {
+            background: linear-gradient(135deg, #3399ff, #0066cc);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .search-results {
+            margin-top: 30px;
+        }
+
+        .exact-match {
+            margin-bottom: 30px;
+        }
+
+        .similar-products {
+            margin-top: 30px;
+        }
+
+        .loading-order {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 4000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        .loading-order.active {
+            display: flex;
+        }
+
+        .loading-order-text {
+            font-size: 1.5em;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -929,11 +1152,11 @@ max-height: 90vh;
             }
 
             .ios-bottom-nav {
-                min-width: 300px
+                min-width: 300px;
             }
 
             .add-to-cart-btn {
-width: 100%;
+                width: 100%;
                 height: auto;
                 border-radius: 15px;
                 padding: 15px;
@@ -967,6 +1190,23 @@ width: 100%;
                 height: 45px;
                 font-size: 18px;
             }
+
+            .search-nav-btn {
+                right: 20px;
+                bottom: 90px;
+            }
+
+            .recommendation-card {
+                min-width: 250px;
+            }
+
+            .search-header {
+                flex-direction: column;
+            }
+
+            .back-to-menu-btn {
+                align-self: flex-start;
+            }
         }
     </style>
 </head>
@@ -994,7 +1234,7 @@ width: 100%;
                 <i class="fas fa-sign-in-alt"></i> Войти
             </button>
         </form>
-        <button class="btn btn-primary" id="enterAsVisitor" style="width: 100%; margin-top: 25px;">
+<button class="btn btn-primary" id="enterAsVisitor" style="width: 100%; margin-top: 25px;">
             <i class="fas fa-shopping-bag"></i> Войти как посетитель
         </button>
     </div>
@@ -1037,8 +1277,7 @@ width: 100%;
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
                         <div class="form-group">
                             <label for="productName">Название товара</label>
-
-<input type="text" id="productName" required placeholder="Например: Умные часы Xiaomi">
+                            <input type="text" id="productName" required placeholder="Например: Умные часы Xiaomi">
                         </div>
                         <div class="form-group">
                             <label for="productPrice">Цена (руб.)</label>
@@ -1064,7 +1303,7 @@ width: 100%;
                             <select id="productStatus" style="padding: 15px; border: 2px solid #e6f2ff; border-radius: 15px; font-size: 16px; background: rgba(255, 255, 255, 0.8);">
                                 <option value="in-stock">В наличии</option>
                                 <option value="out-of-stock">Нет в наличии</option>
-                                <option value="preorder">Предзаказ</option>
+<option value="preorder">Предзаказ</option>
                                 <option value="in-transit">В пути</option>
                             </select>
                         </div>
@@ -1105,8 +1344,7 @@ width: 100%;
                 </h2>
                 <div id="cartItems"></div>
                 <div class="cart-total" id="cartTotal">
-
-Итого: 0 руб.
+                    Итого: 0 руб.
                 </div>
                 <button class="create-order-btn" id="createOrderBtn" disabled>
                     <i class="fas fa-receipt"></i> Создать заказ
@@ -1135,6 +1373,47 @@ width: 100%;
                         <i class="fas fa-tasks" style="font-size: 4em; margin-bottom: 25px; opacity: 0.5;"></i>
                         <h3>Заказов пока нет</h3>
                         <p>Ожидание новых заказов от клиентов</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- НОВАЯ СТРАНИЦА ПОИСКА -->
+            <div class="page-content" id="searchPage">
+                <div class="search-page">
+                    <div class="search-header">
+                        <button class="back-to-menu-btn" id="backToMenuBtn">
+                            <i class="fas fa-arrow-left"></i>
+</button>
+                        <input type="text" class="search-input-large" id="searchInputLarge" placeholder="Поиск товаров...">
+                    </div>
+
+                    <div class="recommendations-section" id="recommendationsSection">
+                        <h3 class="section-title">
+                            <i class="fas fa-fire" style="color: #ff4444;"></i>
+                            Рекомендуем
+                        </h3>
+                        <div class="recommendations-grid" id="recommendationsGrid">
+                            <!-- Рекомендации будут загружены здесь -->
+                        </div>
+                    </div>
+
+                    <div class="search-history" id="searchHistorySection">
+                        <h3 class="section-title">
+                            <i class="fas fa-history"></i>
+                            История поиска
+                        </h3>
+                        <div class="history-tags" id="historyTags">
+                            <!-- Теги истории поиска будут здесь -->
+                        </div>
+                    </div>
+
+                    <div class="search-results" id="searchResultsSection" style="display: none;">
+                        <div class="exact-match" id="exactMatchSection">
+                            <!-- Точные совпадения будут здесь -->
+                        </div>
+                        <div class="similar-products" id="similarProductsSection">
+                            <!-- Похожие товары будут здесь -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1170,6 +1449,11 @@ width: 100%;
         </button>
     </div>
 
+    <!-- КНОПКА ПОИСКА -->
+    <button class="search-nav-btn" id="searchNavBtn" style="display: none;">
+        <i class="fas fa-search"></i>
+    </button>
+
     <div class="fullscreen-modal" id="fullscreenModal">
         <button class="modal-close" id="modalClose">
             <i class="fas fa-times"></i>
@@ -1190,6 +1474,11 @@ width: 100%;
                 <i class="fas fa-times"></i> Закрыть
             </button>
         </div>
+</div>
+
+    <div class="loading-order" id="loadingOrder">
+        <div class="loading-spinner"></div>
+        <div class="loading-order-text">Заказ создаётся, минуточку...</div>
     </div>
 
     <div class="notification" id="notification"></div>
@@ -1197,7 +1486,8 @@ width: 100%;
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyD5raYGkouHML1q2awhg82y9Y6M1GkbMT",
-            authDomain: "vostochnyi-bazar.firebaseapp.com",databaseURL: "https://vostochnyi-bazar-default-rtdb.europe-west1.firebasedatabase.app",
+            authDomain: "vostochnyi-bazar.firebaseapp.com",
+            databaseURL: "https://vostochnyi-bazar-default-rtdb.europe-west1.firebasedatabase.app",
             projectId: "vostochnyi-bazar",
             storageBucket: "vostochnyi-bazar.firebasestorage.app",
             messagingSenderId: "746249741207",
@@ -1221,6 +1511,8 @@ width: 100%;
         let deviceId = localStorage.getItem('deviceId') || 'device_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         let editingProductId = null;
         let deductedOrders = JSON.parse(localStorage.getItem('deductedOrders')) || {};
+        let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+        let isCreatingOrder = false;
 
         localStorage.setItem('deviceId', deviceId);
 
@@ -1264,42 +1556,143 @@ width: 100%;
             orderModalClose: document.getElementById('orderModalClose'),
             scrollButtons: document.getElementById('scrollButtons'),
             scrollToTop: document.getElementById('scrollToTop'),
-            scrollToBottom: document.getElementById('scrollToBottom')
+            scrollToBottom: document.getElementById('scrollToBottom'),
+            searchNavBtn: document.getElementById('searchNavBtn'),
+            searchPage: document.getElementById('searchPage'),
+            backToMenuBtn: document.getElementById('backToMenuBtn'),
+            searchInputLarge: document.getElementById('searchInputLarge'),
+            recommendationsSection: document.getElementById('recommendationsSection'),
+            recommendationsGrid: document.getElementById('recommendationsGrid'),
+            searchHistorySection: document.getElementById('searchHistorySection'),
+            historyTags: document.getElementById('historyTags'),
+            searchResultsSection: document.getElementById('searchResultsSection'),
+            exactMatchSection: document.getElementById('exactMatchSection'),
+            similarProductsSection: document.getElementById('similarProductsSection'),
+            loadingOrder: document.getElementById('loadingOrder')
         };
 
-        function fuzzySearch(searchTerm, productName) {
-            if (!searchTerm) return true;
+        // УЛУЧШЕННЫЙ ПОИСК С УЧЕТОМ ОШИБОК И ТОЧНОСТИ
+        function advancedSearch(searchTerm, products) {
+            if (!searchTerm.trim()) return [];
             
-            const term = searchTerm.toLowerCase().replace(/\s+/g, '');
-
-const name = productName.toLowerCase().replace(/\s+/g, '');
+            const term = searchTerm.toLowerCase().trim();
+            const words = term.split(/\s+/).filter(word => word.length > 0);
             
-            if (name.includes(term)) return true;
+            // Извлечение чисел из запроса
+            const numbersInQuery = term.match(/\d+/g) || [];
+            const queryNumbers = numbersInQuery.map(Number);
             
-            let termIndex = 0;
-            for (let i = 0; i < name.length; i++) {
-                if (termIndex < term.length && name[i] === term[termIndex]) {
-                    termIndex++;
-                }
-            }
+            let results = {
+                exactMatches: [],
+                similarMatches: []
+            };
             
-            if (termIndex >= term.length * 0.7) return true;
-            
-            const searchWords = searchTerm.toLowerCase().split(/\s+/);
-            const nameWords = productName.toLowerCase().split(/\s+/);
-            
-            let matchedWords = 0;
-            for (const searchWord of searchWords) {
-                for (const nameWord of nameWords) {
-                    if (nameWord.includes(searchWord) || 
-                        (searchWord.length > 2 && nameWord.substring(0, searchWord.length) === searchWord)) {
-                        matchedWords++;
-                        break;
+            products.forEach(product => {
+                const productText = (product.name + ' ' + product.description).toLowerCase();
+                const productName = product.name.toLowerCase();
+                const productDesc = product.description.toLowerCase();
+                
+                // Поиск чисел в товаре
+                const numbersInProduct = productText.match(/\d+/g) || [];
+                const productNumbers = numbersInProduct.map(Number);
+                
+                let score = 0;
+                let exactMatch = false;
+                
+                // Проверка точного совпадения по числам
+                if (queryNumbers.length > 0) {
+                    const numberMatch = queryNumbers.some(queryNum => 
+                        productNumbers.some(productNum => 
+                            Math.abs(productNum - queryNum) <= 10 || // Допуск ±10
+                            productNum.toString().includes(queryNum.toString()) ||
+                            queryNum.toString().includes(productNum.toString())
+                        )
+                    );
+                    
+                    if (numberMatch) {
+                        score += 50;
+                        exactMatch = true;
                     }
                 }
+
+// Проверка точного совпадения названия
+                if (productName === term) {
+                    score += 100;
+                    exactMatch = true;
+                }
+                
+                // Проверка точного совпадения с учетом ошибок (расстояние Левенштейна)
+                if (calculateSimilarity(productName, term) > 0.9) {
+                    score += 80;
+                    exactMatch = true;
+                }
+                
+                // Проверка вхождения всех слов запроса
+                const allWordsMatch = words.every(word => 
+                    productName.includes(word) || productDesc.includes(word)
+                );
+                
+                if (allWordsMatch) {
+                    score += 60;
+                    exactMatch = true;
+                }
+                
+                // Проверка частичного совпадения
+                const someWordsMatch = words.some(word => 
+                    productName.includes(word) || productDesc.includes(word)
+                );
+                
+                if (someWordsMatch && !exactMatch) {
+                    score += 30;
+                }
+                
+                // Проверка схожести (для похожих товаров)
+                const similarityScore = calculateSimilarity(productText, term);
+                if (similarityScore > 0.3 && !exactMatch) {
+                    score += Math.floor(similarityScore * 20);
+                }
+                
+                if (score > 0) {
+                    const result = {
+                        product: product,
+                        score: score,
+                        exactMatch: exactMatch
+                    };
+                    
+                    if (exactMatch) {
+                        results.exactMatches.push(result);
+                    } else {
+                        results.similarMatches.push(result);
+                    }
+                }
+            });
+            
+            // Сортировка результатов
+            results.exactMatches.sort((a, b) => b.score - a.score);
+            results.similarMatches.sort((a, b) => b.score - a.score);
+            
+            return results;
+        }
+
+        // Функция расчета схожести строк (упрощенный алгоритм)
+        function calculateSimilarity(str1, str2) {
+            const longer = str1.length > str2.length ? str1 : str2;
+            const shorter = str1.length > str2.length ? str2 : str1;
+            
+            if (longer.length === 0) return 1.0;
+            
+            // Проверка на полное вхождение
+            if (longer.includes(shorter)) return 0.9;
+            
+            // Упрощенный расчет схожести
+            let matches = 0;
+            for (let i = 0; i < shorter.length; i++) {
+                if (longer.includes(shorter[i])) {
+                    matches++;
+                }
             }
             
-            return matchedWords >= searchWords.length * 0.6;
+            return matches / longer.length;
         }
 
         function initApp() {
@@ -1313,6 +1706,7 @@ const name = productName.toLowerCase().replace(/\s+/g, '');
             loadProducts();
             updateCartBadge();
             loadUserOrders();
+            loadSearchHistory();
             
             if (isAdmin) {
                 loadAllOrders();
@@ -1409,6 +1803,27 @@ const name = productName.toLowerCase().replace(/\s+/g, '');
                 window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             });
 
+            // НОВЫЕ ОБРАБОТЧИКИ ДЛЯ ПОИСКА
+            elements.searchNavBtn.addEventListener('click', () => {
+                switchPage('search');
+            });
+
+            elements.backToMenuBtn.addEventListener('click', () => {
+                switchPage('main');
+            });
+
+            elements.searchInputLarge.addEventListener('input', handleLargeSearch);
+            elements.searchInputLarge.addEventListener('focus', () => {
+                // Показываем историю поиска при фокусе
+                renderSearchHistory();
+            });
+
+            elements.searchInputLarge.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+performSearch(elements.searchInputLarge.value);
+                }
+            });
+
             window.addEventListener('scroll', toggleScrollButtons);
 
             document.addEventListener('keydown', (e) => {
@@ -1471,6 +1886,10 @@ const name = productName.toLowerCase().replace(/\s+/g, '');
                 loadUserOrders();
             } else if (page === 'adminOrders' && isAdmin) {
                 loadAllOrders();
+            } else if (page === 'search') {
+                loadRecommendations();
+                renderSearchHistory();
+                elements.searchInputLarge.focus();
             }
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1481,12 +1900,14 @@ const name = productName.toLowerCase().replace(/\s+/g, '');
             elements.mainContent.classList.remove('active');
             elements.iosBottomNav.style.display = 'none';
             elements.scrollButtons.style.display = 'none';
+            elements.searchNavBtn.style.display = 'none';
         }
 
         function showMainContent() {
             elements.loginPanel.style.display = 'none';
             elements.mainContent.classList.add('active');
             elements.iosBottomNav.style.display = 'flex';
+            elements.searchNavBtn.style.display = 'flex';
             
             if (isAdmin) {
                 document.getElementById('userName').textContent = 'Администратор';
@@ -1503,7 +1924,7 @@ const name = productName.toLowerCase().replace(/\s+/g, '');
 
         function resetProductForm() {
             elements.productForm.reset();
-            editingProductId = null;
+editingProductId = null;
             elements.editingProductId.value = '';
             elements.adminFormTitle.textContent = 'Добавить новый товар';
             elements.submitProductBtn.innerHTML = '<i class="fas fa-plus"></i> Добавить товар';
@@ -1561,6 +1982,7 @@ const name = productName.toLowerCase().replace(/\s+/g, '');
                 } else {
                     renderProducts();
                     updateCartBadge();
+                    loadRecommendations();
                 }
             });
         }
@@ -1570,7 +1992,7 @@ const name = productName.toLowerCase().replace(/\s+/g, '');
                 {
                     name: "Укоренитель 50мл",
                     price: 270,
-                    description: "10 капель на 1 литр воды. Эффективное средство для укоренения растений.",
+                    description: "10 капель на 1 литр воды. Эффективное средство для укоренения растений. 230 шт в упаковке.",
                     image: "https://via.placeholder.com/300x200/3399ff/ffffff?text=Укоренитель",
                     status: "in-stock",
                     quantity: 15,
@@ -1579,8 +2001,7 @@ const name = productName.toLowerCase().replace(/\s+/g, '');
                 {
                     name: "Симпл димпл",
                     price: 100,
-
-description: "Популярная антистресс-игрушка для развития моторики рук.",
+                    description: "Популярная антистресс-игрушка для развития моторики рук. Осталось всего 2 штуки!",
                     image: "https://via.placeholder.com/300x200/33cc33/ffffff?text=Симпл+димпл",
                     status: "preorder",
                     quantity: 2,
@@ -1589,10 +2010,46 @@ description: "Популярная антистресс-игрушка для р
                 {
                     name: "Умные часы Xiaomi",
                     price: 2999,
-                    description: "Современные умные часы с отслеживанием активности и уведомлениями.",
+                    description: "Современные умные часы с отслеживанием активности и уведомлениями. В наличии 8 штук.",
                     image: "https://via.placeholder.com/300x200/ffaa33/ffffff?text=Часы+Xiaomi",
                     status: "in-transit",
-                    quantity: null,
+                    quantity: 8,
+                    createdAt: new Date().toLocaleDateString('ru-RU')
+                },
+                {
+                    name: "Огурцы #8",
+                    price: 150,
+                    description: "Свежие огурцы сорта #8. В упаковке 15 штук. Идеально для салатов.",
+                    image: "https://via.placeholder.com/300x200/27ae60/ffffff?text=Огурцы+8",
+status: "in-stock",
+                    quantity: 3,
+                    createdAt: new Date().toLocaleDateString('ru-RU')
+                },
+                {
+                    name: "Огурцы #15",
+                    price: 180,
+                    description: "Отборные огурцы сорта #15. В упаковке 12 штук. Хрустящие и сочные.",
+                    image: "https://via.placeholder.com/300x200/27ae60/ffffff?text=Огурцы+15",
+                    status: "in-stock",
+                    quantity: 5,
+                    createdAt: new Date().toLocaleDateString('ru-RU')
+                },
+                {
+                    name: "Огурцы премиум 230шт",
+                    price: 450,
+                    description: "Премиальные огурцы в упаковке 230 штук. Для ресторанов и кафе.",
+                    image: "https://via.placeholder.com/300x200/27ae60/ffffff?text=Огурцы+230",
+                    status: "in-stock",
+                    quantity: 1,
+                    createdAt: new Date().toLocaleDateString('ru-RU')
+                },
+                {
+                    name: "Огурцы элитные 250шт",
+                    price: 500,
+                    description: "Элитные огурцы в упаковке 250 штук. Отборный товар высшего качества.",
+                    image: "https://via.placeholder.com/300x200/27ae60/ffffff?text=Огурцы+250",
+                    status: "in-stock",
+                    quantity: 2,
                     createdAt: new Date().toLocaleDateString('ru-RU')
                 }
             ];
@@ -1607,9 +2064,11 @@ description: "Популярная антистресс-игрушка для р
             let filteredProducts = products;
             
             if (searchTerm) {
-                filteredProducts = products.filter(product => 
-                    fuzzySearch(searchTerm, product.name)
-                );
+                const searchResults = advancedSearch(searchTerm, products);
+                filteredProducts = [
+                    ...searchResults.exactMatches.map(r => r.product),
+                    ...searchResults.similarMatches.map(r => r.product)
+                ];
             }
             
             if (filteredProducts.length === 0) {
@@ -1650,7 +2109,7 @@ description: "Популярная антистресс-игрушка для р
                     } else if (product.quantity > 3) {
                         textClass = 'medium';
                         fillClass = 'medium';
-                    } else if (product.quantity > 0) {
+} else if (product.quantity > 0) {
                         textClass = 'low';
                         fillClass = 'low';
                     } else {
@@ -1667,7 +2126,7 @@ description: "Популярная антистресс-игрушка для р
                                 <div class="stock-info-text ${textClass}">
                                     <span>В наличии ${product.quantity} шт</span>
                                 </div>
-<div class="progress-bar">
+                                <div class="progress-bar">
                                     <div class="progress-fill ${fillClass}"></div>
                                 </div>
                             </div>
@@ -1728,6 +2187,226 @@ description: "Популярная антистресс-игрушка для р
             renderProducts();
         }
 
+        function handleLargeSearch() {
+            const searchTerm = elements.searchInputLarge.value.trim();
+            if (searchTerm.length >= 2) {
+performSearch(searchTerm);
+            } else {
+                elements.searchResultsSection.style.display = 'none';
+                elements.recommendationsSection.style.display = 'block';
+                elements.searchHistorySection.style.display = 'block';
+            }
+        }
+
+        function performSearch(searchTerm) {
+            if (!searchTerm.trim()) return;
+            
+            // Добавляем в историю поиска
+            addToSearchHistory(searchTerm);
+            
+            const searchResults = advancedSearch(searchTerm, products);
+            
+            // Показываем результаты поиска
+            elements.searchResultsSection.style.display = 'block';
+            elements.recommendationsSection.style.display = 'none';
+            elements.searchHistorySection.style.display = 'none';
+            
+            // Отображаем точные совпадения
+            if (searchResults.exactMatches.length > 0) {
+                elements.exactMatchSection.innerHTML = `
+                    <h3 class="section-title">
+                        <i class="fas fa-check-circle" style="color: #27ae60;"></i>
+                        Точные совпадения
+                    </h3>
+                    <div class="catalog">
+                        ${searchResults.exactMatches.map(result => renderSearchProductCard(result.product)).join('')}
+                    </div>
+                `;
+            } else {
+                elements.exactMatchSection.innerHTML = `
+                    <div style="text-align: center; color: #666; padding: 20px;">
+                        <i class="fas fa-search" style="font-size: 3em; margin-bottom: 15px; opacity: 0.5;"></i>
+                        <p>Точных совпадений не найдено</p>
+                    </div>
+                `;
+            }
+            
+            // Отображаем похожие товары
+            if (searchResults.similarMatches.length > 0) {
+                elements.similarProductsSection.innerHTML = `
+                    <h3 class="section-title">
+                        <i class="fas fa-lightbulb" style="color: #ffaa33;"></i>
+                        Похожие товары
+                    </h3>
+                    <div class="catalog">
+                        ${searchResults.similarMatches.slice(0, 6).map(result => renderSearchProductCard(result.product)).join('')}
+                    </div>
+                `;
+            } else {
+                elements.similarProductsSection.innerHTML = '';
+            }
+        }
+
+        function renderSearchProductCard(product) {
+            let statusBadge = '';
+            let progressBar = '';
+            let cardClass = 'product-card';
+            
+            if (product.status === 'out-of-stock') {
+                statusBadge = '<div class="out-of-stock-badge">Нет в наличии</div>';
+                cardClass += ' out-of-stock';
+            } else if (product.status === 'preorder') {
+                statusBadge = '<div class="preorder-badge">Предзаказ</div>';
+                cardClass += ' preorder';
+            } else if (product.status === 'in-transit') {
+                statusBadge = '<div class="in-transit-badge">В пути</div>';
+                cardClass += ' in-transit';
+            }
+            
+            // Прогресс-бар для поиска
+            if (product.quantity !== null && product.quantity !== undefined && product.status === 'in-stock') {
+                let textClass = '';
+                let fillClass = '';
+                
+                if (product.quantity > 10) {
+                    textClass = 'plenty';
+                    fillClass = 'plenty';
+                } else if (product.quantity > 3) {
+                    textClass = 'medium';
+                    fillClass = 'medium';
+                } else if (product.quantity > 0) {
+                    textClass = 'low';
+                    fillClass = 'low';
+                }
+                
+                if (product.quantity > 0) {
+                    progressBar = `
+                        <div class="stock-progress-container">
+<div class="stock-info-text ${textClass}">
+                                <span>В наличии ${product.quantity} шт</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill ${fillClass}"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            
+            let adminButtons = '';
+            let visitorButton = '';
+            
+            if (isAdmin) {
+                adminButtons = `
+                    <div class="product-actions">
+                        <button class="btn btn-small btn-warning" onclick="editProduct('${product.firebaseKey}')">
+                            <i class="fas fa-edit"></i> Изменить
+                        </button>
+                        <button class="btn btn-small btn-danger" onclick="deleteProduct('${product.firebaseKey}')">
+                            <i class="fas fa-trash"></i> Удалить
+                        </button>
+                    </div>`;
+            } else {
+                if (product.status === 'in-stock') {
+                    const isDisabled = product.quantity !== null && product.quantity <= 0;
+                    visitorButton = `
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn" onclick="addToCart('${product.firebaseKey}')" ${isDisabled ? 'disabled' : ''}>
+                                <i class="fas fa-cart-plus"></i>
+                                <span>${isDisabled ? 'Нет в наличии' : 'В корзину'}</span>
+                            </button>
+                        </div>`;
+                }
+            }
+            
+            return `
+                <div class="${cardClass}">
+                    ${statusBadge}
+                    <div class="product-image" onclick="openFullscreenImage('${product.image}', '${product.name}')">
+                        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x220/3399ff/ffffff?text=Нет+фото'">
+                    </div>
+                    <div class="product-title">${product.name}</div>
+                    <div class="product-description">${product.description}</div>
+                    ${progressBar}
+                    <div class="product-price">${product.price.toLocaleString()} руб.</div>
+                    ${adminButtons}
+                    ${visitorButton}
+                </div>
+            `;
+        }
+
+        function loadRecommendations() {
+            // Рекомендуем товары с малым количеством (1-3 шт) или популярные
+            const recommendedProducts = products.filter(product => 
+                product.status === 'in-stock' && 
+                product.quantity !== null && 
+                product.quantity > 0 && 
+                product.quantity <= 3
+            ).slice(0, 10); // Ограничиваем до 10 товаров
+            
+            if (recommendedProducts.length === 0) {
+                elements.recommendationsSection.style.display = 'none';
+                return;
+            }
+            
+            elements.recommendationsGrid.innerHTML = recommendedProducts.map(product => {
+                const isLowStock = product.quantity <= 3;
+                
+                return `
+                    <div class="recommendation-card">
+                        <img src="${product.image}" alt="${product.name}" class="recommendation-image" onclick="openFullscreenImage('${product.image}', '${product.name}')">
+                        <div class="recommendation-title">${product.name}</div>
+                        ${isLowStock ? `
+                            <div class="stock-info-text low">
+                                <span>Осталось всего ${product.quantity} шт!</span>
+                            </div>
+                        ` : ''}
+                        <div class="recommendation-price">${product.price.toLocaleString()} руб.</div>
+<div class="recommendation-actions">
+                            ${isAdmin ? `
+                                <button class="btn btn-small btn-warning" onclick="editProduct('${product.firebaseKey}')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            ` : ''}
+                            <button class="btn btn-small btn-primary" onclick="addToCart('${product.firebaseKey}')" ${product.quantity <= 0 ? 'disabled' : ''}>
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function loadSearchHistory() {
+            searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+        }
+
+        function renderSearchHistory() {
+            if (searchHistory.length === 0) {
+                elements.searchHistorySection.style.display = 'none';
+                return;
+            }
+            
+            elements.historyTags.innerHTML = searchHistory.slice(0, 10).map(term => `
+                <div class="history-tag" onclick="elements.searchInputLarge.value = '${term}'; performSearch('${term}')">
+                    ${term}
+                </div>
+            `).join('');
+        }
+
+        function addToSearchHistory(searchTerm) {
+            // Удаляем дубликаты
+            searchHistory = searchHistory.filter(term => term !== searchTerm);
+            // Добавляем в начало
+            searchHistory.unshift(searchTerm);
+            // Ограничиваем историю 20 запросами
+            searchHistory = searchHistory.slice(0, 20);
+            // Сохраняем в localStorage
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+            // Обновляем отображение
+            renderSearchHistory();
+        }
+
         function handleProductSubmit(e) {
             e.preventDefault();
             
@@ -1775,7 +2454,7 @@ description: "Популярная антистресс-игрушка для р
             if (!product) return;
 
             if (product.status !== 'in-stock') {
-                showNotification('Этот товар временно недоступен для заказа', 'error');
+showNotification('Этот товар временно недоступен для заказа', 'error');
                 return;
             }
 
@@ -1857,6 +2536,7 @@ description: "Популярная антистресс-игрушка для р
             }
 
             let total = 0;
+            let totalItems = 0;
             let availableItems = [];
             elements.cartItems.innerHTML = '';
 
@@ -1866,6 +2546,7 @@ description: "Популярная антистресс-игрушка для р
                     (product.quantity === null || product.quantity >= item.quantity);
                 
                 const itemTotal = item.price * item.quantity;
+                totalItems += item.quantity;
                 
                 if (isAvailable) {
                     total += itemTotal;
@@ -1876,7 +2557,7 @@ description: "Популярная антистресс-игрушка для р
                 const unavailableBadge = !isAvailable ? '<span class="unavailable-badge">Нет в наличии</span>' : '';
 
                 elements.cartItems.innerHTML += `
-                    <div class="cart-item ${!isAvailable ? 'unavailable' : ''}">
+<div class="cart-item ${!isAvailable ? 'unavailable' : ''}">
                         <img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; border-radius: 15px; object-fit: cover;" onclick="openFullscreenImage('${item.image}', '${item.name}')">
                         <div style="flex: 1;">
                             <div style="font-weight: 700; color: #0066cc;">${item.name} ${unavailableBadge}</div>
@@ -1901,8 +2582,11 @@ description: "Популярная антистресс-игрушка для р
                 `;
             });
 
-            elements.cartTotal.textContent = `Итого: ${total.toLocaleString()} руб.`;
-            elements.createOrderBtn.disabled = availableItems.length === 0;
+            elements.cartTotal.innerHTML = `
+                <div style="margin-bottom: 10px;">Всего позиций: <strong>${totalItems} шт</strong></div>
+                <div>Итого: <strong>${total.toLocaleString()} руб.</strong></div>
+            `;
+            elements.createOrderBtn.disabled = availableItems.length === 0 || isCreatingOrder;
         }
 
         function saveCart() {
@@ -1920,10 +2604,13 @@ description: "Популярная антистресс-игрушка для р
         }
 
         function createOrder() {
+            if (isCreatingOrder) {
+                return; // Заказ уже создается, игнорируем повторные нажатия
+            }
+            
             const availableItems = cart.filter(item => {
                 const product = products.find(p => p.firebaseKey === item.id);
-
-return product && product.status === 'in-stock' && 
+                return product && product.status === 'in-stock' && 
                     (product.quantity === null || product.quantity >= item.quantity);
             });
 
@@ -1932,12 +2619,20 @@ return product && product.status === 'in-stock' &&
                 return;
             }
 
+            // Блокируем кнопку и показываем загрузку
+            isCreatingOrder = true;
+            elements.createOrderBtn.disabled = true;
+            elements.loadingOrder.classList.add('active');
+
             const orderNumber = Math.floor(100000 + Math.random() * 900000).toString();
+            const totalItemsCount = availableItems.reduce((sum, item) => sum + item.quantity, 0);
+            
             const orderData = {
                 orderNumber: orderNumber,
                 deviceId: deviceId,
                 items: availableItems,
                 total: availableItems.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                totalItems: totalItemsCount,
                 status: 'processing',
                 createdAt: new Date().toLocaleString('ru-RU'),
                 readyAt: null,
@@ -1946,7 +2641,11 @@ return product && product.status === 'in-stock' &&
 
             database.ref('orders').push(orderData)
                 .then(() => {
+                    // Скрываем загрузку и показываем успех
+                    elements.loadingOrder.classList.remove('active');
                     showOrderSuccess(orderNumber);
+                    
+                    // Убираем товары из корзины
                     cart = cart.filter(cartItem => 
                         !availableItems.some(orderItem => orderItem.id === cartItem.id)
                     );
@@ -1954,9 +2653,16 @@ return product && product.status === 'in-stock' &&
                     updateCartBadge();
                     renderCart();
                     loadUserOrders();
+                    
+                    // Разблокируем кнопку
+                    isCreatingOrder = false;
                 })
                 .catch((error) => {
+                    // В случае ошибки тоже разблокируем кнопку
+                    elements.loadingOrder.classList.remove('active');
                     showNotification('Ошибка создания заказа', 'error');
+                    isCreatingOrder = false;
+                    elements.createOrderBtn.disabled = availableItems.length === 0;
                 });
         }
 
@@ -1996,6 +2702,9 @@ return product && product.status === 'in-stock' &&
                             ${order.status === 'ready' ? 'Готов' : 'В сборке'}
                         </div>
                     </div>
+                    <div style="margin-bottom: 15px; color: #666; font-weight: 600;">
+                        Всего позиций: ${order.totalItems || order.items.reduce((sum, item) => sum + item.quantity, 0)} шт
+                    </div>
                     ${order.items.map(item => `
                         <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f8ff;">
                             <div style="display: flex; align-items: center; gap: 15px;">
@@ -2005,7 +2714,7 @@ return product && product.status === 'in-stock' &&
                                     <div style="color: #666;">Количество: ${item.quantity}</div>
                                     <div style="color: #666;">Цена: ${item.price.toLocaleString()} руб.</div>
                                 </div>
-</div>
+                            </div>
                             <div style="color: #0099ff; font-weight: 800;">${(item.price * item.quantity).toLocaleString()} руб.</div>
                         </div>
                     `).join('')}
@@ -2034,6 +2743,8 @@ return product && product.status === 'in-stock' &&
 
             elements.adminOrders.innerHTML = orders.map(order => {
                 const isDeducted = deductedOrders[order.orderNumber] || order.deducted;
+                const totalItems = order.totalItems || order.items.reduce((sum, item) => sum + item.quantity, 0);
+                
                 return `
                 <div class="order-item">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
@@ -2041,6 +2752,9 @@ return product && product.status === 'in-stock' &&
                         <div class="order-status ${order.status === 'ready' ? 'ready' : ''}">
                             ${order.status === 'ready' ? 'Готов' : 'В сборке'}
                         </div>
+                    </div>
+                    <div style="margin-bottom: 15px; color: #666; font-weight: 600;">
+                        Всего позиций: ${totalItems} шт
                     </div>
                     ${order.items.map(item => `
                         <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f8ff;">
@@ -2056,7 +2770,7 @@ return product && product.status === 'in-stock' &&
                         </div>
                     `).join('')}
                     <div style="text-align: right; font-size: 1.3em; font-weight: 800; color: #0066cc; margin-top: 15px;">
-                        Общая стоимость: ${order.total.toLocaleString()} руб.
+Общая стоимость: ${order.total.toLocaleString()} руб.
                     </div>
                     <div style="margin-top: 12px; font-size: 13px; color: #999;">
                         Создан: ${order.createdAt}
@@ -2067,9 +2781,7 @@ return product && product.status === 'in-stock' &&
                     <div style="margin-top: 18px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                         ${order.status !== 'ready' ? `
                             <button class="btn btn-success btn-small" onclick="completeOrder('${order.orderNumber}')">
-
-
-<i class="fas fa-check"></i> Заказ готов
+                                <i class="fas fa-check"></i> Заказ готов
                             </button>
                         ` : `
                             ${!isDeducted ? `
@@ -2141,7 +2853,7 @@ return product && product.status === 'in-stock' &&
                 let newStatus;
                 if (product.status === 'in-stock') {
                     newStatus = 'out-of-stock';
-                } else if (product.status === 'out-of-stock') {
+} else if (product.status === 'out-of-stock') {
                     newStatus = 'preorder';
                 } else if (product.status === 'preorder') {
                     newStatus = 'in-transit';
@@ -2234,7 +2946,7 @@ return product && product.status === 'in-stock' &&
             
             if (confirm('Вы уверены, что хотите удалить этот заказ?')) {
                 database.ref('orders').orderByChild('orderNumber').equalTo(orderNumber).once('value', (snapshot) => {
-                    snapshot.forEach((childSnapshot) => {
+snapshot.forEach((childSnapshot) => {
                         database.ref('orders/' + childSnapshot.key).remove()
                             .then(() => {
                                 delete deductedOrders[orderNumber];
