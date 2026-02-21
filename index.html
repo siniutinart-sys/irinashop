@@ -57,30 +57,24 @@
             100% { transform: scale(1); }
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
-        }
-
-        /* ОБНОВЛЕННОЕ МЕНЮ СНИЗУ - МАТОВОЕ СТЕКЛО С КАПЛЕЙ */
+        /* ОБНОВЛЕННОЕ МЕНЮ СНИЗУ - БЕЛОЕ МАТОВОЕ СТЕКЛО 10% ПРОЗРАЧНОСТИ */
         .ios-bottom-nav {
             position: fixed;
             bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.9); /* 10% прозрачности */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 40px;
             padding: 6px 10px;
             display: flex;
             gap: 4px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             min-width: 320px;
             max-width: 90vw;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
         .nav-item-ios {
@@ -97,11 +91,12 @@
             cursor: pointer;
             transition: color 0.3s ease;
             min-height: 45px;
-            color: #555;
+            color: #666;
             overflow: hidden;
             z-index: 2;
         }
 
+        /* Анимированная "капля" фона */
         .nav-item-ios::before {
             content: '';
             position: absolute;
@@ -110,26 +105,24 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(200, 200, 200, 0.2);
             transform: translate(-50%, -50%);
-            transition: width 0.4s ease-out, height 0.4s ease-out, background 0.3s ease;
+            transition: width 0.4s ease-out, height 0.4s ease-out;
             z-index: -1;
         }
 
         .nav-item-ios.active {
-            color: #87CEEB;
+            color: #0066cc; /* Синий цвет */
         }
 
         .nav-item-ios.active::before {
             width: 70px;
             height: 70px;
-            background: rgba(200, 200, 200, 0.3);
         }
 
         .nav-icon {
             font-size: 18px;
             margin-bottom: 2px;
-            transition: all 0.3s ease;
             position: relative;
             z-index: 1;
         }
@@ -827,7 +820,7 @@
             font-weight: 700;
         }
 
-        /* УЛУЧШЕННЫЙ ДИЗАЙН КОРЗИНЫ */
+        /* СТИЛИ ДЛЯ КОРЗИНЫ */
         .cart-item {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -849,11 +842,6 @@
             border-color: #ff6666;
         }
 
-        .cart-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 100, 200, 0.15);
-        }
-
         .cart-item-image {
             width: 80px;
             height: 80px;
@@ -862,10 +850,6 @@
             cursor: pointer;
             transition: transform 0.3s ease;
             border: 2px solid #b3d9ff;
-        }
-
-        .cart-item-image:hover {
-            transform: scale(1.05);
         }
 
         .cart-item-details {
@@ -885,18 +869,6 @@
             margin-bottom: 3px;
         }
 
-        .cart-item-max {
-            color: #666;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .cart-item-warning {
-            color: #ff4444;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
         .cart-item-actions {
             display: flex;
             align-items: center;
@@ -914,21 +886,11 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .cart-quantity-btn:hover:not(:disabled) {
             background: linear-gradient(135deg, #3399ff, #0066cc);
             color: white;
-            transform: translateY(-2px);
-            border-color: transparent;
-        }
-
-        .cart-quantity-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
         }
 
         .cart-quantity-value {
@@ -946,15 +908,6 @@
             background: #ff6666;
             color: white;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cart-delete-btn:hover {
-            background: #ff4444;
-            transform: translateY(-2px);
         }
 
         .unavailable-badge {
@@ -978,7 +931,6 @@
             font-size: 1.4em;
             font-weight: 800;
             animation: slideUp 0.5s ease-out;
-            box-shadow: 0 8px 25px rgba(0,102,204,0.3);
         }
 
         .cart-total span {
@@ -1016,121 +968,14 @@
             box-shadow: none;
         }
 
-        /* УЛУЧШЕННЫЙ ДИЗАЙН МОИХ ЗАКАЗОВ */
+        /* СТИЛИ ДЛЯ ЗАКАЗОВ - ПРОСТЫЕ КАК В ПЕРВОМ КОДЕ */
         .order-item {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
+            border-radius: 20px;
             padding: 25px;
             margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0, 100, 200, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 100, 200, 0.1);
             animation: slideUp 0.5s ease-out;
-            border: 1px solid rgba(255,255,255,0.5);
-        }
-
-        .order-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px dashed #b3d9ff;
-        }
-
-        .order-number-badge {
-            font-size: 1.6em;
-            font-weight: 800;
-            color: #0066cc;
-            letter-spacing: 1px;
-        }
-
-        .order-status {
-            background: linear-gradient(135deg, #ffaa33, #ff8800);
-            color: white;
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 700;
-            box-shadow: 0 3px 10px rgba(255, 170, 51, 0.3);
-        }
-
-        .order-status.ready {
-            background: linear-gradient(135deg, #33cc33, #00aa00);
-        }
-
-        .order-summary {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            color: #555;
-            font-weight: 600;
-        }
-
-        .order-summary i {
-            color: #0066cc;
-            margin-right: 5px;
-        }
-
-        .order-items {
-            background: #f8faff;
-            border-radius: 20px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
-        .order-item-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #e0ecff;
-        }
-        .order-item-row:last-child {
-            border-bottom: none;
-        }
-
-        .order-item-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .order-item-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            object-fit: cover;
-            cursor: pointer;
-            border: 2px solid #b3d9ff;
-        }
-
-        .order-item-details {
-            font-weight: 500;
-        }
-        .order-item-details strong {
-            color: #0066cc;
-        }
-
-        .order-item-price {
-            font-weight: 700;
-            color: #0099ff;
-        }
-
-        .order-total {
-            text-align: right;
-            font-size: 1.3em;
-            font-weight: 800;
-            color: #0066cc;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid #b3d9ff;
-        }
-
-        .order-footer {
-            margin-top: 15px;
-            font-size: 13px;
-            color: #999;
-            display: flex;
-            justify-content: space-between;
         }
 
         .order-status {
@@ -1211,7 +1056,6 @@
 
         .fullscreen-modal.active {
             display: flex;
-            animation: fadeIn 0.3s ease-out;
         }
 
         .modal-image {
@@ -1232,9 +1076,6 @@
             border-radius: 50%;
             font-size: 22px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .status-modal {
@@ -1248,7 +1089,6 @@
             z-index: 3000;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.3s ease-out;
         }
 
         .status-modal.active {
@@ -1262,8 +1102,6 @@
             max-width: 400px;
             width: 90%;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            animation: slideUp 0.4s ease-out;
         }
 
         .status-modal-title {
@@ -1323,16 +1161,9 @@
             border-radius: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             width: 100%;
         }
 
-        .status-cancel-btn:hover {
-            background: #e6f2ff;
-            transform: translateY(-2px);
-        }
-
-        /* УЛУЧШЕННОЕ ОКНО ЗАКАЗА С КНОПКОЙ КОПИРОВАНИЯ */
         .order-success-modal {
             display: none;
             position: fixed;
@@ -1344,7 +1175,6 @@
             z-index: 3001;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.4s ease-out;
         }
 
         .order-success-modal.active {
@@ -1358,8 +1188,6 @@
             max-width: 500px;
             width: 90%;
             text-align: center;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-            animation: pulse 1s;
         }
 
         .order-success-icon {
@@ -1374,23 +1202,8 @@
             font-weight: 800;
             color: #0066cc;
             margin-bottom: 25px;
-            text-shadow: 0 2px 10px rgba(0, 102, 204, 0.2);
         }
 
-        .order-success-text {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .order-warning {
-            color: #ff6666;
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-size: 1.1em;
-        }
-
-        /* НОВАЯ КНОПКА КОПИРОВАНИЯ НОМЕРА ЗАКАЗА */
         .copy-number-btn {
             background: linear-gradient(135deg, #0066cc, #3399ff);
             color: white;
@@ -1402,8 +1215,6 @@
             font-size: 1.1em;
             margin-bottom: 15px;
             width: 100%;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,102,204,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1412,11 +1223,6 @@
 
         .copy-number-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,102,204,0.4);
-        }
-
-        .copy-number-btn i {
-            font-size: 1.2em;
         }
 
         .order-modal-close {
@@ -1428,17 +1234,9 @@
             cursor: pointer;
             font-weight: 700;
             font-size: 1.2em;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(51, 153, 255, 0.3);
             width: 100%;
         }
 
-        .order-modal-close:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(51, 153, 255, 0.4);
-        }
-
-        /* КНОПКИ ПРОКРУТКИ ВВЕРХ/ВНИЗ */
         .scroll-buttons {
             position: fixed;
             right: 20px;
@@ -1462,12 +1260,6 @@
             justify-content: center;
             font-size: 20px;
             box-shadow: 0 5px 15px rgba(51, 153, 255, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .scroll-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(51, 153, 255, 0.6);
         }
 
         .loading-order {
@@ -1487,12 +1279,6 @@
 
         .loading-order.active {
             display: flex;
-        }
-
-        .loading-order-text {
-            font-size: 1.5em;
-            margin-top: 20px;
-            font-weight: 600;
         }
 
         .no-results {
@@ -1518,14 +1304,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .login-options {
-                flex-direction: column;
-            }
-
             .ios-bottom-nav {
                 min-width: 280px;
-                padding: 5px 10px;
-                border-radius: 35px;
             }
 
             .nav-item-ios.active::before {
@@ -1539,15 +1319,6 @@
                 border-radius: 15px;
                 padding: 15px;
                 flex-direction: row;
-                gap: 10px;
-            }
-
-            .add-to-cart-btn i {
-                margin-bottom: 0;
-            }
-
-            .add-to-cart-btn span {
-                font-size: 14px;
             }
 
             .order-success-content {
@@ -1556,53 +1327,6 @@
 
             .order-number-large {
                 font-size: 2.5em;
-            }
-
-            .scroll-buttons {
-                right: 10px;
-                bottom: 90px;
-            }
-
-            .scroll-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 18px;
-            }
-
-            .filters-container {
-                justify-content: center;
-            }
-
-            .filter-btn {
-                padding: 10px 18px;
-                font-size: 13px;
-            }
-
-            .quick-search-btn {
-                padding: 8px 14px;
-                font-size: 13px;
-            }
-
-            .search-buttons {
-                flex-direction: column;
-            }
-
-            .status-modal-content {
-                padding: 30px;
-            }
-
-            .status-btn {
-                padding: 14px;
-                font-size: 15px;
-            }
-            
-            .cart-item {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .cart-item-actions {
-                justify-content: center;
             }
         }
     </style>
@@ -1677,9 +1401,6 @@
                     <div class="form-group">
                         <label for="productImageUrl">Ссылка на изображение товара</label>
                         <input type="url" id="productImageUrl" placeholder="https://example.com/image.jpg" required>
-                        <div style="font-size: 12px; color: #666; margin-top: 5px;">
-                            Укажите прямую ссылку на изображение товара
-                        </div>
                     </div>
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
@@ -1695,9 +1416,6 @@
                         <div class="form-group">
                             <label for="productQuantity">Количество на складе</label>
                             <input type="number" id="productQuantity" placeholder="Оставьте пустым, если не ограничено">
-                            <div style="font-size: 12px; color: #666; margin-top: 5px;">
-                                Необязательное поле. Укажите точное количество товара
-                            </div>
                         </div>
                     </div>
                     <div class="form-actions" style="display: flex; gap: 18px; flex-wrap: wrap;">
@@ -1740,6 +1458,8 @@
                             <button class="quick-search-btn" data-search="Пекинская капуста">Пекинская капуста</button>
                             <button class="quick-search-btn" data-search="Капуста">Капуста</button>
                             <button class="quick-search-btn" data-search="Сельдерей">Сельдерей</button>
+                            <!-- НОВАЯ КНОПКА УКРОП -->
+                            <button class="quick-search-btn" data-search="Укроп">Укроп</button>
                         </div>
                         <div class="search-buttons">
                             <button class="search-action-btn search-btn-primary" id="searchExecuteBtn">
@@ -1800,14 +1520,26 @@
                 <h2 style="color: #0066cc; margin-bottom: 25px; text-align: center;">
                     <i class="fas fa-clipboard-list"></i> Мои заказы
                 </h2>
-                <div id="userOrders"></div>
+                <div id="userOrders">
+                    <div style="text-align: center; color: #0066cc; padding: 50px;">
+                        <i class="fas fa-clipboard-list" style="font-size: 4em; margin-bottom: 25px; opacity: 0.5;"></i>
+                        <h3>Заказов пока нет</h3>
+                        <p>Создайте свой первый заказ из корзины</p>
+                    </div>
+                </div>
             </div>
 
             <div class="page-content" id="adminOrdersPage">
                 <h2 style="color: #0066cc; margin-bottom: 25px; text-align: center;">
                     <i class="fas fa-tasks"></i> Все заказы
                 </h2>
-                <div id="adminOrders"></div>
+                <div id="adminOrders">
+                    <div style="text-align: center; color: #0066cc; padding: 50px;">
+                        <i class="fas fa-tasks" style="font-size: 4em; margin-bottom: 25px; opacity: 0.5;"></i>
+                        <h3>Заказов пока нет</h3>
+                        <p>Ожидание новых заказов от клиентов</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1821,7 +1553,7 @@
         </button>
     </div>
 
-    <!-- НОВОЕ МЕНЮ - МАТОВОЕ СТЕКЛО -->
+    <!-- НОВОЕ МЕНЮ - МАТОВОЕ СТЕКЛО 10% ПРОЗРАЧНОСТИ -->
     <div class="ios-bottom-nav" id="iosBottomNav" style="display: none;">
         <button class="nav-item-ios active" data-page="catalog">
             <i class="fas fa-boxes nav-icon"></i>
@@ -1883,7 +1615,6 @@
             <div class="order-number-large" id="orderNumberDisplay"></div>
             <p class="order-warning">⚠️ Сохраните этот номер для отслеживания заказа!</p>
             
-            <!-- КНОПКА КОПИРОВАНИЯ НОМЕРА ЗАКАЗА -->
             <button class="copy-number-btn" id="copyOrderNumberBtn">
                 <i class="fas fa-copy"></i> Скопировать номер
             </button>
@@ -1902,7 +1633,6 @@
     <div class="notification" id="notification"></div>
 
     <script>
-        // Firebase конфигурация
         const firebaseConfig = {
             apiKey: "AIzaSyD5raYGkouHML1q2awhg82y9Y6M1GkbMT",
             authDomain: "vostochnyi-bazar.firebaseapp.com",
@@ -1917,13 +1647,11 @@
         const database = firebase.database();
         const storage = firebase.storage();
 
-        // Данные для входа администратора
         const ADMIN_CREDENTIALS = {
             username: "admin",
             password: "9561"
         };
 
-        // Глобальные переменные
         let products = [];
         let filteredProducts = [];
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -1936,12 +1664,10 @@
         let isCreatingOrder = false;
         let currentFilter = 'all';
         let currentSearchTerm = '';
-        let isSearching = false;
         let statusModalProductId = null;
 
         localStorage.setItem('deviceId', deviceId);
 
-        // DOM элементы
         const elements = {
             loginPanel: document.getElementById('loginPanel'),
             mainContent: document.getElementById('mainContent'),
@@ -2001,7 +1727,7 @@
             return sku;
         }
 
-        // Функция для сбора всех существующих артикулов из товаров
+        // Функция для сбора всех существующих артикулов
         function collectExistingSkus(productsArray) {
             const skus = new Set();
             productsArray.forEach(p => {
@@ -2015,8 +1741,6 @@
             if (!searchTerm.trim()) return [];
             
             const term = searchTerm.toLowerCase().trim();
-            
-            // Проверяем, не является ли запрос артикулом (9 цифр)
             const isSkuSearch = /^\d{9}$/.test(term);
             
             let exactMatches = [];
@@ -2026,13 +1750,11 @@
                 let score = 0;
                 let exactMatch = false;
                 
-                // Поиск по артикулу (точное совпадение)
                 if (product.sku && product.sku === term) {
                     score += 2000;
                     exactMatch = true;
                 }
                 
-                // Поиск по названию
                 const productName = product.name.toLowerCase();
                 if (productName === term) {
                     score += 1000;
@@ -2041,7 +1763,6 @@
                     score += 500;
                 }
                 
-                // Поиск по описанию
                 const productDesc = product.description.toLowerCase();
                 if (productDesc.includes(term)) {
                     score += 200;
@@ -2060,7 +1781,6 @@
             exactMatches.sort((a, b) => b.score - a.score);
             similarMatches.sort((a, b) => b.score - a.score);
             
-            // Если искали артикул и ничего не нашли
             if (isSkuSearch && exactMatches.length === 0) {
                 return { notFound: true };
             }
@@ -2071,7 +1791,6 @@
             };
         }
 
-        // Инициализация приложения
         function initApp() {
             setupEventListeners();
             setupNavigation();
@@ -2092,7 +1811,6 @@
             }
         }
 
-        // Настройка обработчиков событий
         function setupEventListeners() {
             elements.visitorBtn.addEventListener('click', () => {
                 elements.visitorBtn.classList.add('active');
@@ -2172,7 +1890,6 @@
                 if (e.target === elements.orderSuccessModal) closeOrderSuccessModal();
             });
 
-            // Кнопка копирования номера заказа
             elements.copyOrderNumberBtn.addEventListener('click', copyOrderNumber);
 
             elements.scrollToTop.addEventListener('click', () => {
@@ -2237,7 +1954,6 @@
             });
         }
 
-        // Функция копирования номера заказа с уведомлением
         function copyOrderNumber() {
             const orderNumber = elements.orderNumberDisplay.textContent;
             navigator.clipboard.writeText(orderNumber).then(() => {
@@ -2247,7 +1963,14 @@
             });
         }
 
-        // Настройка модального окна статусов
+        window.copySku = function(sku) {
+            navigator.clipboard.writeText(sku).then(() => {
+                showNotification('Артикул скопирован!', 'success');
+            }).catch(() => {
+                showNotification('Ошибка копирования', 'error');
+            });
+        };
+
         function setupStatusModal() {
             elements.statusCancelBtn.addEventListener('click', closeStatusModal);
             
@@ -2296,7 +2019,6 @@
                 });
         }
 
-        // Настройка фильтров
         function setupFilters() {
             const filterButtons = document.querySelectorAll('.filter-btn');
             filterButtons.forEach(btn => {
@@ -2310,7 +2032,6 @@
             });
         }
 
-        // Настройка быстрого поиска
         function setupQuickSearch() {
             const quickSearchButtons = document.querySelectorAll('.quick-search-btn');
             quickSearchButtons.forEach(btn => {
@@ -2323,7 +2044,6 @@
             });
         }
 
-        // Показать/скрыть кнопки прокрутки
         function toggleScrollButtons() {
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
@@ -2348,7 +2068,6 @@
             }
         }
 
-        // Настройка навигации по страницам
         function setupNavigation() {
             const navItems = document.querySelectorAll('.nav-item-ios');
             navItems.forEach(item => {
@@ -2362,7 +2081,6 @@
             });
         }
 
-        // Переключение страницы
         function switchPage(page) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
             document.getElementById(page + 'Page').classList.add('active');
@@ -2384,7 +2102,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Показать панель входа
         function showLoginPanel() {
             elements.loginPanel.style.display = 'block';
             elements.mainContent.classList.remove('active');
@@ -2392,7 +2109,6 @@
             elements.scrollButtons.style.display = 'none';
         }
 
-        // Показать основной контент
         function showMainContent() {
             elements.loginPanel.style.display = 'none';
             elements.mainContent.classList.add('active');
@@ -2411,7 +2127,6 @@
             setTimeout(toggleScrollButtons, 100);
         }
 
-        // Сброс формы товара
         function resetProductForm() {
             elements.productForm.reset();
             editingProductId = null;
@@ -2421,7 +2136,6 @@
             elements.cancelEdit.style.display = 'none';
         }
 
-        // Открыть полноэкранное изображение
         function openFullscreenImage(imageUrl, imageAlt) {
             elements.modalImage.src = imageUrl;
             elements.modalImage.alt = imageAlt;
@@ -2429,27 +2143,23 @@
             document.body.style.overflow = 'hidden';
         }
 
-        // Закрыть полноэкранное изображение
         function closeFullscreenModal() {
             elements.fullscreenModal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
 
-        // Показать уведомление об успешном заказе
         function showOrderSuccess(orderNumber) {
             elements.orderNumberDisplay.textContent = orderNumber;
             elements.orderSuccessModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        // Закрыть уведомление о заказе
         function closeOrderSuccessModal() {
             elements.orderSuccessModal.classList.remove('active');
             document.body.style.overflow = 'auto';
             switchPage('orders');
         }
 
-        // Показать уведомление
         function showNotification(message, type) {
             elements.notification.textContent = message;
             elements.notification.className = `notification ${type} show`;
@@ -2458,23 +2168,12 @@
             }, 3000);
         }
 
-        // Функция копирования текста (для артикулов)
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                showNotification('Артикул скопирован!', 'success');
-            }).catch(() => {
-                showNotification('Ошибка копирования', 'error');
-            });
-        }
-
-        // Загрузка товаров из Firebase
         function loadProducts() {
             database.ref('products').on('value', (snapshot) => {
                 const data = snapshot.val();
                 products = [];
                 
                 if (data) {
-                    // Собираем все существующие артикулы
                     const existingSkus = new Set();
                     Object.keys(data).forEach(key => {
                         if (data[key].sku) existingSkus.add(data[key].sku);
@@ -2486,12 +2185,10 @@
                             firebaseKey: key
                         };
                         
-                        // Если у товара нет артикула, генерируем новый
                         if (!product.sku) {
                             const newSku = generateUniqueSku(existingSkus);
                             product.sku = newSku;
                             existingSkus.add(newSku);
-                            // Сохраняем в Firebase
                             database.ref('products/' + key).update({ sku: newSku });
                         }
 
@@ -2516,7 +2213,6 @@
             });
         }
 
-        // Добавление демо-товаров (с артикулами)
         function addDemoProducts() {
             const demoProducts = [
                 {
@@ -2602,7 +2298,6 @@
                 }
             ];
             
-            // Генерируем уникальные артикулы для демо-товаров
             const existingSkus = new Set();
             demoProducts.forEach(product => {
                 const sku = generateUniqueSku(existingSkus);
@@ -2612,7 +2307,6 @@
             });
         }
 
-        // Применение фильтров и поиска
         function applyFilters() {
             let filtered = [...products];
             
@@ -2623,7 +2317,6 @@
             if (currentSearchTerm && currentSearchTerm.trim()) {
                 const searchResults = advancedSearch(currentSearchTerm, filtered);
                 
-                // Проверяем, был ли это поиск артикула и ничего не найдено
                 if (searchResults.notFound) {
                     filtered = [];
                 } else {
@@ -2636,7 +2329,6 @@
             
             filteredProducts = filtered;
             
-            // Обновляем счетчик
             if (filteredProducts.length > 0) {
                 elements.filterStatsCount.textContent = filteredProducts.length;
                 elements.filterStats.classList.add('show');
@@ -2647,7 +2339,6 @@
             renderProducts(filteredProducts);
         }
 
-        // Выполнение поиска
         function performSearch(searchTerm) {
             if (!searchTerm.trim()) {
                 showNotification('Введите поисковый запрос', 'error');
@@ -2657,7 +2348,6 @@
             currentSearchTerm = searchTerm;
             applyFilters();
 
-            // Проверяем, был ли это поиск артикула и ничего не найдено
             if (/^\d{9}$/.test(searchTerm) && filteredProducts.length === 0) {
                 showNotification(`Товар с артикулом ${searchTerm} не найден`, 'error');
             } else {
@@ -2665,12 +2355,6 @@
             }
         }
 
-        // Функция для копирования артикула (глобальная)
-        window.copySku = function(sku) {
-            copyToClipboard(sku);
-        };
-
-        // Отрисовка товаров
         function renderProducts(productsToRender) {
             if (productsToRender.length === 0) {
                 elements.productCatalog.innerHTML = `
@@ -2765,7 +2449,6 @@
                         </div>
                         <div class="product-title">${product.name}</div>
                         <div class="product-description">${product.description}</div>
-                        <!-- НОВЫЙ БЛОК С АРТИКУЛОМ И КНОПКОЙ КОПИРОВАНИЯ -->
                         <div class="product-sku" onclick="copySku('${product.sku}')" title="Нажмите, чтобы скопировать артикул">
                             <i class="fas fa-barcode"></i>
                             <span class="sku-value">${product.sku}</span>
@@ -2785,7 +2468,6 @@
             }).join('');
         }
 
-        // Обработка отправки формы товара
         function handleProductSubmit(e) {
             e.preventDefault();
             
@@ -2823,7 +2505,6 @@
                         showNotification('Ошибка обновления товара', 'error');
                     });
             } else {
-                // Генерируем уникальный артикул для нового товара
                 const existingSkus = collectExistingSkus(products);
                 const newSku = generateUniqueSku(existingSkus);
                 productData.sku = newSku;
@@ -2839,7 +2520,6 @@
             }
         }
 
-        // Добавление товара в корзину
         function addToCart(productId) {
             const product = products.find(p => p.firebaseKey === productId);
             if (!product) return;
@@ -2882,7 +2562,6 @@
             }
         }
 
-        // Удаление товара из корзины
         function removeFromCart(productId) {
             cart = cart.filter(item => item.id !== productId);
             saveCart();
@@ -2891,7 +2570,6 @@
             showNotification('Товар удален из корзины', 'success');
         }
 
-        // Изменение количества товара в корзине
         function updateQuantity(productId, change) {
             const item = cart.find(item => item.id === productId);
             if (item) {
@@ -2914,7 +2592,6 @@
             }
         }
 
-        // Отрисовка корзины
         function renderCart() {
             if (cart.length === 0) {
                 elements.cartItems.innerHTML = `
@@ -2985,12 +2662,10 @@
             elements.createOrderBtn.disabled = availableItems.length === 0 || isCreatingOrder;
         }
 
-        // Сохранение корзины
         function saveCart() {
             localStorage.setItem('cart', JSON.stringify(cart));
         }
 
-        // Обновление бейджа корзины
         function updateCartBadge() {
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             if (totalItems > 0) {
@@ -3001,7 +2676,6 @@
             }
         }
 
-        // Создание заказа
         function createOrder() {
             if (isCreatingOrder) {
                 return;
@@ -3060,7 +2734,6 @@
                 });
         }
 
-        // Загрузка заказов пользователя
         function loadUserOrders() {
             database.ref('orders').orderByChild('deviceId').equalTo(deviceId).once('value', (snapshot) => {
                 const data = snapshot.val();
@@ -3069,7 +2742,6 @@
             });
         }
 
-        // Загрузка всех заказов (для админа)
         function loadAllOrders() {
             database.ref('orders').once('value', (snapshot) => {
                 const data = snapshot.val();
@@ -3078,7 +2750,6 @@
             });
         }
 
-        // Отрисовка заказов пользователя (УЛУЧШЕННЫЙ ДИЗАЙН)
         function renderUserOrders(orders) {
             if (orders.length === 0) {
                 elements.userOrders.innerHTML = `
@@ -3093,48 +2764,39 @@
 
             elements.userOrders.innerHTML = orders.map(order => `
                 <div class="order-item">
-                    <div class="order-header">
-                        <div class="order-number-badge">Заказ #${order.orderNumber}</div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                        <div style="font-size: 1.4em; font-weight: 800; color: #0066cc;">Заказ #${order.orderNumber}</div>
                         <div class="order-status ${order.status === 'ready' ? 'ready' : ''}">
                             ${order.status === 'ready' ? 'Готов' : 'В сборке'}
                         </div>
                     </div>
-                    
-                    <div class="order-summary">
-                        <span><i class="fas fa-box"></i> ${order.totalItems || order.items.reduce((sum, item) => sum + item.quantity, 0)} шт</span>
-                        <span><i class="fas fa-calendar"></i> ${order.createdAt}</span>
+                    <div style="margin-bottom: 15px; color: #666; font-weight: 600;">
+                        Всего позиций: ${order.totalItems || order.items.reduce((sum, item) => sum + item.quantity, 0)} шт
                     </div>
-
-                    <div class="order-items">
-                        ${order.items.map(item => `
-                            <div class="order-item-row">
-                                <div class="order-item-info">
-                                    <img src="${item.image}" alt="${item.name}" class="order-item-image" onclick="openFullscreenImage('${item.image}', '${item.name}')">
-                                    <div class="order-item-details">
-                                        <strong>${item.name}</strong><br>
-                                        ${item.quantity} × ${item.price.toLocaleString()} руб.
-                                    </div>
-                                </div>
-                                <div class="order-item-price">
-                                    ${(item.price * item.quantity).toLocaleString()} руб.
+                    ${order.items.map(item => `
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f8ff;">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; border-radius: 12px; object-fit: cover;" onclick="openFullscreenImage('${item.image}', '${item.name}')">
+                                <div>
+                                    <div style="font-weight: 700; color: #0066cc;">${item.name}</div>
+                                    <div style="color: #666;">Количество: ${item.quantity}</div>
+                                    <div style="color: #666;">Цена: ${item.price.toLocaleString()} руб.</div>
                                 </div>
                             </div>
-                        `).join('')}
+                            <div style="color: #0099ff; font-weight: 800;">${(item.price * item.quantity).toLocaleString()} руб.</div>
+                        </div>
+                    `).join('')}
+                    <div style="text-align: right; font-size: 1.3em; font-weight: 800; color: #0066cc; margin-top: 15px;">
+                        Общая стоимость: ${order.total.toLocaleString()} руб.
                     </div>
-
-                    <div class="order-total">
-                        Итого: ${order.total.toLocaleString()} руб.
-                    </div>
-                    
-                    <div class="order-footer">
-                        <span>Номер заказа: ${order.orderNumber}</span>
-                        ${order.readyAt ? `<span>Готов: ${order.readyAt}</span>` : ''}
+                    <div style="margin-top: 12px; font-size: 13px; color: #999;">
+                        Создан: ${order.createdAt}
+                        ${order.readyAt ? `<br>Готов: ${order.readyAt}` : ''}
                     </div>
                 </div>
             `).join('');
         }
 
-        // Отрисовка заказов для админа
         function renderAdminOrders(orders) {
             if (orders.length === 0) {
                 elements.adminOrders.innerHTML = `
@@ -3153,44 +2815,37 @@
                 
                 return `
                 <div class="order-item">
-                    <div class="order-header">
-                        <div class="order-number-badge">Заказ #${order.orderNumber}</div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                        <div style="font-size: 1.4em; font-weight: 800; color: #0066cc;">Заказ #${order.orderNumber}</div>
                         <div class="order-status ${order.status === 'ready' ? 'ready' : ''}">
                             ${order.status === 'ready' ? 'Готов' : 'В сборке'}
                         </div>
                     </div>
-
-                    <div class="order-summary">
-                        <span><i class="fas fa-box"></i> ${totalItems} шт</span>
-                        <span><i class="fas fa-calendar"></i> ${order.createdAt}</span>
-                        <span><i class="fas fa-device"></i> ${order.deviceId}</span>
+                    <div style="margin-bottom: 15px; color: #666; font-weight: 600;">
+                        Всего позиций: ${totalItems} шт
                     </div>
-
-                    <div class="order-items">
-                        ${order.items.map(item => `
-                            <div class="order-item-row">
-                                <div class="order-item-info">
-                                    <img src="${item.image}" alt="${item.name}" class="order-item-image" onclick="openFullscreenImage('${item.image}', '${item.name}')">
-                                    <div class="order-item-details">
-                                        <strong>${item.name}</strong><br>
-                                        ${item.quantity} × ${item.price.toLocaleString()} руб.
-                                    </div>
-                                </div>
-                                <div class="order-item-price">
-                                    ${(item.price * item.quantity).toLocaleString()} руб.
+                    ${order.items.map(item => `
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f8ff;">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; border-radius: 12px; object-fit: cover;" onclick="openFullscreenImage('${item.image}', '${item.name}')">
+                                <div>
+                                    <div style="font-weight: 700; color: #0066cc;">${item.name}</div>
+                                    <div style="color: #666;">Количество: ${item.quantity}</div>
+                                    <div style="color: #666;">Цена: ${item.price.toLocaleString()} руб.</div>
                                 </div>
                             </div>
-                        `).join('')}
+                            <div style="color: #0099ff; font-weight: 800;">${(item.price * item.quantity).toLocaleString()} руб.</div>
+                        </div>
+                    `).join('')}
+                    <div style="text-align: right; font-size: 1.3em; font-weight: 800; color: #0066cc; margin-top: 15px;">
+                        Общая стоимость: ${order.total.toLocaleString()} руб.
                     </div>
-
-                    <div class="order-total">
-                        Итого: ${order.total.toLocaleString()} руб.
+                    <div style="margin-top: 12px; font-size: 13px; color: #999;">
+                        Создан: ${order.createdAt}
+                        ${order.readyAt ? `<br>Готов: ${order.readyAt}` : ''}
+                        <br>Устройство: ${order.deviceId}
+                        ${isDeducted ? '<br><strong>Товары списаны со склада</strong>' : ''}
                     </div>
-                    
-                    <div class="order-footer">
-                        ${isDeducted ? '<span><strong>Товары списаны со склада</strong></span>' : ''}
-                    </div>
-
                     <div style="margin-top: 18px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                         ${order.status !== 'ready' ? `
                             <button class="btn btn-success btn-small" onclick="completeOrder('${order.orderNumber}')">
@@ -3211,7 +2866,6 @@
             `}).join('');
         }
 
-        // Редактирование товара
         function editProduct(productId) {
             if (!isAdmin) {
                 showNotification('Доступно только для администратора!', 'error');
@@ -3242,7 +2896,6 @@
             }
         }
 
-        // Удаление товара
         function deleteProduct(productId) {
             if (!isAdmin) {
                 showNotification('Доступно только для администратора!', 'error');
@@ -3260,7 +2913,6 @@
             }
         }
 
-        // Завершение заказа
         function completeOrder(orderNumber) {
             database.ref('orders').orderByChild('orderNumber').equalTo(orderNumber).once('value', (snapshot) => {
                 snapshot.forEach((childSnapshot) => {
@@ -3280,7 +2932,6 @@
             });
         }
 
-        // Списание товаров со склада
         function deductOrderItems(orderNumber) {
             if (!isAdmin) {
                 showNotification('Доступно только для администратора!', 'error');
@@ -3330,7 +2981,6 @@
             });
         }
 
-        // Удаление заказа
         function deleteOrder(orderNumber) {
             if (!isAdmin) {
                 showNotification('Доступно только для администратора!', 'error');
@@ -3356,7 +3006,6 @@
             }
         }
 
-        // Глобальные функции
         window.addToCart = addToCart;
         window.removeFromCart = removeFromCart;
         window.updateQuantity = updateQuantity;
@@ -3368,7 +3017,6 @@
         window.deductOrderItems = deductOrderItems;
         window.openFullscreenImage = openFullscreenImage;
 
-        // Запуск приложения
         document.addEventListener('DOMContentLoaded', initApp);
     </script>
 </body>
