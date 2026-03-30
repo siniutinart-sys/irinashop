@@ -12,7 +12,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     
     <style>
-        /* --- ВАШ ТЕКУЩИЙ СТИЛЬ (БЕЗ ИЗМЕНЕНИЙ) --- */
         * {
             margin: 0;
             padding: 0;
@@ -56,11 +55,6 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -1000px 0; }
-            100% { background-position: 1000px 0; }
         }
 
         /* ОБНОВЛЕННОЕ МЕНЮ СНИЗУ - БЕЛОЕ МАТОВОЕ СТЕКЛО 10% ПРОЗРАЧНОСТИ */
@@ -110,14 +104,14 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(200, 200, 200, 0.2);
+            background: rgba(34, 139, 34, 0.15);
             transform: translate(-50%, -50%);
             transition: width 0.4s ease-out, height 0.4s ease-out;
             z-index: -1;
         }
 
         .nav-item-ios.active {
-            color: #0066cc;
+            color: #228B22;
         }
 
         .nav-item-ios.active::before {
@@ -170,7 +164,7 @@
             backdrop-filter: blur(20px);
             padding: 50px;
             border-radius: 30px;
-            box-shadow: 0 25px 50px rgba(0, 100, 200, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 100, 0, 0.15);
             text-align: center;
             max-width: 450px;
             margin: 100px auto;
@@ -180,7 +174,7 @@
 
         .login-panel h2 {
             margin-bottom: 35px;
-            color: #0066cc;
+            color: #228B22;
             font-size: 2.2em;
             font-weight: 700;
         }
@@ -200,13 +194,13 @@
 
         .form-group label {
             font-weight: 600;
-            color: #0066cc;
+            color: #228B22;
             font-size: 14px;
         }
 
         .form-group input, .form-group textarea, .form-group select {
             padding: 15px;
-            border: 2px solid #e6f2ff;
+            border: 2px solid #e6ffe6;
             border-radius: 15px;
             font-size: 16px;
             transition: all 0.3s ease;
@@ -215,9 +209,9 @@
         }
 
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            border-color: #3399ff;
+            border-color: #2ecc71;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(51, 153, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
         }
 
         .login-options {
@@ -229,7 +223,7 @@
         .login-option-btn {
             flex: 1;
             padding: 15px;
-            border: 2px solid #e6f2ff;
+            border: 2px solid #e6ffe6;
             border-radius: 15px;
             background: white;
             cursor: pointer;
@@ -239,7 +233,7 @@
         }
 
         .login-option-btn.active {
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
             transform: translateY(-2px);
         }
@@ -258,7 +252,7 @@
             padding: 25px 0;
             border-radius: 25px;
             margin-bottom: 35px;
-            box-shadow: 0 15px 35px rgba(0, 100, 200, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 100, 0, 0.1);
             animation: slideUp 0.5s ease-out;
         }
 
@@ -272,7 +266,7 @@
         .logo {
             font-size: 2.3em;
             font-weight: 700;
-            background: linear-gradient(45deg, #0066cc, #0099ff);
+            background: linear-gradient(45deg, #228B22, #2ecc71);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -295,9 +289,9 @@
         }
 
         .admin-panel-btn {
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
-            box-shadow: 0 5px 15px rgba(51, 153, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
         }
 
         .logout-btn {
@@ -308,14 +302,14 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
         }
 
         .btn-secondary {
             background: #f8faff;
-            color: #0066cc;
-            border: 2px solid #e6f2ff;
+            color: #228B22;
+            border: 2px solid #e6ffe6;
         }
 
         .btn-warning {
@@ -329,7 +323,7 @@
         }
 
         .btn-success {
-            background: linear-gradient(135deg, #33cc33, #00aa00);
+            background: linear-gradient(135deg, #33cc33, #228B22);
             color: white;
         }
 
@@ -339,9 +333,9 @@
         }
 
         .btn-special {
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
-            box-shadow: 0 4px 15px rgba(51, 153, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
         }
 
         .btn:hover {
@@ -354,7 +348,7 @@
             border-radius: 25px;
             padding: 35px;
             margin-bottom: 35px;
-            box-shadow: 0 15px 35px rgba(0, 100, 200, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 100, 0, 0.1);
             display: none;
             animation: slideUp 0.6s ease-out;
         }
@@ -375,7 +369,7 @@
             border-radius: 25px;
             padding: 25px;
             margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(0, 100, 200, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 100, 0, 0.1);
             animation: slideUp 0.5s ease-out;
         }
 
@@ -398,18 +392,18 @@
             color: white;
             font-weight: 600;
             box-shadow: 
-                0 0 20px rgba(0, 195, 255, 0.4),
-                0 0 40px rgba(0, 195, 255, 0.2),
-                inset 0 0 20px rgba(0, 195, 255, 0.1);
+                0 0 20px rgba(46, 204, 113, 0.4),
+                0 0 40px rgba(46, 204, 113, 0.2),
+                inset 0 0 20px rgba(46, 204, 113, 0.1);
             transition: all 0.3s ease;
         }
 
         .neon-search-input:focus {
             outline: none;
             box-shadow: 
-                0 0 30px rgba(0, 195, 255, 0.6),
-                0 0 60px rgba(0, 195, 255, 0.3),
-                inset 0 0 30px rgba(0, 195, 255, 0.2);
+                0 0 30px rgba(46, 204, 113, 0.6),
+                0 0 60px rgba(46, 204, 113, 0.3),
+                inset 0 0 30px rgba(46, 204, 113, 0.2);
             transform: translateY(-2px);
         }
 
@@ -434,24 +428,24 @@
         }
 
         .search-btn-primary {
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
         }
 
         .search-btn-secondary {
             background: #f8faff;
-            color: #0066cc;
-            border: 2px solid #e6f2ff;
+            color: #228B22;
+            border: 2px solid #e6ffe6;
         }
 
         .search-btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(51, 153, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.3);
         }
 
         .search-btn-secondary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 100, 200, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 100, 0, 0.1);
         }
 
         /* КНОПКИ БЫСТРОГО ПОИСКА */
@@ -461,10 +455,10 @@
             gap: 10px;
             margin-top: 15px;
             padding: 15px;
-            background: linear-gradient(135deg, #f0f8ff, #e6f2ff);
+            background: linear-gradient(135deg, #f0fff0, #e6ffe6);
             border-radius: 20px;
             animation: fadeIn 0.3s ease-out;
-            border: 2px solid #b3d9ff;
+            border: 2px solid #a3e0a3;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
         }
 
@@ -475,28 +469,28 @@
         .quick-search-btn {
             padding: 10px 16px;
             background: white;
-            border: 2px solid #0066cc;
+            border: 2px solid #228B22;
             border-radius: 25px;
-            color: #0066cc;
+            color: #228B22;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 13px;
-            box-shadow: 0 2px 5px rgba(0,102,204,0.2);
+            box-shadow: 0 2px 5px rgba(34,139,34,0.2);
             flex: 0 0 auto;
         }
 
         .quick-search-btn:hover {
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 5px 15px rgba(51, 153, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
             border-color: transparent;
         }
 
         /* СЧЕТЧИК ФИЛЬТРОВ */
         .filter-stats {
-            background: linear-gradient(135deg, #0066cc, #3399ff);
+            background: linear-gradient(135deg, #228B22, #27ae60);
             color: white;
             border-radius: 15px;
             padding: 15px 20px;
@@ -504,7 +498,7 @@
             text-align: center;
             font-weight: 700;
             font-size: 16px;
-            box-shadow: 0 5px 15px rgba(0,102,204,0.3);
+            box-shadow: 0 5px 15px rgba(34,139,34,0.3);
             display: none;
         }
 
@@ -519,7 +513,7 @@
 
         .stats-highlight {
             background: white;
-            color: #0066cc;
+            color: #228B22;
             padding: 3px 12px;
             border-radius: 20px;
             margin-left: 8px;
@@ -537,7 +531,7 @@
 
         .filter-btn {
             padding: 12px 24px;
-            border: 2px solid #e6f2ff;
+            border: 2px solid #e6ffe6;
             border-radius: 20px;
             background: white;
             color: #666;
@@ -548,11 +542,11 @@
         }
 
         .filter-btn.active {
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
-            border-color: #3399ff;
+            border-color: #27ae60;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(51, 153, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
         }
 
         .filter-btn:hover:not(.active) {
@@ -571,7 +565,7 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 25px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 100, 200, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 100, 0, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -580,7 +574,7 @@
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 100, 200, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 100, 0, 0.15);
         }
 
         .product-card.out-of-stock {
@@ -649,7 +643,7 @@
         }
 
         .stock-info-text.plenty {
-            color: #0066cc;
+            color: #228B22;
         }
 
         .stock-info-text.medium {
@@ -676,7 +670,7 @@
         }
 
         .progress-fill.plenty {
-            background: linear-gradient(90deg, #0066cc, #3399ff);
+            background: linear-gradient(90deg, #228B22, #27ae60);
             width: 100%;
         }
 
@@ -693,7 +687,7 @@
         .product-image {
             width: 100%;
             height: 220px;
-            background: linear-gradient(135deg, #f0f8ff, #e6f2ff);
+            background: linear-gradient(135deg, #f0fff0, #e6ffe6);
             border-radius: 20px;
             margin-bottom: 20px;
             display: flex;
@@ -718,7 +712,7 @@
             font-size: 1.4em;
             font-weight: 700;
             margin-bottom: 12px;
-            color: #0066cc;
+            color: #228B22;
         }
 
         .product-description {
@@ -734,30 +728,30 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background: #f0f8ff;
+            background: #f0fff0;
             padding: 8px 12px;
             border-radius: 15px;
-            border: 1px solid #b3d9ff;
+            border: 1px solid #a3e0a3;
             cursor: pointer;
             transition: all 0.2s ease;
         }
         .product-sku:hover {
-            background: #e6f2ff;
+            background: #e6ffe6;
         }
         .product-sku i {
-            color: #0066cc;
+            color: #228B22;
             font-size: 14px;
         }
         .sku-value {
             font-weight: 700;
-            color: #0066cc;
+            color: #228B22;
             letter-spacing: 0.5px;
         }
         .copy-sku-btn {
             margin-left: auto;
             background: none;
             border: none;
-            color: #0066cc;
+            color: #228B22;
             cursor: pointer;
             font-size: 16px;
             padding: 0 5px;
@@ -770,7 +764,7 @@
         .product-price {
             font-size: 1.8em;
             font-weight: 800;
-            color: #0099ff;
+            color: #27ae60;
             margin-bottom: 20px;
         }
 
@@ -790,7 +784,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
             border: none;
             cursor: pointer;
@@ -799,12 +793,12 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(51, 153, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
         }
 
         .add-to-cart-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(51, 153, 255, 0.6);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.6);
         }
 
         .add-to-cart-btn:disabled {
@@ -824,254 +818,6 @@
             font-weight: 700;
         }
 
-        /* НОВЫЕ СТИЛИ ДЛЯ УМНОЙ КОРЗИНЫ */
-        .stock-check-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 3500;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .stock-check-modal.active {
-            display: flex;
-        }
-
-        .stock-check-content {
-            background: white;
-            border-radius: 30px;
-            padding: 40px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            animation: slideUp 0.5s ease-out;
-        }
-
-        .stock-check-title {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #0066cc;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .stock-check-loading {
-            text-align: center;
-            padding: 40px;
-        }
-
-        .stock-check-loading .loading-spinner {
-            width: 60px;
-            height: 60px;
-            border-width: 6px;
-        }
-
-        .stock-check-loading p {
-            margin-top: 20px;
-            color: #0066cc;
-            font-weight: 600;
-            font-size: 1.2em;
-        }
-
-        .unavailable-items-section {
-            margin: 30px 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #fff5f5, #ffe6e6);
-            border-radius: 20px;
-            border: 2px solid #ff6666;
-        }
-
-        .unavailable-title {
-            color: #ff4444;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2em;
-        }
-
-        .unavailable-title i {
-            font-size: 1.5em;
-        }
-
-        .unavailable-item {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border: 1px solid #ffcccc;
-        }
-
-        .unavailable-item img {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        .unavailable-item-info {
-            flex: 1;
-        }
-
-        .unavailable-item-name {
-            font-weight: 700;
-            color: #0066cc;
-            margin-bottom: 5px;
-        }
-
-        .unavailable-item-details {
-            color: #ff4444;
-            font-size: 14px;
-        }
-
-        .unavailable-item-details i {
-            margin-right: 5px;
-        }
-
-        .available-items-section {
-            margin: 30px 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #f0fff0, #e6ffe6);
-            border-radius: 20px;
-            border: 2px solid #33cc33;
-        }
-
-        .available-title {
-            color: #00aa00;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2em;
-        }
-
-        .available-title i {
-            font-size: 1.5em;
-        }
-
-        .available-item {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .available-item img {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        .available-item-info {
-            flex: 1;
-        }
-
-        .available-item-name {
-            font-weight: 700;
-            color: #0066cc;
-            margin-bottom: 5px;
-        }
-
-        .available-item-price {
-            color: #0099ff;
-            font-weight: 800;
-        }
-
-        .available-item-quantity {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .stock-check-total {
-            background: linear-gradient(135deg, #0066cc, #3399ff);
-            color: white;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-            font-size: 1.3em;
-            font-weight: 700;
-        }
-
-        .stock-check-total span {
-            background: white;
-            color: #0066cc;
-            padding: 5px 15px;
-            border-radius: 30px;
-            margin-left: 10px;
-        }
-
-        .stock-check-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .stock-check-buttons button {
-            flex: 1;
-            padding: 18px;
-            border: none;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-proceed {
-            background: linear-gradient(135deg, #33cc33, #00aa00);
-            color: white;
-        }
-
-        .btn-proceed:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(51, 204, 51, 0.4);
-        }
-
-        .btn-cancel-check {
-            background: #f8faff;
-            color: #0066cc;
-            border: 2px solid #e6f2ff;
-        }
-
-        .btn-cancel-check:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 100, 200, 0.1);
-        }
-
-        .warning-message {
-            background: #fff3cd;
-            color: #856404;
-            border: 2px solid #ffeeba;
-            border-radius: 15px;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .warning-message i {
-            margin-right: 8px;
-            color: #ffaa33;
-        }
-
         /* СТИЛИ ДЛЯ КОРЗИНЫ */
         .cart-item {
             background: rgba(255, 255, 255, 0.95);
@@ -1082,10 +828,10 @@
             grid-template-columns: auto 1fr auto;
             gap: 15px;
             align-items: center;
-            box-shadow: 0 8px 20px rgba(0, 100, 200, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 100, 0, 0.1);
             animation: slideUp 0.4s ease-out;
             transition: all 0.3s ease;
-            border: 2px solid #e6f2ff;
+            border: 2px solid #e6ffe6;
         }
 
         .cart-item.unavailable {
@@ -1101,7 +847,7 @@
             object-fit: cover;
             cursor: pointer;
             transition: transform 0.3s ease;
-            border: 2px solid #b3d9ff;
+            border: 2px solid #a3e0a3;
         }
 
         .cart-item-details {
@@ -1110,13 +856,13 @@
 
         .cart-item-name {
             font-weight: 700;
-            color: #0066cc;
+            color: #228B22;
             margin-bottom: 5px;
             font-size: 16px;
         }
 
         .cart-item-price {
-            color: #0099ff;
+            color: #27ae60;
             font-weight: 800;
             margin-bottom: 3px;
         }
@@ -1132,22 +878,22 @@
             width: 40px;
             height: 40px;
             border-radius: 12px;
-            border: 2px solid #e6f2ff;
+            border: 2px solid #e6ffe6;
             background: white;
-            color: #0066cc;
+            color: #228B22;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .cart-quantity-btn:hover:not(:disabled) {
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
         }
 
         .cart-quantity-value {
             font-weight: 800;
-            color: #0066cc;
+            color: #228B22;
             min-width: 30px;
             text-align: center;
         }
@@ -1174,7 +920,7 @@
         }
 
         .cart-total {
-            background: linear-gradient(135deg, #0066cc, #3399ff);
+            background: linear-gradient(135deg, #228B22, #27ae60);
             color: white;
             border-radius: 20px;
             padding: 25px;
@@ -1187,14 +933,14 @@
 
         .cart-total span {
             background: white;
-            color: #0066cc;
+            color: #228B22;
             padding: 5px 15px;
             border-radius: 30px;
             margin-left: 10px;
         }
 
         .create-order-btn {
-            background: linear-gradient(135deg, #33cc33, #00aa00);
+            background: linear-gradient(135deg, #33cc33, #228B22);
             color: white;
             border: none;
             padding: 18px 35px;
@@ -1220,13 +966,13 @@
             box-shadow: none;
         }
 
-        /* СТИЛИ ДЛЯ ЗАКАЗОВ - ПРОСТЫЕ КАК В ПЕРВОМ КОДЕ */
+        /* СТИЛИ ДЛЯ ЗАКАЗОВ */
         .order-item {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 25px;
             margin-bottom: 25px;
-            box-shadow: 0 8px 25px rgba(0, 100, 200, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 100, 0, 0.1);
             animation: slideUp 0.5s ease-out;
         }
 
@@ -1240,7 +986,7 @@
         }
 
         .order-status.ready {
-            background: linear-gradient(135deg, #33cc33, #00aa00);
+            background: linear-gradient(135deg, #33cc33, #228B22);
         }
 
         .notification {
@@ -1261,7 +1007,7 @@
         }
 
         .notification.success {
-            background: linear-gradient(135deg, #33cc33, #00aa00);
+            background: linear-gradient(135deg, #33cc33, #228B22);
         }
 
         .notification.error {
@@ -1269,22 +1015,18 @@
         }
 
         .notification.info {
-            background: linear-gradient(135deg, #3399ff, #0066cc);
-        }
-
-        .notification.warning {
-            background: linear-gradient(135deg, #ffaa33, #ff8800);
+            background: linear-gradient(135deg, #27ae60, #228B22);
         }
 
         .loading {
             text-align: center;
             padding: 50px;
-            color: #0066cc;
+            color: #228B22;
         }
 
         .loading-spinner {
-            border: 5px solid #f0f8ff;
-            border-top: 5px solid #3399ff;
+            border: 5px solid #f0fff0;
+            border-top: 5px solid #27ae60;
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -1363,7 +1105,7 @@
         .status-modal-title {
             font-size: 1.5em;
             font-weight: 700;
-            color: #0066cc;
+            color: #228B22;
             margin-bottom: 25px;
         }
 
@@ -1385,7 +1127,7 @@
         }
 
         .status-in-stock {
-            background: linear-gradient(135deg, #33cc33, #00aa00);
+            background: linear-gradient(135deg, #33cc33, #228B22);
             color: white;
         }
 
@@ -1411,8 +1153,8 @@
 
         .status-cancel-btn {
             background: #f8faff;
-            color: #0066cc;
-            border: 2px solid #e6f2ff;
+            color: #228B22;
+            border: 2px solid #e6ffe6;
             padding: 12px;
             border-radius: 15px;
             font-weight: 600;
@@ -1456,12 +1198,12 @@
         .order-number-large {
             font-size: 3.5em;
             font-weight: 800;
-            color: #0066cc;
+            color: #228B22;
             margin-bottom: 25px;
         }
 
         .copy-number-btn {
-            background: linear-gradient(135deg, #0066cc, #3399ff);
+            background: linear-gradient(135deg, #228B22, #27ae60);
             color: white;
             border: none;
             padding: 15px 25px;
@@ -1482,7 +1224,7 @@
         }
 
         .order-modal-close {
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
             border: none;
             padding: 18px 35px;
@@ -1507,7 +1249,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #3399ff, #0066cc);
+            background: linear-gradient(135deg, #27ae60, #228B22);
             color: white;
             border: none;
             cursor: pointer;
@@ -1515,7 +1257,7 @@
             align-items: center;
             justify-content: center;
             font-size: 20px;
-            box-shadow: 0 5px 15px rgba(51, 153, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
         }
 
         .loading-order {
@@ -1537,28 +1279,17 @@
             display: flex;
         }
 
-        .loading-order .loading-spinner {
-            width: 70px;
-            height: 70px;
-            border-width: 8px;
-            border-color: #f0f8ff;
-            border-top-color: #3399ff;
-        }
-
-        .loading-order-text {
-            margin-top: 25px;
-            font-size: 1.3em;
-            font-weight: 600;
-            text-align: center;
-            max-width: 300px;
-        }
-
         .no-results {
             text-align: center;
             padding: 50px;
             color: #666;
             font-size: 1.2em;
             grid-column: 1 / -1;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         @media (max-width: 768px) {
@@ -1599,10 +1330,6 @@
 
             .order-number-large {
                 font-size: 2.5em;
-            }
-
-            .stock-check-buttons {
-                flex-direction: column;
             }
         }
     </style>
@@ -1656,7 +1383,7 @@
             </header>
 
             <div class="admin-panel" id="adminPanel">
-                <h2 style="margin-bottom: 25px; color: #0066cc; text-align: center;" id="adminFormTitle">Добавить новый товар</h2>
+                <h2 style="margin-bottom: 25px; color: #228B22; text-align: center;" id="adminFormTitle">Добавить новый товар</h2>
                 <form class="admin-form" id="productForm">
                     <input type="hidden" id="editingProductId">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
@@ -1779,7 +1506,7 @@
             </div>
 
             <div class="page-content" id="cartPage">
-                <h2 style="color: #0066cc; margin-bottom: 25px; text-align: center;">
+                <h2 style="color: #228B22; margin-bottom: 25px; text-align: center;">
                     <i class="fas fa-shopping-cart"></i> Корзина
                 </h2>
                 <div id="cartItems"></div>
@@ -1787,16 +1514,16 @@
                     Итого: 0 руб.
                 </div>
                 <button class="create-order-btn" id="createOrderBtn" disabled>
-                    <i class="fas fa-receipt"></i> Оформить заказ
+                    <i class="fas fa-receipt"></i> Создать заказ
                 </button>
             </div>
 
             <div class="page-content" id="ordersPage">
-                <h2 style="color: #0066cc; margin-bottom: 25px; text-align: center;">
+                <h2 style="color: #228B22; margin-bottom: 25px; text-align: center;">
                     <i class="fas fa-clipboard-list"></i> Мои заказы
                 </h2>
                 <div id="userOrders">
-                    <div style="text-align: center; color: #0066cc; padding: 50px;">
+                    <div style="text-align: center; color: #228B22; padding: 50px;">
                         <i class="fas fa-clipboard-list" style="font-size: 4em; margin-bottom: 25px; opacity: 0.5;"></i>
                         <h3>Заказов пока нет</h3>
                         <p>Создайте свой первый заказ из корзины</p>
@@ -1805,11 +1532,11 @@
             </div>
 
             <div class="page-content" id="adminOrdersPage">
-                <h2 style="color: #0066cc; margin-bottom: 25px; text-align: center;">
+                <h2 style="color: #228B22; margin-bottom: 25px; text-align: center;">
                     <i class="fas fa-tasks"></i> Все заказы
                 </h2>
                 <div id="adminOrders">
-                    <div style="text-align: center; color: #0066cc; padding: 50px;">
+                    <div style="text-align: center; color: #228B22; padding: 50px;">
                         <i class="fas fa-tasks" style="font-size: 4em; margin-bottom: 25px; opacity: 0.5;"></i>
                         <h3>Заказов пока нет</h3>
                         <p>Ожидание новых заказов от клиентов</p>
@@ -1828,7 +1555,6 @@
         </button>
     </div>
 
-    <!-- НОВОЕ МЕНЮ - МАТОВОЕ СТЕКЛО 10% ПРОЗРАЧНОСТИ -->
     <div class="ios-bottom-nav" id="iosBottomNav" style="display: none;">
         <button class="nav-item-ios active" data-page="catalog">
             <i class="fas fa-boxes nav-icon"></i>
@@ -1849,56 +1575,6 @@
         </button>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ПРОВЕРКИ НАЛИЧИЯ (НОВОЕ) -->
-    <div class="stock-check-modal" id="stockCheckModal">
-        <div class="stock-check-content">
-            <div class="stock-check-title" id="stockCheckTitle">Проверка наличия товаров</div>
-            
-            <div class="stock-check-loading" id="stockCheckLoading">
-                <div class="loading-spinner"></div>
-                <p>Проверяем наличие всех позиций в каталоге...</p>
-            </div>
-            
-            <div id="stockCheckResults" style="display: none;">
-                <div class="warning-message" id="stockWarningMessage" style="display: none;">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    К сожалению, некоторые товары из вашей корзины уже закончились или их количество изменилось
-                </div>
-                
-                <div class="unavailable-items-section" id="unavailableItemsSection" style="display: none;">
-                    <div class="unavailable-title">
-                        <i class="fas fa-times-circle"></i> Эти товары недоступны для заказа
-                    </div>
-                    <div id="unavailableItemsList"></div>
-                    <p style="color: #666; font-size: 14px; margin-top: 10px;">
-                        <i class="fas fa-info-circle"></i> Товары отмеченные как недоступные не будут включены в заказ
-                    </p>
-                </div>
-                
-                <div class="available-items-section" id="availableItemsSection" style="display: none;">
-                    <div class="available-title">
-                        <i class="fas fa-check-circle"></i> Доступные для заказа товары
-                    </div>
-                    <div id="availableItemsList"></div>
-                </div>
-                
-                <div class="stock-check-total" id="stockCheckTotal">
-                    Итого к оплате: <span>0 руб.</span>
-                </div>
-                
-                <div class="stock-check-buttons">
-                    <button class="btn-proceed" id="proceedWithOrderBtn">
-                        <i class="fas fa-check"></i> Продолжить
-                    </button>
-                    <button class="btn-cancel-check" id="cancelStockCheckBtn">
-                        <i class="fas fa-times"></i> Вернуться в корзину
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- МОДАЛЬНОЕ ОКНО ВЫБОРА СТАТУСА -->
     <div class="status-modal" id="statusModal">
         <div class="status-modal-content">
             <div class="status-modal-title">Измените статус товара:</div>
@@ -1934,7 +1610,7 @@
             <div class="order-success-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
-            <h2 style="color: #0066cc; margin-bottom: 20px;">Заказ успешно создан!</h2>
+            <h2 style="color: #228B22; margin-bottom: 20px;">Заказ успешно создан!</h2>
             <p class="order-success-text">Ваш номер заказа:</p>
             <div class="order-number-large" id="orderNumberDisplay"></div>
             <p class="order-warning">⚠️ Сохраните этот номер для отслеживания заказа!</p>
@@ -1989,11 +1665,6 @@
         let currentFilter = 'all';
         let currentSearchTerm = '';
         let statusModalProductId = null;
-        
-        // Переменные для умной корзины
-        let checkedCartItems = null;
-        let unavailableItems = [];
-        let availableItems = [];
 
         localStorage.setItem('deviceId', deviceId);
 
@@ -2044,23 +1715,9 @@
             filterStats: document.getElementById('filterStats'),
             filterStatsCount: document.getElementById('filterStatsCount'),
             statusModal: document.getElementById('statusModal'),
-            statusCancelBtn: document.getElementById('statusCancelBtn'),
-            
-            // Новые элементы для умной корзины
-            stockCheckModal: document.getElementById('stockCheckModal'),
-            stockCheckLoading: document.getElementById('stockCheckLoading'),
-            stockCheckResults: document.getElementById('stockCheckResults'),
-            stockWarningMessage: document.getElementById('stockWarningMessage'),
-            unavailableItemsSection: document.getElementById('unavailableItemsSection'),
-            unavailableItemsList: document.getElementById('unavailableItemsList'),
-            availableItemsSection: document.getElementById('availableItemsSection'),
-            availableItemsList: document.getElementById('availableItemsList'),
-            stockCheckTotal: document.getElementById('stockCheckTotal'),
-            proceedWithOrderBtn: document.getElementById('proceedWithOrderBtn'),
-            cancelStockCheckBtn: document.getElementById('cancelStockCheckBtn')
+            statusCancelBtn: document.getElementById('statusCancelBtn')
         };
 
-        // Функция для генерации уникального 9-значного артикула
         function generateUniqueSku(existingSkus) {
             let sku;
             do {
@@ -2069,7 +1726,6 @@
             return sku;
         }
 
-        // Функция для сбора всех существующих артикулов
         function collectExistingSkus(productsArray) {
             const skus = new Set();
             productsArray.forEach(p => {
@@ -2078,7 +1734,6 @@
             return skus;
         }
 
-        // Улучшенный поиск с поддержкой артикулов
         function advancedSearch(searchTerm, products) {
             if (!searchTerm.trim()) return [];
             
@@ -2139,7 +1794,6 @@
             setupFilters();
             setupQuickSearch();
             setupStatusModal();
-            setupSmartCart(); // Новая функция
             
             if (isLoggedIn) {
                 showMainContent();
@@ -2221,8 +1875,7 @@
             elements.clearForm.addEventListener('click', resetProductForm);
             elements.cancelEdit.addEventListener('click', resetProductForm);
 
-            // Изменяем обработчик для кнопки создания заказа
-            elements.createOrderBtn.addEventListener('click', openStockCheckModal);
+            elements.createOrderBtn.addEventListener('click', createOrder);
 
             elements.modalClose.addEventListener('click', closeFullscreenModal);
             elements.fullscreenModal.addEventListener('click', (e) => {
@@ -2294,241 +1947,8 @@
                     if (elements.statusModal.classList.contains('active')) {
                         closeStatusModal();
                     }
-                    if (elements.stockCheckModal.classList.contains('active')) {
-                        closeStockCheckModal();
-                    }
                 }
             });
-        }
-
-        // Новая функция для настройки умной корзины
-        function setupSmartCart() {
-            elements.proceedWithOrderBtn.addEventListener('click', () => {
-                if (availableItems.length > 0) {
-                    createSmartOrder(availableItems);
-                } else {
-                    showNotification('Нет доступных товаров для заказа', 'error');
-                }
-            });
-
-            elements.cancelStockCheckBtn.addEventListener('click', closeStockCheckModal);
-        }
-
-        // Функция открытия модального окна проверки наличия
-        function openStockCheckModal() {
-            if (cart.length === 0) {
-                showNotification('Корзина пуста', 'error');
-                return;
-            }
-
-            // Показываем модальное окно и индикатор загрузки
-            elements.stockCheckModal.classList.add('active');
-            elements.stockCheckLoading.style.display = 'block';
-            elements.stockCheckResults.style.display = 'none';
-            
-            // Запускаем проверку наличия
-            checkStockAvailability();
-        }
-
-        // Функция проверки наличия товаров
-        function checkStockAvailability() {
-            setTimeout(() => {
-                unavailableItems = [];
-                availableItems = [];
-                
-                cart.forEach(cartItem => {
-                    const product = products.find(p => p.firebaseKey === cartItem.id);
-                    
-                    if (!product) {
-                        // Товар не найден в базе
-                        unavailableItems.push({
-                            ...cartItem,
-                            reason: 'Товар больше не продается',
-                            unavailableQuantity: cartItem.quantity
-                        });
-                        return;
-                    }
-                    
-                    // Проверяем статус товара
-                    if (product.status !== 'in-stock') {
-                        unavailableItems.push({
-                            ...cartItem,
-                            reason: product.status === 'out-of-stock' ? 'Нет в наличии' :
-                                   product.status === 'preorder' ? 'Только под заказ' : 'В пути',
-                            unavailableQuantity: cartItem.quantity
-                        });
-                        return;
-                    }
-                    
-                    // Проверяем количество
-                    if (product.quantity !== null) {
-                        if (product.quantity <= 0) {
-                            unavailableItems.push({
-                                ...cartItem,
-                                reason: 'Закончился на складе',
-                                unavailableQuantity: cartItem.quantity
-                            });
-                        } else if (product.quantity < cartItem.quantity) {
-                            // Частично доступен
-                            const availableQty = product.quantity;
-                            const unavailableQty = cartItem.quantity - availableQty;
-                            
-                            if (availableQty > 0) {
-                                availableItems.push({
-                                    ...cartItem,
-                                    quantity: availableQty,
-                                    originalQuantity: cartItem.quantity,
-                                    maxQuantity: product.quantity
-                                });
-                            }
-                            
-                            unavailableItems.push({
-                                ...cartItem,
-                                quantity: unavailableQty,
-                                reason: `Доступно только ${availableQty} шт`,
-                                unavailableQuantity: unavailableQty
-                            });
-                        } else {
-                            // Полностью доступен
-                            availableItems.push({
-                                ...cartItem,
-                                maxQuantity: product.quantity
-                            });
-                        }
-                    } else {
-                        // Без ограничений по количеству
-                        availableItems.push(cartItem);
-                    }
-                });
-                
-                // Обновляем отображение
-                renderStockCheckResults();
-                
-                // Скрываем загрузку, показываем результаты
-                elements.stockCheckLoading.style.display = 'none';
-                elements.stockCheckResults.style.display = 'block';
-                
-                // Показываем предупреждение, если есть недоступные товары
-                if (unavailableItems.length > 0) {
-                    elements.stockWarningMessage.style.display = 'block';
-                } else {
-                    elements.stockWarningMessage.style.display = 'none';
-                }
-                
-            }, 1500); // Имитация загрузки для красоты, можно убрать или уменьшить
-        }
-
-        // Функция отображения результатов проверки
-        function renderStockCheckResults() {
-            // Отображаем недоступные товары
-            if (unavailableItems.length > 0) {
-                elements.unavailableItemsSection.style.display = 'block';
-                elements.unavailableItemsList.innerHTML = unavailableItems.map(item => `
-                    <div class="unavailable-item">
-                        <img src="${item.image}" alt="${item.name}" onclick="openFullscreenImage('${item.image}', '${item.name}')">
-                        <div class="unavailable-item-info">
-                            <div class="unavailable-item-name">${item.name}</div>
-                            <div class="unavailable-item-details">
-                                <i class="fas fa-exclamation-circle"></i>
-                                ${item.reason || 'Нет в наличии'}
-                                ${item.unavailableQuantity ? ` (${item.unavailableQuantity} шт)` : ''}
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-            } else {
-                elements.unavailableItemsSection.style.display = 'none';
-            }
-            
-            // Отображаем доступные товары
-            if (availableItems.length > 0) {
-                elements.availableItemsSection.style.display = 'block';
-                elements.availableItemsList.innerHTML = availableItems.map(item => {
-                    const totalPrice = item.price * item.quantity;
-                    return `
-                    <div class="available-item">
-                        <img src="${item.image}" alt="${item.name}" onclick="openFullscreenImage('${item.image}', '${item.name}')">
-                        <div class="available-item-info">
-                            <div class="available-item-name">${item.name}</div>
-                            <div class="available-item-price">${item.price.toLocaleString()} руб. × ${item.quantity} шт</div>
-                            ${item.originalQuantity ? 
-                                `<div class="available-item-quantity">
-                                    <i class="fas fa-info-circle"></i> Запрошено: ${item.originalQuantity} шт, доступно: ${item.quantity} шт
-                                </div>` : ''
-                            }
-                        </div>
-                    </div>
-                `}).join('');
-                
-                // Считаем итоговую сумму
-                const total = availableItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                elements.stockCheckTotal.innerHTML = `Итого к оплате: <span>${total.toLocaleString()} руб.</span>`;
-            } else {
-                elements.availableItemsSection.style.display = 'none';
-                elements.stockCheckTotal.innerHTML = `Итого к оплате: <span>0 руб.</span>`;
-            }
-        }
-
-        // Функция создания заказа только из доступных товаров
-        function createSmartOrder(itemsToOrder) {
-            if (isCreatingOrder) {
-                return;
-            }
-            
-            if (itemsToOrder.length === 0) {
-                showNotification('Нет доступных товаров для заказа!', 'error');
-                return;
-            }
-
-            isCreatingOrder = true;
-            elements.loadingOrder.classList.add('active');
-            closeStockCheckModal();
-
-            const orderNumber = Math.floor(100000 + Math.random() * 900000).toString();
-            const totalItemsCount = itemsToOrder.reduce((sum, item) => sum + item.quantity, 0);
-            
-            const orderData = {
-                orderNumber: orderNumber,
-                deviceId: deviceId,
-                items: itemsToOrder,
-                total: itemsToOrder.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-                totalItems: totalItemsCount,
-                status: 'processing',
-                createdAt: new Date().toLocaleString('ru-RU'),
-                readyAt: null,
-                deducted: false
-            };
-
-            database.ref('orders').push(orderData)
-                .then(() => {
-                    elements.loadingOrder.classList.remove('active');
-                    showOrderSuccess(orderNumber);
-                    
-                    // Удаляем из корзины только те товары, которые были заказаны
-                    cart = cart.filter(cartItem => 
-                        !itemsToOrder.some(orderItem => orderItem.id === cartItem.id)
-                    );
-                    saveCart();
-                    updateCartBadge();
-                    renderCart();
-                    loadUserOrders();
-                    
-                    isCreatingOrder = false;
-                })
-                .catch((error) => {
-                    elements.loadingOrder.classList.remove('active');
-                    showNotification('Ошибка создания заказа', 'error');
-                    isCreatingOrder = false;
-                });
-        }
-
-        // Функция закрытия модального окна проверки
-        function closeStockCheckModal() {
-            elements.stockCheckModal.classList.remove('active');
-            elements.stockCheckLoading.style.display = 'block';
-            elements.stockCheckResults.style.display = 'none';
-            unavailableItems = [];
-            availableItems = [];
         }
 
         function copyOrderNumber() {
@@ -2796,7 +2216,7 @@
                     name: "Укоренитель 50мл",
                     price: 270,
                     description: "10 капель на 1 литр воды. Эффективное средство для укоренения растений.",
-                    image: "https://via.placeholder.com/300x200/3399ff/ffffff?text=Укоренитель",
+                    image: "https://via.placeholder.com/300x200/27ae60/ffffff?text=Укоренитель",
                     status: "in-stock",
                     quantity: 15,
                     createdAt: new Date().toLocaleDateString('ru-RU')
@@ -3022,7 +2442,7 @@
                     <div class="${cardClass}">
                         ${statusBadge}
                         <div class="product-image" onclick="openFullscreenImage('${product.image}', '${product.name}')">
-                            <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x220/3399ff/ffffff?text=Нет+фото'">
+                            <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x220/27ae60/ffffff?text=Нет+фото'">
                         </div>
                         <div class="product-title">${product.name}</div>
                         <div class="product-description">${product.description}</div>
@@ -3053,7 +2473,7 @@
                 return;
             }
             
-            const imageUrl = elements.productImageUrl.value.trim() || 'https://via.placeholder.com/300x220/3399ff/ffffff?text=Изображение+товара';
+            const imageUrl = elements.productImageUrl.value.trim() || 'https://via.placeholder.com/300x220/27ae60/ffffff?text=Изображение+товара';
             const quantity = elements.productQuantity.value.trim() === '' ? null : parseInt(elements.productQuantity.value);
             const status = elements.productStatus.value;
             
@@ -3172,7 +2592,7 @@
         function renderCart() {
             if (cart.length === 0) {
                 elements.cartItems.innerHTML = `
-                    <div style="text-align: center; color: #0066cc; padding: 50px;">
+                    <div style="text-align: center; color: #228B22; padding: 50px;">
                         <i class="fas fa-shopping-cart" style="font-size: 4em; margin-bottom: 25px; opacity: 0.5;"></i>
                         <h3>Корзина пуста</h3>
                         <p>Добавьте товары из каталога</p>
@@ -3253,6 +2673,64 @@
             }
         }
 
+        function createOrder() {
+            if (isCreatingOrder) {
+                return;
+            }
+            
+            const availableItems = cart.filter(item => {
+                const product = products.find(p => p.firebaseKey === item.id);
+                return product && product.status === 'in-stock' && 
+                    (product.quantity === null || product.quantity >= item.quantity);
+            });
+
+            if (availableItems.length === 0) {
+                showNotification('Нет доступных товаров для заказа!', 'error');
+                return;
+            }
+
+            isCreatingOrder = true;
+            elements.createOrderBtn.disabled = true;
+            elements.loadingOrder.classList.add('active');
+
+            const orderNumber = Math.floor(100000 + Math.random() * 900000).toString();
+            const totalItemsCount = availableItems.reduce((sum, item) => sum + item.quantity, 0);
+            
+            const orderData = {
+                orderNumber: orderNumber,
+                deviceId: deviceId,
+                items: availableItems,
+                total: availableItems.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                totalItems: totalItemsCount,
+                status: 'processing',
+                createdAt: new Date().toLocaleString('ru-RU'),
+                readyAt: null,
+                deducted: false
+            };
+
+            database.ref('orders').push(orderData)
+                .then(() => {
+                    elements.loadingOrder.classList.remove('active');
+                    showOrderSuccess(orderNumber);
+                    
+                    cart = cart.filter(cartItem => 
+                        !availableItems.some(orderItem => orderItem.id === cartItem.id)
+                    );
+                    saveCart();
+                    updateCartBadge();
+                    renderCart();
+                    loadUserOrders();
+                    
+                    isCreatingOrder = false;
+                })
+                .catch((error) => {
+                    elements.loadingOrder.classList.remove('active');
+                    showNotification('Ошибка создания заказа', 'error');
+                    isCreatingOrder = false;
+                    elements.createOrderBtn.disabled = availableItems.length === 0;
+                });
+        }
+
         function loadUserOrders() {
             database.ref('orders').orderByChild('deviceId').equalTo(deviceId).once('value', (snapshot) => {
                 const data = snapshot.val();
@@ -3272,7 +2750,7 @@
         function renderUserOrders(orders) {
             if (orders.length === 0) {
                 elements.userOrders.innerHTML = `
-                    <div style="text-align: center; color: #0066cc; padding: 50px;">
+                    <div style="text-align: center; color: #228B22; padding: 50px;">
                         <i class="fas fa-clipboard-list" style="font-size: 4em; margin-bottom: 25px; opacity: 0.5;"></i>
                         <h3>Заказов пока нет</h3>
                         <p>Создайте свой первый заказ из корзины</p>
@@ -3284,7 +2762,7 @@
             elements.userOrders.innerHTML = orders.map(order => `
                 <div class="order-item">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
-                        <div style="font-size: 1.4em; font-weight: 800; color: #0066cc;">Заказ #${order.orderNumber}</div>
+                        <div style="font-size: 1.4em; font-weight: 800; color: #228B22;">Заказ #${order.orderNumber}</div>
                         <div class="order-status ${order.status === 'ready' ? 'ready' : ''}">
                             ${order.status === 'ready' ? 'Готов' : 'В сборке'}
                         </div>
@@ -3293,19 +2771,19 @@
                         Всего позиций: ${order.totalItems || order.items.reduce((sum, item) => sum + item.quantity, 0)} шт
                     </div>
                     ${order.items.map(item => `
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f8ff;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0fff0;">
                             <div style="display: flex; align-items: center; gap: 15px;">
                                 <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; border-radius: 12px; object-fit: cover;" onclick="openFullscreenImage('${item.image}', '${item.name}')">
                                 <div>
-                                    <div style="font-weight: 700; color: #0066cc;">${item.name}</div>
+                                    <div style="font-weight: 700; color: #228B22;">${item.name}</div>
                                     <div style="color: #666;">Количество: ${item.quantity}</div>
                                     <div style="color: #666;">Цена: ${item.price.toLocaleString()} руб.</div>
                                 </div>
                             </div>
-                            <div style="color: #0099ff; font-weight: 800;">${(item.price * item.quantity).toLocaleString()} руб.</div>
+                            <div style="color: #27ae60; font-weight: 800;">${(item.price * item.quantity).toLocaleString()} руб.</div>
                         </div>
                     `).join('')}
-                    <div style="text-align: right; font-size: 1.3em; font-weight: 800; color: #0066cc; margin-top: 15px;">
+                    <div style="text-align: right; font-size: 1.3em; font-weight: 800; color: #228B22; margin-top: 15px;">
                         Общая стоимость: ${order.total.toLocaleString()} руб.
                     </div>
                     <div style="margin-top: 12px; font-size: 13px; color: #999;">
@@ -3319,7 +2797,7 @@
         function renderAdminOrders(orders) {
             if (orders.length === 0) {
                 elements.adminOrders.innerHTML = `
-                    <div style="text-align: center; color: #0066cc; padding: 50px;">
+                    <div style="text-align: center; color: #228B22; padding: 50px;">
                         <i class="fas fa-tasks" style="font-size: 4em; margin-bottom: 25px; opacity: 0.5;"></i>
                         <h3>Заказов пока нет</h3>
                         <p>Ожидание новых заказов от клиентов</p>
@@ -3335,7 +2813,7 @@
                 return `
                 <div class="order-item">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
-                        <div style="font-size: 1.4em; font-weight: 800; color: #0066cc;">Заказ #${order.orderNumber}</div>
+                        <div style="font-size: 1.4em; font-weight: 800; color: #228B22;">Заказ #${order.orderNumber}</div>
                         <div class="order-status ${order.status === 'ready' ? 'ready' : ''}">
                             ${order.status === 'ready' ? 'Готов' : 'В сборке'}
                         </div>
@@ -3344,19 +2822,19 @@
                         Всего позиций: ${totalItems} шт
                     </div>
                     ${order.items.map(item => `
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f8ff;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0fff0;">
                             <div style="display: flex; align-items: center; gap: 15px;">
                                 <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; border-radius: 12px; object-fit: cover;" onclick="openFullscreenImage('${item.image}', '${item.name}')">
                                 <div>
-                                    <div style="font-weight: 700; color: #0066cc;">${item.name}</div>
+                                    <div style="font-weight: 700; color: #228B22;">${item.name}</div>
                                     <div style="color: #666;">Количество: ${item.quantity}</div>
                                     <div style="color: #666;">Цена: ${item.price.toLocaleString()} руб.</div>
                                 </div>
                             </div>
-                            <div style="color: #0099ff; font-weight: 800;">${(item.price * item.quantity).toLocaleString()} руб.</div>
+                            <div style="color: #27ae60; font-weight: 800;">${(item.price * item.quantity).toLocaleString()} руб.</div>
                         </div>
                     `).join('')}
-                    <div style="text-align: right; font-size: 1.3em; font-weight: 800; color: #0066cc; margin-top: 15px;">
+                    <div style="text-align: right; font-size: 1.3em; font-weight: 800; color: #228B22; margin-top: 15px;">
                         Общая стоимость: ${order.total.toLocaleString()} руб.
                     </div>
                     <div style="margin-top: 12px; font-size: 13px; color: #999;">
@@ -3525,7 +3003,6 @@
             }
         }
 
-        // Делаем функции глобальными
         window.addToCart = addToCart;
         window.removeFromCart = removeFromCart;
         window.updateQuantity = updateQuantity;
@@ -3536,7 +3013,6 @@
         window.deleteOrder = deleteOrder;
         window.deductOrderItems = deductOrderItems;
         window.openFullscreenImage = openFullscreenImage;
-        window.closeStockCheckModal = closeStockCheckModal;
 
         document.addEventListener('DOMContentLoaded', initApp);
     </script>
