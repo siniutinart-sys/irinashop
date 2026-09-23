@@ -57,7 +57,7 @@
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #e8f4ff 0%, #d0e8ff 50%, #b8dcff 100%);
             min-height: 100vh;
-            padding-bottom: 90px;
+            padding-bottom: 110px;
             color: var(--gray-800);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
@@ -573,9 +573,10 @@
             color: white;
         }
 
+        /* ФОТО ТОВАРА — УВЕЛИЧЕНА ВЫСОТА */
         .product-image {
             width: 100%;
-            height: 220px;
+            height: 300px;
             background: var(--gray-100);
             display: flex;
             align-items: center;
@@ -1198,24 +1199,25 @@
             margin: 16px 0;
         }
 
-        /* ==================== BOTTOM NAVIGATION ==================== */
+        /* ==================== BOTTOM NAVIGATION (МАТОВОЕ СТЕКЛО 40%) ==================== */
         .bottom-nav {
             position: fixed;
             bottom: 16px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            /* Матовое стекло с прозрачностью 40% */
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
             border-radius: 40px;
             padding: 8px 12px;
             display: flex;
             gap: 4px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.6);
             z-index: 1000;
             min-width: 320px;
             max-width: 90vw;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         .nav-item {
@@ -1232,7 +1234,8 @@
             cursor: pointer;
             transition: color 0.3s;
             min-height: 45px;
-            color: var(--gray-500);
+            /* Все разделы — чёрным цветом */
+            color: #000000;
         }
 
         .nav-item::before {
@@ -1243,11 +1246,12 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(0, 102, 204, 0.1);
+            background: rgba(0, 102, 204, 0.12);
             transform: translate(-50%, -50%);
             transition: width 0.3s, height 0.3s;
         }
 
+        /* Выбранный раздел — синим */
         .nav-item.active {
             color: var(--primary);
         }
@@ -1424,11 +1428,11 @@
             border-radius: var(--radius-xl);
             overflow: hidden;
             border: 1px solid var(--gray-100);
-            min-height: 380px;
+            min-height: 460px;
         }
 
         .skeleton-img {
-            height: 220px;
+            height: 300px;
             background: linear-gradient(90deg, #e8eef7 25%, #f4f8ff 50%, #e8eef7 75%);
             background-size: 1000px 100%;
             animation: shimmer 1.6s infinite linear;
@@ -1524,6 +1528,19 @@
 
             .product-grid {
                 grid-template-columns: 1fr;
+            }
+
+            /* Фото товара на мобильных — чуть меньше, но всё равно выше */
+            .product-image {
+                height: 260px;
+            }
+
+            .skeleton-img {
+                height: 260px;
+            }
+
+            .skeleton-card {
+                min-height: 420px;
             }
 
             .bottom-nav {
@@ -2129,7 +2146,7 @@
                 return;
             }
 
-            const htmlParts = productsToRender.map((product, index) => {
+            const htmlParts = productsToRender.map((product) => {
                 let badge = '';
                 let progressBar = '';
 
@@ -2196,7 +2213,7 @@
                         ${badge}
                         <div class="product-image" onclick="app.openImage('${product.image}', '${escapeHtml(product.name)}')">
                             <img src="${product.image}" alt="${escapeHtml(product.name)}" loading="lazy"
-                                 onerror="this.src='https://via.placeholder.com/300x220/3399ff/ffffff?text=Нет+фото'">
+                                 onerror="this.src='https://via.placeholder.com/300x300/3399ff/ffffff?text=Нет+фото'">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">${escapeHtml(product.name)}</h3>
@@ -2923,7 +2940,7 @@
                 }
 
                 const imageUrl = document.getElementById('productImageUrl').value.trim() ||
-                    'https://via.placeholder.com/300x220/3399ff/ffffff?text=Изображение';
+                    'https://via.placeholder.com/300x300/3399ff/ffffff?text=Изображение';
                 const quantity = document.getElementById('productQuantity').value.trim() === '' ?
                     null : parseInt(document.getElementById('productQuantity').value);
                 const status = document.getElementById('productStatus').value;
@@ -3086,7 +3103,6 @@
                 }
             },
 
-            // ==================== SCROLL BUTTONS ====================
             setupScrollButtons() {
                 const topBtn = document.getElementById('scrollTopBtn');
                 const bottomBtn = document.getElementById('scrollBottomBtn');
@@ -3237,7 +3253,6 @@
                 });
             },
 
-            // ==================== УСКОРЕННАЯ ЗАГРУЗКА ====================
             loadProducts() {
                 const cached = loadProductsCache();
                 if (cached && cached.length > 0) {
@@ -3341,7 +3356,7 @@
                 const updates = {};
 
                 demoProducts.forEach((product, i) => {
-                    product.image = `https://via.placeholder.com/300x220/3399ff/ffffff?text=${encodeURIComponent(product.name)}`;
+                    product.image = `https://via.placeholder.com/300x300/3399ff/ffffff?text=${encodeURIComponent(product.name)}`;
                     product.createdAt = new Date().toLocaleDateString('ru-RU');
                     product.sku = generateSku(existingSkus);
                     existingSkus.add(product.sku);
