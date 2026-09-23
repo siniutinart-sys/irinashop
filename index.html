@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=yes">
     <title>Восточный Базар</title>
-    
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    
+
     <style>
         /* ==================== RESET & VARIABLES ==================== */
         * {
@@ -678,15 +678,15 @@
             transition: width 0.3s;
         }
 
-        .progress-fill.plenty { 
+        .progress-fill.plenty {
             background: linear-gradient(90deg, var(--primary), var(--primary-light));
             width: 100%;
         }
-        .progress-fill.medium { 
+        .progress-fill.medium {
             background: linear-gradient(90deg, var(--success), #34d399);
             width: 66%;
         }
-        .progress-fill.low { 
+        .progress-fill.low {
             background: linear-gradient(90deg, var(--danger), #f87171);
             width: 16.6%;
         }
@@ -1285,6 +1285,55 @@
             font-weight: 700;
         }
 
+        /* ==================== SCROLL BUTTONS ==================== */
+        .scroll-buttons {
+            position: fixed;
+            right: 18px;
+            bottom: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1500;
+        }
+
+        .scroll-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 1px solid var(--gray-200);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: var(--primary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.8);
+        }
+
+        .scroll-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .scroll-btn:hover {
+            transform: translateY(-3px) scale(1.08);
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            box-shadow: 0 12px 28px rgba(0, 102, 204, 0.4);
+        }
+
+        .scroll-btn:active {
+            transform: translateY(0) scale(0.95);
+        }
+
         /* ==================== NOTIFICATIONS ==================== */
         .notification-container {
             position: fixed;
@@ -1369,6 +1418,31 @@
             animation: spin 1s linear infinite;
         }
 
+        /* ==================== SKELETON ==================== */
+        .skeleton-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--gray-100);
+            min-height: 380px;
+        }
+
+        .skeleton-img {
+            height: 220px;
+            background: linear-gradient(90deg, #e8eef7 25%, #f4f8ff 50%, #e8eef7 75%);
+            background-size: 1000px 100%;
+            animation: shimmer 1.6s infinite linear;
+        }
+
+        .skeleton-line {
+            height: 14px;
+            margin: 14px 20px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #e8eef7 25%, #f4f8ff 50%, #e8eef7 75%);
+            background-size: 1000px 100%;
+            animation: shimmer 1.6s infinite linear;
+        }
+
         /* ==================== EMPTY STATES ==================== */
         .empty-state {
             text-align: center;
@@ -1396,19 +1470,19 @@
         .text-success { color: var(--success); }
         .text-warning { color: var(--warning); }
         .text-danger { color: var(--danger); }
-        
+
         .mt-1 { margin-top: 4px; }
         .mt-2 { margin-top: 8px; }
         .mt-3 { margin-top: 12px; }
         .mt-4 { margin-top: 16px; }
         .mt-5 { margin-top: 20px; }
-        
+
         .mb-1 { margin-bottom: 4px; }
         .mb-2 { margin-bottom: 8px; }
         .mb-3 { margin-bottom: 12px; }
         .mb-4 { margin-bottom: 16px; }
         .mb-5 { margin-bottom: 20px; }
-        
+
         .flex { display: flex; }
         .flex-col { flex-direction: column; }
         .items-center { align-items: center; }
@@ -1424,62 +1498,73 @@
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 768px) {
             .container { padding: 12px; }
-            
+
             .header-content {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .user-section {
                 flex-direction: column;
                 width: 100%;
             }
-            
+
             .user-section .btn {
                 width: 100%;
             }
-            
+
             .admin-form-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .admin-form-full,
             .admin-form-actions {
                 grid-column: span 1;
             }
-            
+
             .product-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .bottom-nav {
                 min-width: 280px;
             }
-            
+
             .cart-item {
                 flex-wrap: wrap;
             }
-            
+
             .cart-item-details {
                 flex-direction: column;
                 align-items: flex-start;
                 width: 100%;
             }
-            
+
             .price-breakdown {
                 flex-direction: column;
                 gap: 4px;
             }
-            
+
             .modal {
                 max-width: 100%;
                 margin: 16px;
             }
-            
+
             .notification-container {
                 left: 16px;
                 right: 16px;
                 max-width: none;
+            }
+
+            .scroll-buttons {
+                right: 12px;
+                bottom: 100px;
+            }
+
+            .scroll-btn {
+                width: 46px;
+                height: 46px;
+                font-size: 16px;
             }
         }
     </style>
@@ -1492,7 +1577,7 @@
                 <i class="fas fa-store"></i>
                 <h1>Восточный Базар</h1>
             </div>
-            
+
             <div class="login-tabs">
                 <button class="login-tab active" id="visitorTab">
                     <i class="fas fa-user"></i> Посетитель
@@ -1501,7 +1586,7 @@
                     <i class="fas fa-lock"></i> Админ
                 </button>
             </div>
-            
+
             <form class="login-form hidden" id="adminLoginForm">
                 <div class="form-group">
                     <label>Логин</label>
@@ -1515,7 +1600,7 @@
                     <i class="fas fa-sign-in-alt"></i> Войти
                 </button>
             </form>
-            
+
             <button class="btn btn-primary btn-block mt-3" id="visitorEnterBtn">
                 <i class="fas fa-shopping-bag"></i> Войти как посетитель
             </button>
@@ -1553,10 +1638,10 @@
                     <i class="fas fa-box"></i>
                     <span id="adminFormTitle">Добавить товар</span>
                 </div>
-                
+
                 <form id="productForm">
                     <input type="hidden" id="editingProductId">
-                    
+
                     <div class="admin-form-grid">
                         <div class="form-group">
                             <label>Название</label>
@@ -1608,7 +1693,7 @@
                     <div class="search-wrapper">
                         <input type="text" class="search-input" id="searchInput" placeholder="🔍 Поиск по названию или артикулу..." autocomplete="off">
                     </div>
-                    
+
                     <div class="search-actions">
                         <button class="btn btn-outline flex-1" id="clearSearchBtn">
                             <i class="fas fa-times"></i> Очистить
@@ -1617,16 +1702,16 @@
                             <i class="fas fa-search"></i> Найти
                         </button>
                     </div>
-                    
+
                     <div class="quick-search hidden" id="quickSearchPanel">
                         <!-- Quick search buttons will be added here -->
                     </div>
-                    
+
                     <div class="filter-stats hidden" id="filterStats">
                         <i class="fas fa-chart-bar"></i>
                         Найдено товаров: <span id="filterStatsCount">0</span>
                     </div>
-                    
+
                     <div class="filter-tabs">
                         <button class="filter-tab active" data-filter="all">
                             <i class="fas fa-list"></i> Все
@@ -1645,11 +1730,26 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="product-grid" id="productGrid">
-                    <div class="empty-state">
-                        <div class="loading-spinner-sm"></div>
-                        <p class="mt-3">Загрузка товаров...</p>
+                    <!-- Skeleton loading -->
+                    <div class="skeleton-card">
+                        <div class="skeleton-img"></div>
+                        <div class="skeleton-line" style="width: 70%;"></div>
+                        <div class="skeleton-line" style="width: 90%;"></div>
+                        <div class="skeleton-line" style="width: 40%;"></div>
+                    </div>
+                    <div class="skeleton-card">
+                        <div class="skeleton-img"></div>
+                        <div class="skeleton-line" style="width: 60%;"></div>
+                        <div class="skeleton-line" style="width: 85%;"></div>
+                        <div class="skeleton-line" style="width: 35%;"></div>
+                    </div>
+                    <div class="skeleton-card">
+                        <div class="skeleton-img"></div>
+                        <div class="skeleton-line" style="width: 75%;"></div>
+                        <div class="skeleton-line" style="width: 80%;"></div>
+                        <div class="skeleton-line" style="width: 45%;"></div>
                     </div>
                 </div>
             </div>
@@ -1659,10 +1759,10 @@
                 <h2 style="margin-bottom: 20px; color: var(--primary);">
                     <i class="fas fa-shopping-cart"></i> Корзина
                 </h2>
-                
+
                 <div class="cart-container">
                     <div id="cartItemsContainer"></div>
-                    
+
                     <div class="promo-section">
                         <div class="promo-title">
                             <i class="fas fa-ticket-alt"></i> Промокод
@@ -1677,11 +1777,11 @@
                             <i class="fas fa-info-circle"></i> Промокоды будут доступны в следующем обновлении
                         </div>
                     </div>
-                    
+
                     <div class="cart-total" id="cartTotal">
                         Итого: 0 ₽
                     </div>
-                    
+
                     <button class="btn btn-success btn-lg btn-block" id="checkoutBtn" disabled>
                         <i class="fas fa-check"></i> Оформить заказ
                     </button>
@@ -1724,6 +1824,16 @@
         <button class="nav-item hidden" data-page="adminOrders" id="adminOrdersNav">
             <i class="fas fa-tasks nav-icon"></i>
             <span class="nav-label">Все заказы</span>
+        </button>
+    </div>
+
+    <!-- ==================== SCROLL BUTTONS ==================== -->
+    <div class="scroll-buttons" id="scrollButtons">
+        <button class="scroll-btn" id="scrollTopBtn" title="Наверх" aria-label="Наверх">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="scroll-btn" id="scrollBottomBtn" title="Вниз" aria-label="Вниз">
+            <i class="fas fa-chevron-down"></i>
         </button>
     </div>
 
@@ -1835,12 +1945,15 @@
 
         // ==================== CONSTANTS ====================
         const ADMIN_CREDENTIALS = { username: "admin", password: "9561" };
+
         const QUICK_SEARCH_TERMS = [
-            "Огурцы", "Томат", "Арбуз", "Дыня", "Тыква", "Фасоль", "Горох", 
-            "Перец", "Кукуруза", "Пак чой", "Салат", "Редис", "Баклажаны", 
-            "Кабачки", "Морковь", "Вигна", "Пекинская капуста", "Капуста", 
+            "СВЕКЛА", "Огурцы", "Томат", "Арбуз", "Дыня", "Тыква", "Фасоль", "Горох",
+            "Перец", "Кукуруза", "Пак чой", "Салат", "Редис", "Баклажаны",
+            "Кабачки", "Морковь", "Вигна", "Пекинская капуста", "Капуста",
             "Сельдерей", "Укроп"
         ];
+
+        const CACHE_KEY_PRODUCTS = 'vb_products_cache_v2';
 
         // ==================== STATE ====================
         const state = {
@@ -1858,7 +1971,8 @@
             statusModalProductId: null,
             isCreatingOrder: false,
             availableItems: [],
-            unavailableItems: []
+            unavailableItems: [],
+            productsLoaded: false
         };
 
         localStorage.setItem('deviceId', state.deviceId);
@@ -1886,21 +2000,21 @@
             const container = document.getElementById('notificationContainer');
             const notification = document.createElement('div');
             notification.className = `notification notification-${type}`;
-            
+
             const icons = {
                 success: 'fa-check-circle',
                 error: 'fa-exclamation-circle',
                 warning: 'fa-exclamation-triangle',
                 info: 'fa-info-circle'
             };
-            
+
             notification.innerHTML = `
                 <i class="fas ${icons[type]}"></i>
                 <span>${message}</span>
             `;
-            
+
             container.appendChild(notification);
-            
+
             setTimeout(() => {
                 notification.style.opacity = '0';
                 notification.style.transform = 'translateX(100%)';
@@ -1929,25 +2043,43 @@
             return div.innerHTML;
         }
 
+        // ==================== CACHE ====================
+        function saveProductsCache(products) {
+            try {
+                const cache = { ts: Date.now(), data: products };
+                localStorage.setItem(CACHE_KEY_PRODUCTS, JSON.stringify(cache));
+            } catch (e) { /* ignore */ }
+        }
+
+        function loadProductsCache() {
+            try {
+                const raw = localStorage.getItem(CACHE_KEY_PRODUCTS);
+                if (!raw) return null;
+                const cache = JSON.parse(raw);
+                if (!cache || !cache.data) return null;
+                return cache.data;
+            } catch (e) { return null; }
+        }
+
         // ==================== SEARCH FUNCTIONS ====================
         function advancedSearch(term, products) {
-            if (!term.trim()) return [];
-            
+            if (!term.trim()) return { results: products, notFound: false };
+
             const searchTerm = term.toLowerCase().trim();
             const isSkuSearch = /^\d{9}$/.test(searchTerm);
-            
+
             const exactMatches = [];
             const similarMatches = [];
-            
+
             products.forEach(product => {
                 let score = 0;
                 let exactMatch = false;
-                
+
                 if (product.sku && product.sku === searchTerm) {
                     score += 2000;
                     exactMatch = true;
                 }
-                
+
                 const name = product.name.toLowerCase();
                 if (name === searchTerm) {
                     score += 1000;
@@ -1955,30 +2087,27 @@
                 } else if (name.includes(searchTerm)) {
                     score += 500;
                 }
-                
+
                 const desc = product.description.toLowerCase();
                 if (desc.includes(searchTerm)) {
                     score += 200;
                 }
-                
+
                 if (score > 0) {
                     const result = { product, score, exactMatch };
-                    if (exactMatch) {
-                        exactMatches.push(result);
-                    } else {
-                        similarMatches.push(result);
-                    }
+                    if (exactMatch) exactMatches.push(result);
+                    else similarMatches.push(result);
                 }
             });
-            
+
             exactMatches.sort((a, b) => b.score - a.score);
             similarMatches.sort((a, b) => b.score - a.score);
-            
+
             const results = [
                 ...exactMatches.map(r => r.product),
                 ...similarMatches.map(r => r.product)
             ];
-            
+
             return {
                 results,
                 notFound: isSkuSearch && results.length === 0
@@ -1988,7 +2117,7 @@
         // ==================== RENDER FUNCTIONS ====================
         function renderProducts(productsToRender) {
             const grid = document.getElementById('productGrid');
-            
+
             if (productsToRender.length === 0) {
                 grid.innerHTML = `
                     <div class="empty-state">
@@ -1999,11 +2128,11 @@
                 `;
                 return;
             }
-            
-            grid.innerHTML = productsToRender.map(product => {
+
+            const htmlParts = productsToRender.map((product, index) => {
                 let badge = '';
                 let progressBar = '';
-                
+
                 if (product.status === 'out-of-stock') {
                     badge = '<span class="product-badge badge-out-of-stock">Нет в наличии</span>';
                 } else if (product.status === 'preorder') {
@@ -2011,36 +2140,31 @@
                 } else if (product.status === 'in-transit') {
                     badge = '<span class="product-badge badge-in-transit">В пути</span>';
                 }
-                
-                if (product.quantity !== null && product.status === 'in-stock') {
-                    let textClass = '';
-                    let fillClass = '';
-                    
-                    if (product.quantity > 10) {
-                        textClass = 'plenty';
-                        fillClass = 'plenty';
-                    } else if (product.quantity > 3) {
-                        textClass = 'medium';
-                        fillClass = 'medium';
-                    } else if (product.quantity > 0) {
+
+                if (product.quantity !== null && product.status === 'in-stock' && product.quantity > 0) {
+                    let textClass = 'plenty';
+                    let fillClass = 'plenty';
+
+                    if (product.quantity <= 3) {
                         textClass = 'low';
                         fillClass = 'low';
+                    } else if (product.quantity <= 10) {
+                        textClass = 'medium';
+                        fillClass = 'medium';
                     }
-                    
-                    if (product.quantity > 0) {
-                        progressBar = `
-                            <div class="stock-info">
-                                <div class="stock-text ${textClass}">
-                                    <span>В наличии ${product.quantity} шт</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill ${fillClass}"></div>
-                                </div>
+
+                    progressBar = `
+                        <div class="stock-info">
+                            <div class="stock-text ${textClass}">
+                                <span>В наличии ${product.quantity} шт</span>
                             </div>
-                        `;
-                    }
+                            <div class="progress-bar">
+                                <div class="progress-fill ${fillClass}"></div>
+                            </div>
+                        </div>
+                    `;
                 }
-                
+
                 let actions = '';
                 if (state.isAdmin) {
                     actions = `
@@ -2057,7 +2181,7 @@
                         </div>
                     `;
                 } else {
-                    const isAvailable = product.status === 'in-stock' && 
+                    const isAvailable = product.status === 'in-stock' &&
                         (product.quantity === null || product.quantity > 0);
                     actions = `
                         <button class="add-to-cart-btn" onclick="app.addToCart('${product.firebaseKey}')" ${!isAvailable ? 'disabled' : ''}>
@@ -2066,18 +2190,18 @@
                         </button>
                     `;
                 }
-                
+
                 return `
                     <div class="product-card">
                         ${badge}
                         <div class="product-image" onclick="app.openImage('${product.image}', '${escapeHtml(product.name)}')">
-                            <img src="${product.image}" alt="${escapeHtml(product.name)}" 
+                            <img src="${product.image}" alt="${escapeHtml(product.name)}" loading="lazy"
                                  onerror="this.src='https://via.placeholder.com/300x220/3399ff/ffffff?text=Нет+фото'">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">${escapeHtml(product.name)}</h3>
                             <p class="product-description">${escapeHtml(product.description)}</p>
-                            
+
                             <div class="product-sku" onclick="app.copySku('${product.sku}')">
                                 <i class="fas fa-barcode"></i>
                                 <span class="sku-value">${product.sku}</span>
@@ -2085,26 +2209,28 @@
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            
+
                             ${progressBar}
-                            
+
                             <div class="product-price">${formatPrice(product.price)} ₽</div>
                             ${actions}
-                            
+
                             <div style="margin-top: 12px; font-size: 12px; color: var(--gray-400);">
                                 Добавлен: ${product.createdAt || 'недавно'}
                             </div>
                         </div>
                     </div>
                 `;
-            }).join('');
+            });
+
+            grid.innerHTML = htmlParts.join('');
         }
 
         function renderCart() {
             const container = document.getElementById('cartItemsContainer');
             const totalEl = document.getElementById('cartTotal');
             const checkoutBtn = document.getElementById('checkoutBtn');
-            
+
             if (state.cart.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
@@ -2117,34 +2243,34 @@
                 checkoutBtn.disabled = true;
                 return;
             }
-            
+
             let total = 0;
             let hasAvailable = false;
-            
+
             container.innerHTML = state.cart.map(item => {
                 const product = state.products.find(p => p.firebaseKey === item.id);
-                const isAvailable = product && product.status === 'in-stock' && 
+                const isAvailable = product && product.status === 'in-stock' &&
                     (product.quantity === null || product.quantity >= item.quantity);
-                
+
                 const itemTotal = item.price * item.quantity;
                 if (isAvailable) {
                     total += itemTotal;
                     hasAvailable = true;
                 }
-                
+
                 const maxQty = product?.quantity !== null ? ` / ${product.quantity} шт` : '';
-                
+
                 return `
                     <div class="cart-item ${!isAvailable ? 'unavailable' : ''}">
-                        <img src="${item.image}" alt="${escapeHtml(item.name)}" 
+                        <img src="${item.image}" alt="${escapeHtml(item.name)}" loading="lazy"
                              class="cart-item-image" onclick="app.openImage('${item.image}', '${escapeHtml(item.name)}')">
-                        
+
                         <div class="cart-item-info">
                             <div class="cart-item-name">
                                 ${escapeHtml(item.name)}
                                 ${!isAvailable ? '<span class="unavailable-badge">Недоступно</span>' : ''}
                             </div>
-                            
+
                             <div class="cart-item-details">
                                 <div class="price-breakdown">
                                     <span class="price-per-item">
@@ -2154,7 +2280,7 @@
                                         <i class="fas fa-calculator"></i> ${formatPrice(itemTotal)} ₽
                                     </span>
                                 </div>
-                                
+
                                 <div style="display: flex; align-items: center; gap: 8px; margin-left: auto;">
                                     <div class="cart-quantity-control">
                                         <button class="cart-quantity-btn" onclick="app.updateQuantity('${item.id}', -1)">
@@ -2176,14 +2302,14 @@
                     </div>
                 `;
             }).join('');
-            
+
             totalEl.innerHTML = `Итого: ${formatPrice(total)} ₽`;
             checkoutBtn.disabled = !hasAvailable || state.isCreatingOrder;
         }
 
         function renderUserOrders(orders) {
             const container = document.getElementById('userOrdersContainer');
-            
+
             if (!orders || orders.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
@@ -2194,10 +2320,10 @@
                 `;
                 return;
             }
-            
+
             container.innerHTML = orders.map(order => {
                 const totalItems = order.totalItems || order.items.reduce((sum, i) => sum + i.quantity, 0);
-                
+
                 return `
                     <div class="order-card">
                         <div class="order-header">
@@ -2206,15 +2332,15 @@
                                 ${order.status === 'ready' ? 'Готов' : 'В обработке'}
                             </span>
                         </div>
-                        
+
                         <div style="margin-bottom: 12px; color: var(--gray-500);">
                             <i class="fas fa-cubes"></i> ${totalItems} позиций
                         </div>
-                        
+
                         <div class="order-items">
                             ${order.items.map(item => `
                                 <div class="order-item-row">
-                                    <img src="${item.image}" alt="${escapeHtml(item.name)}" 
+                                    <img src="${item.image}" alt="${escapeHtml(item.name)}" loading="lazy"
                                          class="order-item-image" onclick="app.openImage('${item.image}', '${escapeHtml(item.name)}')">
                                     <div class="order-item-info">
                                         <div class="order-item-name">${escapeHtml(item.name)}</div>
@@ -2226,12 +2352,12 @@
                                 </div>
                             `).join('')}
                         </div>
-                        
+
                         <div class="order-total">
                             <span>Общая стоимость:</span>
                             <span style="color: var(--primary);">${formatPrice(order.total)} ₽</span>
                         </div>
-                        
+
                         <div style="font-size: 13px; color: var(--gray-400);">
                             <i class="far fa-clock"></i> Создан: ${order.createdAt}
                             ${order.readyAt ? `<br><i class="fas fa-check-circle" style="color: var(--success);"></i> Готов: ${order.readyAt}` : ''}
@@ -2243,7 +2369,7 @@
 
         function renderAdminOrders(orders) {
             const container = document.getElementById('adminOrdersContainer');
-            
+
             if (!orders || orders.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
@@ -2254,11 +2380,11 @@
                 `;
                 return;
             }
-            
+
             container.innerHTML = orders.map(order => {
                 const isDeducted = state.deductedOrders[order.orderNumber] || order.deducted;
                 const totalItems = order.totalItems || order.items.reduce((sum, i) => sum + i.quantity, 0);
-                
+
                 return `
                     <div class="order-card">
                         <div class="order-header">
@@ -2267,18 +2393,18 @@
                                 ${order.status === 'ready' ? 'Готов' : 'В обработке'}
                             </span>
                         </div>
-                        
+
                         <div style="margin-bottom: 12px; color: var(--gray-500);">
                             <i class="fas fa-cubes"></i> ${totalItems} позиций
                             <span style="margin-left: 12px;">
                                 <i class="fas fa-mobile-alt"></i> ${order.deviceId}
                             </span>
                         </div>
-                        
+
                         <div class="order-items">
                             ${order.items.map(item => `
                                 <div class="order-item-row">
-                                    <img src="${item.image}" alt="${escapeHtml(item.name)}" 
+                                    <img src="${item.image}" alt="${escapeHtml(item.name)}" loading="lazy"
                                          class="order-item-image" onclick="app.openImage('${item.image}', '${escapeHtml(item.name)}')">
                                     <div class="order-item-info">
                                         <div class="order-item-name">${escapeHtml(item.name)}</div>
@@ -2290,18 +2416,18 @@
                                 </div>
                             `).join('')}
                         </div>
-                        
+
                         <div class="order-total">
                             <span>Общая стоимость:</span>
                             <span style="color: var(--primary);">${formatPrice(order.total)} ₽</span>
                         </div>
-                        
+
                         <div style="font-size: 13px; color: var(--gray-400); margin-bottom: 16px;">
                             <i class="far fa-clock"></i> Создан: ${order.createdAt}
                             ${order.readyAt ? `<br><i class="fas fa-check-circle" style="color: var(--success);"></i> Готов: ${order.readyAt}` : ''}
                             ${isDeducted ? '<br><i class="fas fa-check-double" style="color: var(--success);"></i> Товары списаны' : ''}
                         </div>
-                        
+
                         <div class="order-actions">
                             ${order.status !== 'ready' ? `
                                 <button class="btn btn-success btn-sm" onclick="app.completeOrder('${order.orderNumber}')">
@@ -2325,18 +2451,16 @@
 
         // ==================== APP METHODS ====================
         const app = {
-            // Navigation
             switchPage(page) {
                 document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
                 document.getElementById(page + 'Page').classList.add('active');
-                
+
                 document.querySelectorAll('.nav-item').forEach(nav => {
                     nav.classList.toggle('active', nav.dataset.page === page);
                 });
-                
+
                 state.currentPage = page;
-                
-                // Load data for page
+
                 if (page === 'cart') {
                     this.renderCart();
                 } else if (page === 'orders') {
@@ -2346,27 +2470,26 @@
                 } else if (page === 'catalog') {
                     this.applyFilters();
                 }
-                
+
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             },
-            
-            // Modals
+
             openModal(modalId) {
                 document.getElementById(modalId).classList.add('active');
                 document.body.style.overflow = 'hidden';
             },
-            
+
             closeModal(modalId) {
                 document.getElementById(modalId).classList.remove('active');
                 document.body.style.overflow = '';
             },
-            
+
             openImage(url, alt) {
                 document.getElementById('fullscreenImage').src = url;
                 document.getElementById('fullscreenImage').alt = alt;
                 this.openModal('imageModal');
             },
-            
+
             openStatusModal(productId) {
                 if (!state.isAdmin) {
                     showNotification('Доступно только администратору', 'error');
@@ -2375,8 +2498,7 @@
                 state.statusModalProductId = productId;
                 this.openModal('statusModal');
             },
-            
-            // Status modal handlers
+
             setupStatusModal() {
                 document.querySelectorAll('#statusModal .status-option').forEach(btn => {
                     btn.addEventListener('click', () => {
@@ -2387,30 +2509,29 @@
                     });
                 });
             },
-            
+
             changeProductStatus(productId, newStatus) {
                 database.ref('products/' + productId).update({ status: newStatus })
                     .then(() => showNotification('Статус изменен', 'success'))
                     .catch(() => showNotification('Ошибка изменения статуса', 'error'));
             },
-            
-            // Cart operations
+
             addToCart(productId) {
                 const product = state.products.find(p => p.firebaseKey === productId);
                 if (!product) return;
-                
+
                 if (product.status !== 'in-stock') {
                     showNotification('Товар недоступен для заказа', 'error');
                     return;
                 }
-                
+
                 if (product.quantity !== null && product.quantity <= 0) {
                     showNotification('Товар закончился', 'error');
                     return;
                 }
-                
+
                 const existing = state.cart.find(item => item.id === productId);
-                
+
                 if (existing) {
                     if (product.quantity !== null && existing.quantity >= product.quantity) {
                         showNotification(`Максимум ${product.quantity} шт`, 'error');
@@ -2426,16 +2547,16 @@
                         quantity: 1
                     });
                 }
-                
+
                 saveCart();
                 this.updateCartBadge();
                 showNotification('Товар добавлен в корзину', 'success');
-                
+
                 if (state.currentPage === 'cart') {
                     this.renderCart();
                 }
             },
-            
+
             removeFromCart(productId) {
                 state.cart = state.cart.filter(item => item.id !== productId);
                 saveCart();
@@ -2443,19 +2564,19 @@
                 this.renderCart();
                 showNotification('Товар удален', 'success');
             },
-            
+
             updateQuantity(productId, change) {
                 const item = state.cart.find(i => i.id === productId);
                 if (!item) return;
-                
+
                 const product = state.products.find(p => p.firebaseKey === productId);
                 const newQty = item.quantity + change;
-                
+
                 if (product?.quantity !== null && newQty > product.quantity) {
                     showNotification(`Максимум ${product.quantity} шт`, 'error');
                     return;
                 }
-                
+
                 if (newQty <= 0) {
                     this.removeFromCart(productId);
                 } else {
@@ -2465,44 +2586,40 @@
                     this.renderCart();
                 }
             },
-            
+
             updateCartBadge() {
                 updateCartBadge();
             },
-            
+
             renderCart() {
                 renderCart();
             },
-            
-            // Checkout
+
             openStockCheck() {
                 if (state.cart.length === 0) {
                     showNotification('Корзина пуста', 'error');
                     return;
                 }
-                
+
                 this.openModal('stockCheckModal');
                 document.getElementById('stockCheckLoading').classList.remove('hidden');
                 document.getElementById('stockCheckResults').classList.add('hidden');
-                
-                setTimeout(() => this.checkStock(), 1000);
+
+                setTimeout(() => this.checkStock(), 400);
             },
-            
+
             checkStock() {
                 state.unavailableItems = [];
                 state.availableItems = [];
-                
+
                 state.cart.forEach(item => {
                     const product = state.products.find(p => p.firebaseKey === item.id);
-                    
+
                     if (!product) {
-                        state.unavailableItems.push({
-                            ...item,
-                            reason: 'Товар больше не продается'
-                        });
+                        state.unavailableItems.push({ ...item, reason: 'Товар больше не продается' });
                         return;
                     }
-                    
+
                     if (product.status !== 'in-stock') {
                         state.unavailableItems.push({
                             ...item,
@@ -2511,13 +2628,10 @@
                         });
                         return;
                     }
-                    
+
                     if (product.quantity !== null) {
                         if (product.quantity <= 0) {
-                            state.unavailableItems.push({
-                                ...item,
-                                reason: 'Закончился на складе'
-                            });
+                            state.unavailableItems.push({ ...item, reason: 'Закончился на складе' });
                         } else if (product.quantity < item.quantity) {
                             if (product.quantity > 0) {
                                 state.availableItems.push({
@@ -2538,19 +2652,19 @@
                         state.availableItems.push(item);
                     }
                 });
-                
+
                 this.renderStockCheckResults();
-                
+
                 document.getElementById('stockCheckLoading').classList.add('hidden');
                 document.getElementById('stockCheckResults').classList.remove('hidden');
             },
-            
+
             renderStockCheckResults() {
                 const resultsDiv = document.getElementById('stockCheckResults');
                 const total = state.availableItems.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-                
+
                 let html = '';
-                
+
                 if (state.unavailableItems.length > 0) {
                     html += `
                         <div class="stock-check-section">
@@ -2560,7 +2674,7 @@
                             <div class="stock-check-list">
                                 ${state.unavailableItems.map(item => `
                                     <div class="stock-item unavailable">
-                                        <img src="${item.image}" class="stock-item-image" 
+                                        <img src="${item.image}" class="stock-item-image" loading="lazy"
                                              onclick="app.openImage('${item.image}', '${escapeHtml(item.name)}')">
                                         <div class="stock-item-info">
                                             <div class="stock-item-name">${escapeHtml(item.name)}</div>
@@ -2572,7 +2686,7 @@
                         </div>
                     `;
                 }
-                
+
                 if (state.availableItems.length > 0) {
                     html += `
                         <div class="stock-check-section">
@@ -2582,13 +2696,13 @@
                             <div class="stock-check-list">
                                 ${state.availableItems.map(item => `
                                     <div class="stock-item">
-                                        <img src="${item.image}" class="stock-item-image" 
+                                        <img src="${item.image}" class="stock-item-image" loading="lazy"
                                              onclick="app.openImage('${item.image}', '${escapeHtml(item.name)}')">
                                         <div class="stock-item-info">
                                             <div class="stock-item-name">${escapeHtml(item.name)}</div>
                                             <div style="color: var(--primary); font-weight: 600;">
                                                 ${formatPrice(item.price)} ₽ × ${item.quantity} шт
-                                                ${item.originalQuantity ? 
+                                                ${item.originalQuantity ?
                                                     `<span style="color: var(--warning);"> (запрошено ${item.originalQuantity})</span>` : ''}
                                             </div>
                                         </div>
@@ -2596,14 +2710,14 @@
                                 `).join('')}
                             </div>
                         </div>
-                        
-                        <div style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); 
+
+                        <div style="background: linear-gradient(135deg, var(--primary), var(--primary-light));
                                     color: white; padding: 16px; border-radius: var(--radius-lg); margin: 16px 0; text-align: center;">
                             <span style="font-size: 18px; font-weight: 700;">
                                 Итого к оплате: ${formatPrice(total)} ₽
                             </span>
                         </div>
-                        
+
                         <div style="display: flex; gap: 12px;">
                             <button class="btn btn-success flex-1" onclick="app.createOrder()">
                                 <i class="fas fa-check"></i> Продолжить
@@ -2624,26 +2738,26 @@
                         </div>
                     `;
                 }
-                
+
                 resultsDiv.innerHTML = html;
             },
-            
+
             createOrder() {
                 if (state.isCreatingOrder) return;
                 if (state.availableItems.length === 0) {
                     showNotification('Нет доступных товаров', 'error');
                     return;
                 }
-                
+
                 state.isCreatingOrder = true;
                 this.closeModal('stockCheckModal');
-                
+
                 document.getElementById('loadingText').textContent = 'Создание заказа...';
                 document.getElementById('loadingOverlay').classList.add('active');
-                
+
                 const orderNumber = Math.floor(100000 + Math.random() * 900000).toString();
                 const totalItems = state.availableItems.reduce((sum, i) => sum + i.quantity, 0);
-                
+
                 const orderData = {
                     orderNumber,
                     deviceId: state.deviceId,
@@ -2661,21 +2775,19 @@
                     readyAt: null,
                     deducted: false
                 };
-                
+
                 database.ref('orders').push(orderData)
                     .then(() => {
                         document.getElementById('loadingOverlay').classList.remove('active');
-                        
-                        // Remove ordered items from cart
+
                         const orderedIds = state.availableItems.map(i => i.id);
                         state.cart = state.cart.filter(item => !orderedIds.includes(item.id));
                         saveCart();
                         this.updateCartBadge();
-                        
-                        // Show success modal
+
                         document.getElementById('successOrderNumber').textContent = orderNumber;
                         this.openModal('orderSuccessModal');
-                        
+
                         state.isCreatingOrder = false;
                     })
                     .catch(error => {
@@ -2684,22 +2796,21 @@
                         state.isCreatingOrder = false;
                     });
             },
-            
-            // Orders
+
             loadUserOrders() {
                 database.ref('orders').orderByChild('deviceId').equalTo(state.deviceId).once('value', snapshot => {
                     const orders = snapshot.val() ? Object.values(snapshot.val()) : [];
                     renderUserOrders(orders);
                 });
             },
-            
+
             loadAdminOrders() {
                 database.ref('orders').once('value', snapshot => {
                     const orders = snapshot.val() ? Object.values(snapshot.val()) : [];
                     renderAdminOrders(orders);
                 });
             },
-            
+
             completeOrder(orderNumber) {
                 database.ref('orders').orderByChild('orderNumber').equalTo(orderNumber).once('value', snapshot => {
                     snapshot.forEach(child => {
@@ -2713,42 +2824,42 @@
                     });
                 });
             },
-            
+
             deductOrder(orderNumber) {
                 if (state.deductedOrders[orderNumber]) {
                     showNotification('Товары уже списаны', 'error');
                     return;
                 }
-                
+
                 database.ref('orders').orderByChild('orderNumber').equalTo(orderNumber).once('value', snapshot => {
                     snapshot.forEach(child => {
                         const order = child.val();
-                        
+
                         order.items.forEach(item => {
                             const product = state.products.find(p => p.firebaseKey === item.id);
                             if (product?.quantity !== null) {
                                 const newQty = Math.max(0, product.quantity - item.quantity);
                                 const update = { quantity: newQty };
                                 if (newQty === 0) update.status = 'out-of-stock';
-                                
+
                                 database.ref('products/' + item.id).update(update);
                             }
                         });
-                        
+
                         state.deductedOrders[orderNumber] = true;
                         localStorage.setItem('deductedOrders', JSON.stringify(state.deductedOrders));
-                        
+
                         database.ref('orders/' + child.key).update({ deducted: true });
-                        
+
                         showNotification('Товары списаны со склада', 'success');
                         this.loadAdminOrders();
                     });
                 });
             },
-            
+
             deleteOrder(orderNumber) {
                 if (!confirm('Удалить этот заказ?')) return;
-                
+
                 database.ref('orders').orderByChild('orderNumber').equalTo(orderNumber).once('value', snapshot => {
                     snapshot.forEach(child => {
                         database.ref('orders/' + child.key).remove()
@@ -2761,40 +2872,39 @@
                     });
                 });
             },
-            
-            // Product management
+
             editProduct(productId) {
                 if (!state.isAdmin) return;
-                
+
                 const product = state.products.find(p => p.firebaseKey === productId);
                 if (!product) return;
-                
+
                 document.getElementById('productName').value = product.name;
                 document.getElementById('productPrice').value = product.price;
                 document.getElementById('productDescription').value = product.description;
                 document.getElementById('productImageUrl').value = product.image;
                 document.getElementById('productStatus').value = product.status;
                 document.getElementById('productQuantity').value = product.quantity ?? '';
-                
+
                 state.editingProductId = productId;
                 document.getElementById('editingProductId').value = productId;
                 document.getElementById('adminFormTitle').textContent = 'Редактировать товар';
                 document.getElementById('submitProductBtn').innerHTML = '<i class="fas fa-save"></i> Сохранить';
                 document.getElementById('cancelEditBtn').classList.remove('hidden');
-                
+
                 document.getElementById('adminPanel').classList.add('active');
                 document.getElementById('adminPanel').scrollIntoView({ behavior: 'smooth' });
             },
-            
+
             deleteProduct(productId) {
                 if (!state.isAdmin) return;
                 if (!confirm('Удалить этот товар?')) return;
-                
+
                 database.ref('products/' + productId).remove()
                     .then(() => showNotification('Товар удален', 'success'))
                     .catch(() => showNotification('Ошибка удаления', 'error'));
             },
-            
+
             resetProductForm() {
                 document.getElementById('productForm').reset();
                 state.editingProductId = null;
@@ -2803,21 +2913,21 @@
                 document.getElementById('submitProductBtn').innerHTML = '<i class="fas fa-plus"></i> Добавить товар';
                 document.getElementById('cancelEditBtn').classList.add('hidden');
             },
-            
+
             handleProductSubmit(e) {
                 e.preventDefault();
-                
+
                 if (!state.isAdmin) {
                     showNotification('Доступно только администратору', 'error');
                     return;
                 }
-                
-                const imageUrl = document.getElementById('productImageUrl').value.trim() || 
+
+                const imageUrl = document.getElementById('productImageUrl').value.trim() ||
                     'https://via.placeholder.com/300x220/3399ff/ffffff?text=Изображение';
-                const quantity = document.getElementById('productQuantity').value.trim() === '' ? 
+                const quantity = document.getElementById('productQuantity').value.trim() === '' ?
                     null : parseInt(document.getElementById('productQuantity').value);
                 const status = document.getElementById('productStatus').value;
-                
+
                 const productData = {
                     name: document.getElementById('productName').value,
                     price: parseInt(document.getElementById('productPrice').value),
@@ -2827,7 +2937,7 @@
                     quantity: quantity,
                     createdAt: new Date().toLocaleDateString('ru-RU')
                 };
-                
+
                 if (state.editingProductId) {
                     database.ref('products/' + state.editingProductId).update(productData)
                         .then(() => {
@@ -2839,7 +2949,7 @@
                 } else {
                     const sku = generateSku(collectSkus(state.products));
                     productData.sku = sku;
-                    
+
                     database.ref('products').push(productData)
                         .then(() => {
                             showNotification('Товар добавлен', 'success');
@@ -2848,62 +2958,60 @@
                         .catch(() => showNotification('Ошибка добавления', 'error'));
                 }
             },
-            
-            // Search and filters
+
             applyFilters() {
                 let filtered = [...state.products];
-                
+
                 if (state.currentFilter !== 'all') {
                     filtered = filtered.filter(p => p.status === state.currentFilter);
                 }
-                
+
                 if (state.currentSearchTerm) {
                     const searchResult = advancedSearch(state.currentSearchTerm, filtered);
                     filtered = searchResult.results || [];
-                    
+
                     if (searchResult.notFound) {
                         showNotification(`Товар с артикулом ${state.currentSearchTerm} не найден`, 'error');
                     }
                 }
-                
+
                 state.filteredProducts = filtered;
-                
+
                 const statsEl = document.getElementById('filterStats');
                 const countEl = document.getElementById('filterStatsCount');
-                
+
                 if (filtered.length > 0) {
                     countEl.textContent = filtered.length;
                     statsEl.classList.remove('hidden');
                 } else {
                     statsEl.classList.add('hidden');
                 }
-                
+
                 renderProducts(filtered);
             },
-            
+
             performSearch(term) {
                 if (!term.trim()) {
                     showNotification('Введите поисковый запрос', 'error');
                     return;
                 }
-                
+
                 state.currentSearchTerm = term;
                 this.applyFilters();
                 showNotification(`Поиск: "${term}"`, 'success');
             },
-            
+
             clearSearch() {
                 document.getElementById('searchInput').value = '';
                 state.currentSearchTerm = '';
                 this.applyFilters();
                 showNotification('Поиск очищен', 'success');
             },
-            
+
             copySku(sku) {
                 navigator.clipboard?.writeText(sku).then(() => {
                     showNotification('Артикул скопирован', 'success');
                 }).catch(() => {
-                    // Fallback
                     const input = document.createElement('input');
                     input.value = sku;
                     document.body.appendChild(input);
@@ -2913,15 +3021,14 @@
                     showNotification('Артикул скопирован', 'success');
                 });
             },
-            
+
             copyOrderNumber() {
                 const number = document.getElementById('successOrderNumber').textContent;
                 navigator.clipboard?.writeText(number).then(() => {
                     showNotification('Номер заказа скопирован', 'success');
                 }).catch(() => showNotification('Ошибка копирования', 'error'));
             },
-            
-            // Auth
+
             loginAsVisitor() {
                 state.isLoggedIn = true;
                 state.isAdmin = false;
@@ -2930,7 +3037,7 @@
                 this.showMainApp();
                 showNotification('Добро пожаловать!', 'success');
             },
-            
+
             loginAsAdmin(username, password) {
                 if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
                     state.isLoggedIn = true;
@@ -2944,7 +3051,7 @@
                 showNotification('Неверный логин или пароль', 'error');
                 return false;
             },
-            
+
             logout() {
                 state.isLoggedIn = false;
                 state.isAdmin = false;
@@ -2953,23 +3060,23 @@
                 this.showLoginPanel();
                 showNotification('Вы вышли из системы', 'info');
             },
-            
+
             showLoginPanel() {
                 document.getElementById('loginPanel').style.display = 'flex';
                 document.getElementById('mainApp').classList.add('hidden');
                 document.getElementById('bottomNav').classList.add('hidden');
             },
-            
+
             showMainApp() {
                 document.getElementById('loginPanel').style.display = 'none';
                 document.getElementById('mainApp').classList.remove('hidden');
                 document.getElementById('bottomNav').classList.remove('hidden');
-                
+
                 document.getElementById('displayUserName').textContent = state.isAdmin ? 'Администратор' : 'Гость';
-                
+
                 const adminToggle = document.getElementById('adminPanelToggle');
                 const adminOrdersNav = document.getElementById('adminOrdersNav');
-                
+
                 if (state.isAdmin) {
                     adminToggle.classList.remove('hidden');
                     adminOrdersNav.classList.remove('hidden');
@@ -2978,87 +3085,110 @@
                     adminOrdersNav.classList.add('hidden');
                 }
             },
-            
-            // Initialization
+
+            // ==================== SCROLL BUTTONS ====================
+            setupScrollButtons() {
+                const topBtn = document.getElementById('scrollTopBtn');
+                const bottomBtn = document.getElementById('scrollBottomBtn');
+
+                const updateVisibility = () => {
+                    const scrollY = window.scrollY || document.documentElement.scrollTop;
+                    const docHeight = document.documentElement.scrollHeight;
+                    const winHeight = window.innerHeight;
+                    const nearBottom = scrollY + winHeight >= docHeight - 200;
+
+                    if (scrollY > 250) topBtn.classList.add('visible');
+                    else topBtn.classList.remove('visible');
+
+                    if (!nearBottom && docHeight > winHeight + 200) bottomBtn.classList.add('visible');
+                    else bottomBtn.classList.remove('visible');
+                };
+
+                window.addEventListener('scroll', updateVisibility, { passive: true });
+                window.addEventListener('resize', updateVisibility);
+                setTimeout(updateVisibility, 300);
+
+                topBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+
+                bottomBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+                });
+            },
+
             init() {
                 this.setupEventListeners();
                 this.setupStatusModal();
                 this.setupQuickSearch();
+                this.setupScrollButtons();
                 this.loadProducts();
                 this.updateCartBadge();
-                
+
                 if (state.isLoggedIn) {
                     this.showMainApp();
                 }
             },
-            
+
             setupEventListeners() {
-                // Login tabs
                 document.getElementById('visitorTab').addEventListener('click', () => {
                     document.getElementById('visitorTab').classList.add('active');
                     document.getElementById('adminTab').classList.remove('active');
                     document.getElementById('adminLoginForm').classList.add('hidden');
                 });
-                
+
                 document.getElementById('adminTab').addEventListener('click', () => {
                     document.getElementById('adminTab').classList.add('active');
                     document.getElementById('visitorTab').classList.remove('active');
                     document.getElementById('adminLoginForm').classList.remove('hidden');
                 });
-                
-                // Login forms
+
                 document.getElementById('visitorEnterBtn').addEventListener('click', () => this.loginAsVisitor());
-                
+
                 document.getElementById('adminLoginForm').addEventListener('submit', (e) => {
                     e.preventDefault();
                     const username = document.getElementById('adminUsername').value;
                     const password = document.getElementById('adminPassword').value;
                     this.loginAsAdmin(username, password);
                 });
-                
-                // Logout
+
                 document.getElementById('logoutBtn').addEventListener('click', () => this.logout());
-                
-                // Admin panel toggle
+
                 document.getElementById('adminPanelToggle').addEventListener('click', () => {
                     document.getElementById('adminPanel').classList.toggle('active');
                 });
-                
-                // Product form
+
                 document.getElementById('productForm').addEventListener('submit', (e) => this.handleProductSubmit(e));
                 document.getElementById('clearFormBtn').addEventListener('click', () => this.resetProductForm());
                 document.getElementById('cancelEditBtn').addEventListener('click', () => {
                     this.resetProductForm();
                     document.getElementById('adminPanel').classList.remove('active');
                 });
-                
-                // Navigation
+
                 document.querySelectorAll('.nav-item').forEach(item => {
                     item.addEventListener('click', () => this.switchPage(item.dataset.page));
                 });
-                
-                // Search
+
                 document.getElementById('searchBtn').addEventListener('click', () => {
                     this.performSearch(document.getElementById('searchInput').value.trim());
                 });
-                
+
                 document.getElementById('clearSearchBtn').addEventListener('click', () => this.clearSearch());
-                
+
                 document.getElementById('searchInput').addEventListener('keypress', (e) => {
                     if (e.key === 'Enter') {
                         this.performSearch(e.target.value.trim());
                     }
                 });
-                
+
                 document.getElementById('searchInput').addEventListener('focus', () => {
                     document.getElementById('quickSearchPanel').classList.remove('hidden');
                 });
-                
+
                 document.getElementById('searchInput').addEventListener('blur', () => {
                     setTimeout(() => document.getElementById('quickSearchPanel').classList.add('hidden'), 200);
                 });
-                
-                // Filters
+
                 document.querySelectorAll('.filter-tab').forEach(tab => {
                     tab.addEventListener('click', () => {
                         document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
@@ -3067,14 +3197,11 @@
                         this.applyFilters();
                     });
                 });
-                
-                // Checkout
+
                 document.getElementById('checkoutBtn').addEventListener('click', () => this.openStockCheck());
-                
-                // Copy order number
+
                 document.getElementById('copyOrderNumberBtn').addEventListener('click', () => this.copyOrderNumber());
-                
-                // Close modals on overlay click
+
                 document.querySelectorAll('.modal-overlay').forEach(overlay => {
                     overlay.addEventListener('click', (e) => {
                         if (e.target === overlay) {
@@ -3083,8 +3210,7 @@
                         }
                     });
                 });
-                
-                // ESC key
+
                 document.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape') {
                         document.querySelectorAll('.modal-overlay.active').forEach(m => {
@@ -3094,13 +3220,13 @@
                     }
                 });
             },
-            
+
             setupQuickSearch() {
                 const panel = document.getElementById('quickSearchPanel');
-                panel.innerHTML = QUICK_SEARCH_TERMS.map(term => `
-                    <button class="quick-search-btn" data-term="${term}">${term}</button>
-                `).join('');
-                
+                panel.innerHTML = QUICK_SEARCH_TERMS.map(term =>
+                    `<button class="quick-search-btn" data-term="${term}">${term}</button>`
+                ).join('');
+
                 panel.querySelectorAll('.quick-search-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
                         const term = btn.dataset.term;
@@ -3110,43 +3236,99 @@
                     });
                 });
             },
-            
+
+            // ==================== УСКОРЕННАЯ ЗАГРУЗКА ====================
             loadProducts() {
+                const cached = loadProductsCache();
+                if (cached && cached.length > 0) {
+                    state.products = cached.map(p => ({ ...p }));
+                    state.productsLoaded = true;
+                    this.applyFilters();
+                    this.updateCartBadge();
+                }
+
+                database.ref('products').once('value')
+                    .then(snapshot => {
+                        const data = snapshot.val();
+                        const products = [];
+
+                        if (data) {
+                            const existingSkus = collectSkus(Object.values(data));
+                            const updates = {};
+
+                            Object.keys(data).forEach(key => {
+                                const product = { ...data[key], firebaseKey: key };
+
+                                if (!product.sku) {
+                                    product.sku = generateSku(existingSkus);
+                                    existingSkus.add(product.sku);
+                                    updates['products/' + key + '/sku'] = product.sku;
+                                }
+
+                                if (product.quantity !== null && product.quantity > 0 && product.status === 'out-of-stock') {
+                                    updates['products/' + key + '/status'] = 'in-stock';
+                                }
+
+                                products.push(product);
+                            });
+
+                            if (Object.keys(updates).length > 0) {
+                                database.ref().update(updates);
+                            }
+                        }
+
+                        state.products = products;
+                        state.productsLoaded = true;
+
+                        saveProductsCache(products);
+
+                        if (products.length === 0) {
+                            this.addDemoProducts();
+                        } else {
+                            this.applyFilters();
+                            this.updateCartBadge();
+                        }
+
+                        this.subscribeToProductChanges();
+                    })
+                    .catch(() => {
+                        if (!state.productsLoaded) {
+                            showNotification('Не удалось загрузить товары', 'error');
+                        }
+                    });
+            },
+
+            subscribeToProductChanges() {
+                if (this._productsSubscribed) return;
+                this._productsSubscribed = true;
+
+                let firstEvent = true;
+
                 database.ref('products').on('value', snapshot => {
+                    if (firstEvent) {
+                        firstEvent = false;
+                        return;
+                    }
+
                     const data = snapshot.val();
-                    state.products = [];
-                    
+                    const products = [];
+
                     if (data) {
-                        const existingSkus = collectSkus(Object.values(data));
-                        
                         Object.keys(data).forEach(key => {
-                            let product = { ...data[key], firebaseKey: key };
-                            
-                            if (!product.sku) {
-                                product.sku = generateSku(existingSkus);
-                                existingSkus.add(product.sku);
-                                database.ref('products/' + key).update({ sku: product.sku });
-                            }
-                            
-                            if (product.quantity !== null && product.quantity > 0 && product.status === 'out-of-stock') {
-                                database.ref('products/' + key).update({ status: 'in-stock' });
-                            }
-                            
-                            state.products.push(product);
+                            products.push({ ...data[key], firebaseKey: key });
                         });
                     }
-                    
-                    if (state.products.length === 0) {
-                        this.addDemoProducts();
-                    } else {
-                        this.applyFilters();
-                        this.updateCartBadge();
-                    }
+
+                    state.products = products;
+                    saveProductsCache(products);
+                    this.applyFilters();
+                    this.updateCartBadge();
                 });
             },
-            
+
             addDemoProducts() {
                 const demoProducts = [
+                    { name: "СВЕКЛА", price: 60, description: "Свежая столовая свёкла", status: "in-stock", quantity: 20 },
                     { name: "Укоренитель 50мл", price: 270, description: "10 капель на 1 литр воды", status: "in-stock", quantity: 15 },
                     { name: "Симпл димпл", price: 100, description: "Антистресс-игрушка", status: "preorder", quantity: 2 },
                     { name: "Умные часы Xiaomi", price: 2999, description: "Умные часы с отслеживанием активности", status: "in-transit", quantity: 8 },
@@ -3154,22 +3336,24 @@
                     { name: "Морковь", price: 45, description: "Свежая морковь", status: "in-stock", quantity: 25 },
                     { name: "Вигна", price: 120, description: "Спаржевая фасоль", status: "in-stock", quantity: 15 }
                 ];
-                
+
                 const existingSkus = new Set();
-                demoProducts.forEach(product => {
+                const updates = {};
+
+                demoProducts.forEach((product, i) => {
                     product.image = `https://via.placeholder.com/300x220/3399ff/ffffff?text=${encodeURIComponent(product.name)}`;
                     product.createdAt = new Date().toLocaleDateString('ru-RU');
                     product.sku = generateSku(existingSkus);
                     existingSkus.add(product.sku);
-                    database.ref('products').push(product);
+                    updates['products/' + 'demo_' + Date.now() + '_' + i] = product;
                 });
+
+                database.ref().update(updates);
             }
         };
 
-        // Make app globally available
         window.app = app;
-        
-        // Initialize app
+
         document.addEventListener('DOMContentLoaded', () => app.init());
     </script>
 </body>
